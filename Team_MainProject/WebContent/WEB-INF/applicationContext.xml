@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     startDocument() : xml이 시작이 된다 
+ -->
+<beans>
+<!-- startElement() -->
+  <!-- main.do MainModel -->
+  <bean id="main" class="com.model.MainModel"/>
+  <!-- startElement() , endElement()-->
+  <bean id="join" class="com.model.MemberJoinModel"/>
+  <bean id="login" class="com.model.LoginModel"/>
+  <bean id="login_check" class="com.model.LoginCheckModel"/>
+   <bean id="logout" class="com.model.LogoutModel"/>
+  
+</beans>
+  <!-- endElement() -->
+  <!-- endDocument() -->
