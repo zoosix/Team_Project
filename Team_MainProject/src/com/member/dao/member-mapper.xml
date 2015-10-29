@@ -10,5 +10,6 @@
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
         SELECT pwd, name, admin FROM lmember WHERE email = #{email} 
     </select>
+    
 </mapper>
 

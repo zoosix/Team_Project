@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -65,7 +66,7 @@ function ok(){
 			<input type=button id= "btnSub" value="아이디 체크">
 			<br>
     		<span style="text-align: center;color:red;" id="emailSpan"></span>
-		
+    		
     	</form>
 		</div>
 	</center>

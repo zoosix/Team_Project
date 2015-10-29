@@ -7,8 +7,11 @@
      <init-param>
         <param-name>xmlPath</param-name>
 
-        <!-- 승주 --><param-value>C:\Users\sist\git\Team_Project\Team_MainProject\WebContent\WEB-INF\applicationContext.xml</param-value>
+        <!-- <param-value>C:\Users\Zoosix\git\Team_MainProject\Team_MainProject\WebContent\WEB-INF\applicationContext.xml</param-value> -->
+   <!--      진걸<param-value>C:\Users\hong\git\Team_Project\Team_MainProject\WebContent\WEB-INF\applicationContext.xml</param-value>
+ -->
 
+        <!-- 승주 --><param-value>C:\Users\sist\git\Team_Project\Team_MainProject\WebContent\WEB-INF\applicationContext.xml</param-value> 
         <!-- 민수 --><!-- <param-value>C:\Users\hong\git\Team_Project\Team_MainProject\WebContent\WEB-INF\applicationContext.xml</param-value> -->
 
      </init-param>

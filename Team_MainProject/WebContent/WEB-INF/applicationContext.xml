@@ -10,7 +10,8 @@
   <bean id="join" class="com.model.MemberJoinModel"/>
   <bean id="login" class="com.model.LoginModel"/>
   <bean id="login_check" class="com.model.LoginCheckModel"/>
-   <bean id="logout" class="com.model.LogoutModel"/>
+  <bean id="logout" class="com.model.LogoutModel"/>
+  <bean id="idcheck" class="com.model.IdCheckModel"/>
   
   
   
