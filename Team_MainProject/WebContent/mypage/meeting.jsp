@@ -11,7 +11,9 @@
 </head>
 <body> 
 <Center>
+<div class="mypage_meeting">
 <div class="col-md-12">
+<br><br><br><br>
 	<h2>마이페이지<span>MY PAGE</span></h2>
   <!-- ============================================================================================ -->
   	<table border=0 width=940>
@@ -48,6 +50,7 @@
 			</table>	
 			
 	</div> 
+	</div>
 </center>
 </body>
 </html>

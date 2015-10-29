@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../mypage/mypage.css"/>
+<link rel="stylesheet" type="text/css" href="mypage/mypage.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -12,6 +12,7 @@
 <body> 
 <Center>
 <div class="col-md-12">
+<br><br><br><br>
 	<h2>마이페이지<span>MY PAGE</span></h2>
   <!-- ============================================================================================ -->
   	<table border=0 width=940>
