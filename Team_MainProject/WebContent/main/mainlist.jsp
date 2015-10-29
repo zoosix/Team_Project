@@ -8,27 +8,7 @@
 </head>
 <body>
 
-    <div id="intro">
-
-	<div class="width">
-      
-		<div class="intro-content" >
-		
-                    <h2>Meetups are </h2>
-                    <p>다양한 친구들과 만나보세요.</p>
-                                  	
-			<p><a href="#" class="button button-slider">개설하기</a>
-			<a href="#" class="button button-reversed button-slider">만들기</a>
-			<a href="#" class="button button-reversed button-slider">만들기</a></p>
-                    
-            	</div>
-            </div>
-	</div>
-
-    <div id="body">
-
-
-
+   <div id="body">
 	<div class="width">
 		<section id="content" >
 			<%
@@ -36,7 +16,7 @@
 				{
 			%>
            		 <div class="box">
-				<p><a href=""><img src="../images/back.jpg" alt="썸네일" width=300 height=306 /></a></p>
+				<p><a href=""><img src="images1/large/1.jpg" alt="썸네일" width=300 height=306 /></a></p>
 				<a href="" class="titleCover">
 					<span class="title">쿨하게 생존하라 워크샵</span>
 					<span class="lang">한국어 ↔ 영어</span>
