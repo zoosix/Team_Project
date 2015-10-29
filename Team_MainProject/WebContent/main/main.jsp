@@ -144,7 +144,7 @@
 			 <c:if test="${sessionScope.email!=null }">
 			    <form method=post action="logout.do" id="logout_frm">
 			 	<a href="logout.do" id="logoutBtn">로그아웃</a>
-				<a href="join.do">내정보보기</a>
+				<a href="meeting.do">내정보보기</a>
             	<a href="#">고객센터</a>
             	<br>
 				${sessionScope.name }(${sessionScope.admin == 'y'?"관리자":"일반" }) 님 로그인중입니다
@@ -158,14 +158,14 @@
 
     </header>
 
+
+
     
  	<div class="middleContent">
  		<jsp:include page="${slide }"></jsp:include>
-
 		<jsp:include page="${jsp }"></jsp:include>
-
 	</div>  
-	
+
 
     <div id="intro">
 

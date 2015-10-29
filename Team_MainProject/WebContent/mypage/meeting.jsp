@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../mypage/mypage.css"/>
+<link rel="stylesheet" type="text/css" href="mypage/mypage.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -17,9 +17,9 @@
   	<table border=0 width=940>
   	<div class="communityCover" >
 		<ul class="menu_list type02">
-		    <li><a href="meeting.jsp" style="background:#2281c0; color:#fff;">내모임보기</a></li>
-			<li><a href="wish.jsp">위시리스트</a></li>
-			<li><a href="modify.jsp">회원정보수정</a></li>					
+		    <li><a href="meeting.do" style="background:#2281c0; color:#fff;">내모임보기</a></li>
+			<li><a href="wish.do">위시리스트</a></li>
+			<li><a href="modify.do">회원정보수정</a></li>					
 		</ul>
       </div>
 </table>
