@@ -17,9 +17,9 @@
   	<table border=0 width=940>
   	<div class="communityCover" >
 		<ul class="menu_list type02">
-		    <li><a href="meeting.jsp">내모임보기</a></li>
-			<li><a href="wish.jsp" style="background:#2281c0; color:#fff;">위시리스트</a></li>
-			<li><a href="modify.jsp">회원정보수정</a></li>					
+		    <li><a href="meeting.do">내모임보기</a></li>
+			<li><a href="wish.do" style="background:#2281c0; color:#fff;">위시리스트</a></li>
+			<li><a href="modify.do">회원정보수정</a></li>					
 		</ul>
       </div>
 </table>
