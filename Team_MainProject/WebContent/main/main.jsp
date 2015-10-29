@@ -157,10 +157,36 @@
 	<div class="clear"></div>
 
     </header>
+
     
  	<div class="middleContent">
  		<jsp:include page="${slide }"></jsp:include>
+
 		<jsp:include page="${jsp }"></jsp:include>
+
+	</div>  
+	
+
+    <div id="intro">
+
+	<div class="width">
+      
+		<div class="intro-content" >
+			
+                    <h2>Meetups are </h2>
+                    <p>neighbors getting together to learn something, do something, share something… </p>
+                                  	
+			<p><a href="#" class="button button-slider">개설하기</a>
+			<a href="#" class="button button-reversed button-slider">만들기</a>
+			<a href="#" class="button button-reversed button-slider">만들기</a></p>
+                    
+
+            	</div>
+                
+            </div>
+            
+
+
 	</div>
 
     <footer>
