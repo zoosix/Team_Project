@@ -179,14 +179,9 @@
 			<p><a href="#" class="button button-slider">개설하기</a>
 			<a href="#" class="button button-reversed button-slider">만들기</a>
 			<a href="#" class="button button-reversed button-slider">만들기</a></p>
-                    
 
             	</div>
-                
             </div>
-            
-
-
 	</div>
 
     <footer>
