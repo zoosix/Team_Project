@@ -161,9 +161,9 @@
        
     </header>
     	
- <%-- 	<div class="middleContent">
+	<div class="middleContent">
 		<jsp:include page="${jsp }"></jsp:include>
-	</div>  --%>
+	</div>  
 	
 
     <div id="intro">
