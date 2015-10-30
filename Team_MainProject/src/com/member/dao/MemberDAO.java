@@ -14,6 +14,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.member.dao.*;
+
 
 public class MemberDAO {
 	
@@ -46,4 +48,15 @@ public class MemberDAO {
     	session.close();
     	return d;
     }
+    public static void modifyupdate(MemberDTO d)
+    {
+    	SqlSession session = ssf.openSession(true);
+    	session.update("modifyupdate", d);
+    	session.close();
+ 
+    }
+    
+    
+  
+    
 }

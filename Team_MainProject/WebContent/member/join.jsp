@@ -293,11 +293,11 @@ function ck_phone()
     <p>
     <label for="userlanguage">언어</label>
     <select id="userlanguage" name="lang">
-	      <option>한국어</option>
-	      <option>영어</option>
-	      <option>중국어</option>
-	      <option>독일어</option>
-	      <option>일본어</option>
+		      <option value="KOR">한국어</option>
+		      <option value="ENG">영어</option>
+		      <option value="CHI">중국어</option>
+		      <option value="GER">독일어</option>
+		      <option value="JPN">일본어</option>
 	    </select>
     </p>
     

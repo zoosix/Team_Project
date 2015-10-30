@@ -31,12 +31,9 @@
 		  </tr>
       </table>
       <br><br>
-<form name="modifyFrm" method="post">	
-       <input type="hidden" name="mb_hp" id="mb_hp" value="${d.tel }" />	
-	<!-- 	<input type="hidden" name="mbno" id="mbno" value="863" />	
-		<input type="hidden" name="mb_hp_check" id="mb_hp_check" value="" />	
-		<input type="hidden" name="mb_tel" id="mb_tel" />	
-		<input type="hidden" name="mb_level" id="mb_level" value="2" />		 -->
+<form name="modifyFrm" method="post" action="modify_ok.do">	
+<!--  pwd,nickname,name,nation,tel,lang,admin 필수템************************************************************* -->
+       <input type="hidden" name="mb_hp" id="mb_hp" value="${d.tel }">
 				<table border=1 width=940px  height=471px>
 				<colgroup>
 					<col width="20%" />
@@ -92,8 +89,7 @@
 								<option value="018">018</option>
 								<option value="019">019</option>
 							</select>
-							<input type="text" name="mb_hp2" id="mb_hp2"  value="${tel2 }" /><input type="text" name="mb_hp3" id="mb_hp3" value="${tel3 }" />
-							<span class="dupleBtn"><a href="#check" onclick="hpCheck();">중복확인</a></span>
+							<input type="text" name="tel2" id="tel2"  value="${tel2 }" /><input type="text" name="tel3" id="tel3" value="${tel3 }" />
 							<p class="mgt10">SD인사이트의 최근 소식 및 이벤트 정보 등을 SMS로 받아보시겠습니까? (결제관련내용은 수신동의 여부와 관계없이 발송됩니다.) </p>
 							<p class="mgt05"><input type="checkbox" name="mb_hp_agree" id="sms" class="check01" value="Y"  /> <label for="sms">SMS 수신동의</label></p>
 						</p></td>
@@ -108,18 +104,18 @@
 					<tr>
 						<th>국적</th>
 						<td>	
-							<p> <select id="usernation" name="nation" id="nation">
-							      <option value="KR">한국</option>
-							      <option value="US">미국</option>
-							      <option value="CN">중국</option>
-							      <option value="DE">독일</option>
-							      <option value="JP">일본</option>
-							      <option value="TW">대만</option>
-							      <option value="PH">필리핀</option>
-							      <option value="UK">영국</option>
-							      <option value="FR">프랑스</option>
-							      <option value="IT">이탈리아</option>
-							    </select>
+							<p> <select id="usernation" name="nation" id="nation" value="${d.nation }">
+							      <option value="korea">한국</option>
+							      <option value="usa">미국</option>
+							      <option value="china">중국</option>
+							      <option value="german">독일</option>
+							      <option value="japan">일본</option>
+							      <option value="taiwan">대만</option>
+							      <option value="ph">필리핀</option>
+							      <option value="uk">영국</option>
+							      <option value="fr">프랑스</option>
+							      <option value="ita">이탈리아</option>
+							    </select><!-- <script>$("#usernation option:selected").val();</script> -->
 						    </p>
 						</td>
 					</tr>
@@ -127,23 +123,27 @@
 						<th>언어</th>
 						<td>	
 						    <p>	
-						    <select id="userlanguage" name="lang">
-							      <option value="l_kor">한국어</option>
-							      <option value="l_eng">영어</option>
-							      <option value="l_cn">중국어</option>
-							      <option value="l_de">독일어</option>
-							      <option value="l_jpn">일본어</option>
+						    <select id="userlanguage" name="lang" >
+							      <option value="KOR">한국어</option>
+							      <option value="ENG">영어</option>
+							      <option value="CHI">중국어</option>
+							      <option value="GER">독일어</option>
+							      <option value="JPN">일본어</option>
 							    </select>
 						    </p>
 						    </td>
 					</tr>
-					
 					<tr>	    
                      <th>자기소개</th>
 						<td>	
-						<p>
+						<p> <c:if test="${d.intro!=null }">
 						    <span>
-						    <textarea rows="8" cols="100" id= userintro name=intro></textarea>
+						    <textarea rows="8" cols="100" id= userintro name=intro >${d.intro }</textarea>
+						    </c:if>
+						    <c:if test="${d.intro==null }">
+						    <span>
+						    <textarea rows="8" cols="100" id= userintro name=intro placeholder="자기소개가 없습니다."></textarea>
+						    </c:if>
 						    </span>
 						    <br>
 						    </p></td>
@@ -152,7 +152,7 @@
 			</table>		
 			<!-- button -->
 			<p class="tcenter mgt30">
-				<span class="btn_pack blue_b mgr10"><a href="#modify" onclick="_joinsubmit(document.modifyFrm);">회원정보 수정</a></span>					
+				<span class="btn_pack blue_b mgr10"><a href="#modify" onclick="joinsubmit();">회원정보 수정</a></span>					
 				<span class="btn_pack white_b"><a href="#cancel" onclick="$('#leaveWrap').show();$('#mb_leavememo').focus();">회원탈퇴</a></span>
 			</p>
 			<!-- // button -->									
@@ -164,14 +164,6 @@
 </div>
 <!-- //subCont -->
 <script type="text/javascript">
-function route(){		
-	if($("#mb_route").val()=="J"){
-		$(".route_input").css("display","inline-block")		
-	} else {
-		$(".route_input").css("display","none");
-		$('#mb_route_memo').val('');
-	}
-}
 function _leavesubmit(f){			
 	if(!$("#mb_leavememo").val()) {
 		$("#mb_leavememo").focus();
@@ -182,133 +174,58 @@ function _leavesubmit(f){
 	if( !confirm('회원탈퇴를 신청하시겠습니까?') )
 		return;
 	
-	f.action = "/mypage/leave_proc";
 	f.submit();	
 }
-function _joinsubmit(f){			
-	var pattern_num = /([0-9])/g; 
 
-	if($("#mb_passwd").val().length > 0 && $("#mb_passwd").val().length < 6 ) {
-		$("#mb_passwd").focus();
+
+function joinsubmit(){		
+	
+	var f = document.modifyFrm;
+	var pattern_num = /([0-9])/g; 
+	if($("#password").val().length > 0 && $("#password").val().length < 6 ) {
+		$("#password").focus();
 		alert("비밀번호는 6자 이상입니다.");				
 		return;
 	}
-	var pw = $("#mb_passwd").val(); 
-	if ($("#mb_passwd").val().length > 0 && (!pw.match(/^[a-zA-Z0-9]{6,20}$/) || !pw.match(/[a-z]/) || !pw.match(/[0-9]/))) { 
+	var pw = $("#password").val(); 
+	if ($("#password").val().length > 0 && (!pw.match(/^[a-zA-Z0-9]{6,20}$/) || !pw.match(/[a-z]/) || !pw.match(/[0-9]/))) { 
 		alert("비밀번호는 6~20자의 영문 대소문자와 숫자로 구성되어야 하며, 공백은 사용할 수 없습니다."); 
 		return;
 	}
-	if($("#mb_passwd").val().length > 0 && $("#mb_passwd").val() != $("#mb_passwd_re").val() ) {
-		$("#mb_passwd").focus();
-		$("#mb_passwd_re").val("");
+	if($("#password").val().length > 0 && $("#password").val() != $("#password_re").val() ) {
+		$("#password").focus();
+		$("#password_re").val("");
 		alert("입력한 비밀번호가 서로 맞지 않습니다.");				
 		return;
 	}
 					
-	if(!$("#mb_hp2").val()) {
-		$("#mb_hp2").focus();
+	if(!$("#tel2").val()) {
+		$("#tel2").focus();
 		alert("휴대폰을 입력해주세요.");		
 		return;
 	}	
-	if(!pattern_num.test($("#mb_hp2").val())) {
-		$("#mb_hp2").val("");
-		$("#mb_hp2").focus();
+	if(!pattern_num.test($("#tel2").val())) {
+		$("#tel2").val("");
+		$("#tel2").focus();
 		alert("휴대폰번호는 숫자만 입력해주세요.");		
 		return;
 	}			
-	if(!$("#mb_hp3").val()) {
-		$("#mb_hp3").focus();
+	if(!$("#tel3").val()) {
+		$("#tel3").focus();
 		alert("휴대폰을 입력해주세요.");		
 		return;
 	}
-	if(!pattern_num.test($("#mb_hp3").val())) {
-		$("#mb_hp3").val("");
-		$("#mb_hp3").focus();
+	if(!pattern_num.test($("#tel3").val())) {
+		$("#tel3").val("");
+		$("#tel3").focus();
 		alert("휴대폰번호는 숫자만 입력해주세요.");		
 		return;
 	}			
-
-	var hp = $("#mb_hp1").val()+"-"+$("#mb_hp2").val()+"-"+$("#mb_hp3").val();
-	if ( ($('#mb_hp').val() != hp ) && !$("#mb_hp_check").val() )
-	{
-		alert("휴대폰 번호 중복 확인을 해주세요.");		
-		return;
-	}
-									
-	$("#mb_hp").val(hp);
-	if ($("#mb_tel2").val() && $("#mb_tel3").val())
-		$("#mb_tel").val($("#mb_tel1").val()+"-"+$("#mb_tel2").val()+"-"+$("#mb_tel3").val());
-	else
-		$("#mb_tel").val('');
-	
-	f.action = "/mypage/modify_proc";
+	alert("수정되었습니다.");	
 	f.submit();	
 }
 
-function hpCheck()
-{
-	var pattern_num = /([0-9])/g; 
-
-	var hp = $("#mb_hp1").val()+"-"+$("#mb_hp2").val()+"-"+$("#mb_hp3").val();
-	if ( $('#mb_hp').val() == hp )
-	{
-		alert("가입 하신 핸드폰 번화와 동일합니다.");		
-		return;
-	}
-
-	if(!$("#mb_hp2").val()) {
-		$("#mb_hp2").focus();
-		alert("휴대폰을 입력해주세요.");		
-		return;
-	}	
-	if(!pattern_num.test($("#mb_hp2").val())) {
-		$("#mb_hp2").val("");
-		$("#mb_hp2").focus();
-		alert("휴대폰번호는 숫자만 입력해주세요.");		
-		return;
-	}			
-	if(!$("#mb_hp3").val()) {
-		$("#mb_hp3").focus();
-		alert("휴대폰을 입력해주세요.");		
-		return;
-	}
-	if(!pattern_num.test($("#mb_hp3").val())) {
-		$("#mb_hp3").val("");
-		$("#mb_hp3").focus();
-		alert("휴대폰번호는 숫자만 입력해주세요.");		
-		return;
-	}	
-}
-
-/* function doChg(v){
-	$('#sch_mb_gu').empty();	
-	$.ajax(
-		{
-			type:"post",
-			dataType:"html",
-			url: "/join/searchGu",
-			data : "&do="+v,
-			success: function(data) {				
-				$('#mb_gu').html(data);
-			}
-		}
-	);		
-} */
 </script>	
-
-
-
-<!-- 	<table border=0 width=940>
-	          <form method=post action="qna_search.jsp"  name=frm>
-				  <tr border=1 bordercolor=gray>	
-					<td width=60% align=left><b>&nbsp;&nbsp;&nbsp;&nbsp;<font size=5>Q&A</font></b>&nbsp;&nbsp;&nbsp;문의 및 불편사항에 대해 답변드립니다.</td>
-					<td width=40% align=right>
-					<input type="text" name="q_search" placeholder="검색어를 입력하세요" />
-			        <input type="image" src="image/icon/search02.png" alt="검색" onclick="search()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-			        </td>
-			       </tr>
-			  </form>
-			</table> -->
 	</div> 
 </center>
 </body>

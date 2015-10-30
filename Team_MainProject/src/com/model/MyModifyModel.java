@@ -16,18 +16,21 @@ public class MyModifyModel implements Model{
 		// TODO Auto-generated method stub	
 		
 		HttpSession session = req.getSession();
-/*		String email = (String)session.getAttribute("email");
-		String tel=(String)session.getAttribute("tel");
-		 StringTokenizer st = new StringTokenizer(tel, "-");
-		 req.setAttribute("tel1", st.nextToken());
-		 req.setAttribute("tel2", st.nextToken());
-		 req.setAttribute("tel3", st.nextToken());
+		String email = (String)session.getAttribute("email");
+
 		 
 		 
-		 */
+		 
 		 MemberDTO d = MemberDAO.memberGetInfo(email);
 
 		req.setAttribute("d", d);
+		
+		 StringTokenizer st = new StringTokenizer(d.getTel(), "-");
+		 req.setAttribute("tel1", st.nextToken());
+		 req.setAttribute("tel2", st.nextToken());
+		 req.setAttribute("tel3", st.nextToken());
+		
+		
 		req.setAttribute("jsp", "../mypage/modify.jsp");
 		return "main/main.jsp";
 	}
