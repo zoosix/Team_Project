@@ -104,17 +104,9 @@
 					<tr>
 						<th>국적</th>
 						<td>	
-							<p> <select id="usernation" name="nation" id="nation" value="${d.nation }">
-							      <option value="korea">한국</option>
-							      <option value="usa">미국</option>
-							      <option value="china">중국</option>
-							      <option value="german">독일</option>
-							      <option value="japan">일본</option>
-							      <option value="taiwan">대만</option>
-							      <option value="ph">필리핀</option>
-							      <option value="uk">영국</option>
-							      <option value="fr">프랑스</option>
-							      <option value="ita">이탈리아</option>
+							<p> <select id="usernation" name="nation" id="nation" disabled="disabled" style="background-color: #ebebeb;">
+							
+							      <option value="nation" selected="selected">${d.nation }</option>
 							    </select><!-- <script>$("#usernation option:selected").val();</script> -->
 						    </p>
 						</td>
@@ -123,26 +115,26 @@
 						<th>언어</th>
 						<td>	
 						    <p>	
-						    <select id="userlanguage" name="lang" >
-							      <option value="KOR">한국어</option>
-							      <option value="ENG">영어</option>
-							      <option value="CHI">중국어</option>
-							      <option value="GER">독일어</option>
-							      <option value="JPN">일본어</option>
+						    <select id="lang" name="lang">
+							      <option value="KOR"  <c:if test="${lang==KOR }">selected="selected"</c:if>>한국어</option>
+							      <option value="ENG" <c:if test="${lang==ENG }">selected="selected"</c:if>>영어</option>
+							      <option value="CHI" <c:if test="${lang==CHI }">selected="selected"</c:if>>중국어</option>
+							      <option value="GER" <c:if test="${lang==GER }">selected="selected"</c:if>>독일어</option>
+							      <option value="JPN" <c:if test="${lang==JPN }">selected="selected"</c:if>>일본어</option>
 							    </select>
 						    </p>
-						    </td>
+						    </td>			    
 					</tr>
 					<tr>	    
                      <th>자기소개</th>
 						<td>	
 						<p> <c:if test="${d.intro!=null }">
 						    <span>
-						    <textarea rows="8" cols="100" id= userintro name=intro >${d.intro }</textarea>
+						    <textarea rows="8" cols="100" id= intro name=intro >${d.intro }</textarea>
 						    </c:if>
 						    <c:if test="${d.intro==null }">
 						    <span>
-						    <textarea rows="8" cols="100" id= userintro name=intro placeholder="자기소개가 없습니다."></textarea>
+						    <textarea rows="8" cols="100" id= intro name=intro placeholder="자기소개가 없습니다."></textarea>
 						    </c:if>
 						    </span>
 						    <br>
@@ -179,7 +171,6 @@ function _leavesubmit(f){
 
 
 function joinsubmit(){		
-	
 	var f = document.modifyFrm;
 	var pattern_num = /([0-9])/g; 
 	if($("#password").val().length > 0 && $("#password").val().length < 6 ) {
@@ -187,11 +178,11 @@ function joinsubmit(){
 		alert("비밀번호는 6자 이상입니다.");				
 		return;
 	}
-	var pw = $("#password").val(); 
+	/* var pw = $("#password").val(); 
 	if ($("#password").val().length > 0 && (!pw.match(/^[a-zA-Z0-9]{6,20}$/) || !pw.match(/[a-z]/) || !pw.match(/[0-9]/))) { 
 		alert("비밀번호는 6~20자의 영문 대소문자와 숫자로 구성되어야 하며, 공백은 사용할 수 없습니다."); 
 		return;
-	}
+	} */
 	if($("#password").val().length > 0 && $("#password").val() != $("#password_re").val() ) {
 		$("#password").focus();
 		$("#password_re").val("");
@@ -221,6 +212,12 @@ function joinsubmit(){
 		alert("휴대폰번호는 숫자만 입력해주세요.");		
 		return;
 	}			
+	if(!$("#intro").val()) {
+		$("#intro").focus();
+		alert("자기소개를 입력해주세요.");		
+		return;
+	}	
+
 	alert("수정되었습니다.");	
 	f.submit();	
 }

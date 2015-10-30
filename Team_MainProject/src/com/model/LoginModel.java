@@ -14,5 +14,4 @@ public class LoginModel implements Model {
 		req.setAttribute("jsp", "../member/login.jsp");
 		return "main/main.jsp";
 	}
-
 }

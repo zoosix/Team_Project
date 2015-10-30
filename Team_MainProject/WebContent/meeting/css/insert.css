@@ -39,14 +39,23 @@ h4.subTitle .star {
 img {
     border: 0px;
 }
+input.text {
+    background: none #f8f8f8;
+    line-height: 18px \9;
+    font-size: 12px;
+    color: #333;
+    border: 1px solid #ccc;
+    padding-left: 3px;
+    vertical-align: top;
+    height: 28px;
+    padding-top: 5px \9;
+    height: 23px \9;
+}
 input.text, textarea.text {
     font-family: Dotum, 돋움, sans, sans-serif, apple-gothic;
 }
 label.displayNone {
     display: none !important;
-}
-label {
-    cursor: pointer;
 }
 option {
     font-weight: normal;
@@ -85,42 +94,18 @@ select {
     white-space: pre;
     -webkit-rtl-ordering: logical;
     color: black;
-    background-color: white;
+    background: none #f8f8f8;
+    border: 1px solid #ccc;
     cursor: default;
     height: 28px;
     margin-bottom: 15px;
 }
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: grey;
-}
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-}
-table th {
-    text-align: right;
-    color: #333;
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: normal;
-    width: 163px;
-    padding-right: 31px;
-}
-table td {
-    vertical-align: middle;
-}
-td, th {
-    display: table-cell;
-    vertical-align: inherit;
+select.date-select {
+    display: inline-block;
+    vertical-align: top;
+    width: 115px;
+    height: 29px;
+    margin-bottom : 0px;
 }
 textarea {
     margin: 0em;
@@ -175,6 +160,13 @@ textarea.text {
     vertical-align: top;
     margin-right: 5px;
 }
+.action .button.prev, .action .button.temp {
+    background-color: #999;
+    border-color: #828282;
+    -webkit-box-shadow: 0 1px 0 0 #828282;
+    -moz-box-shadow: 0 1px 0 0 #828282;
+    box-shadow: 0 1px 0 0 #828282;
+}
 .admin_email input.text, .admin_email select {
     width: 115px;
     padding-top: 0;
@@ -226,11 +218,12 @@ textarea.text {
 }
 .content .core .advice {
     display: inline-block;
-    width: 270px;
+    width: 269px;
     color: #999;
     font-size: 11px;
     line-height: 16px;
     vertical-align: top;
+    margin-left: 1px;
 }
 .content .core .input {
     border-bottom: solid 1px #d2d2d2;
@@ -264,10 +257,9 @@ textarea.text {
 }
 .content .firstCore {
     padding-top: 22px;
-    width: 687px;
-    border-right: 1px solid #d8d8d8;
+    width: 688px;
 }
-.content .firstStep .menu a.firstStep, .content .secondStep .menu a.secondStep {
+.content .firstStep .menu label.firstStep, .content .secondStep .menu label.secondStep {
     z-index: 1;
     border-color: #3085e6;
     background-color: #4195f5;
@@ -280,12 +272,11 @@ textarea.text {
     margin-left: 10px;
 }
 .content .firstStep div.lastCore {
-    width: 687px;
+    width: 688px;
     height: 117px;
 }
 .content .lastCore {
     width: 689px;
-    border-right: 1px solid #d8d8d8;
     position: relative;
 }
 .content .input input#title {
@@ -293,7 +284,7 @@ textarea.text {
     height: 23px;
     margin-bottom: 1px;
 }
-.content .menu a {
+.content .menu label {
     position: relative;
     display: inline-block;
     background-color: #e7e7e7;
@@ -307,14 +298,15 @@ textarea.text {
     padding-right: 10px;
     padding-left: 11px;
 }
-.content .menu a.firstStep {
+.content .menu label.firstStep {
     -webkit-border-radius: 3px 0 0 3px;
     -moz-border-radius: 3px 0 0 3px;
     border-radius: 3px 0 0 3px;
     margin-right: -6px;
 }
-.content .menu a.secondStep {
+.content .menu label.secondStep {
     margin-right: -5px;
+    border-radius: 0 3px 3px 0;
 }
 .content .menu a.lastStep, .content .modify .menu a.manage {
     -webkit-border-radius: 0 3px 3px 0;
@@ -377,6 +369,44 @@ textarea.text {
     height: 36px;
     width: 662px;
     text-align: center;
+}
+.secondStep .eventDate .advice .startEvent {
+    padding-bottom: 31px;
+}
+.secondStep .eventDate .advice .setupTime {
+    padding-bottom: 20px;
+}
+.secondStep .eventDate .dateConfig {
+    padding: 10px 11px;
+    border: 1px solid #ccc;
+    line-height: 30px;
+    vertical-align: top;
+    margin-top: -2px;
+    font-size: 12px;
+}
+.secondStep input.text.datepicker {
+    width: 130px;
+    height: 26px;
+    margin-right: 6px;
+}
+.secondStep #place {
+	margin-top: 10px;
+	margin-right: 6px;
+    height: 32px;
+}
+.secondStep .place div.location {
+    padding-bottom: 20px;
+}
+.secondStep .place p.location {
+    padding-bottom: 52px;
+}
+.secondStep .place #location {
+    margin-top: 10px;
+    width: 517px;
+}
+.secondStep .setupTime {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .span{
 	text-align: center;

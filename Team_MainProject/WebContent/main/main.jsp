@@ -147,7 +147,7 @@
 				<a href="meeting.do">내정보보기</a>
             	<a href="#">고객센터</a>
             	<br>
-				${sessionScope.name }(${sessionScope.admin == 'y'?"관리자":"일반" }) 님 로그인중입니다
+				${sessionScope.name }() 님 로그인중입니다
 				</form>
 			</c:if>
 
@@ -169,7 +169,21 @@
 
     <div id="intro">
 
-	
+	<div class="width">
+      
+		<div class="intro-content" >
+			
+                    <h2>Meetups are </h2>
+                    <p>neighbors getting together to learn something, do something, share something… </p>
+                                  	
+			<p><a href="#" class="button button-slider">개설하기</a>
+			<a href="#" class="button button-reversed button-slider">만들기</a>
+			<a href="#" class="button button-reversed button-slider">만들기</a></p>
+
+            	</div>
+            </div>
+	</div>
+
     <footer>
         <div class="footer-content width">
             <ul>
