@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
 // $(function(){ $('#postPrint').html("<>")} )
 window.onload=function()
 {
 	var div=document.getElementById("postPrint");
-	div.innerHTML="<font color=white>µ¿/À¾/¸éÀ» ÀÔ·ÂÇÏ¼¼¿ä</font>";
+	div.innerHTML="<font color=white>ë™/ì/ë©´ì„ ì…ë ¥í•˜ì„¸ìš”</font>";
 }
 </script>
 <style type="text/css">
@@ -25,8 +25,8 @@ window.onload=function()
    <tr>
      <td align=center>
      <form method="post" action="postfind_result.jsp">
-     ÀÔ·Â:<input type=text name=dong size=15>
-      <input type=submit value=°Ë»ö>
+     ì…ë ¥:<input type=text name=dong size=15>
+      <input type=submit value=ê²€ìƒ‰>
      </form>
      </td>
    </tr>

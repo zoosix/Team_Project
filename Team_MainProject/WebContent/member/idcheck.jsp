@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR" import="com.member.dao.MemberDAO"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%
+	String email=request.getParameter("email");
+	int count = 0;
+	if(email == null)
+		email = "default";
+	count = MemberDAO.memberIdCount(email);
+%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,16 +18,6 @@ $(function(){
 	var count = $('#useremail').focus();
 	var hasId = $('#hasId').val();
 	var hasEmail = $('#hasEmail').val();
-	
-	if(hasEmail != "default" && hasId == 1){
-		$('#emailSpan').text("사용중인 아이디입니다.");
-	}else if(hasEmail != "default" && hasId == 0){
-		$('#emailSpan').text("사용 가능한 아이디입니다.");
-		$("#useremail").val(hasEmail);
-		
-	}else{
-		$('#emailSpan').text("");
-	}
 	
 	$('#btnSub').click(function(){
 		var email=$('#useremail').val();
@@ -59,15 +57,31 @@ function ok(){
 </head>
 <body id = "idBody">
 	<center>
-		<div id="idDiv">
-		<form id="idCheck" name="id_check" action="../member/idcheck.jsp" method="post">
-			Email 입력 : <input type=text name = email id = useremail size=12>
-			<input type=button id= "btnSub" value="아이디 체크">
-			<br>
-    		<span style="text-align: center;color:red;" id="emailSpan"></span>
-		
-    	</form>
-		</div>
-	</center>
+	  <div id="idDiv">
+         <form action="<%=request.getContextPath()%>/idcheck.do"
+            method="post" id="idCheck" name="id_check">
+            Email입력: <input type=text name="email" size=12 id="useremail" value="${email}"> 
+            <input type=button id= "btnSub" value="아이디 체크">
+            <span style="text-align: center;color:red;" id="emailSpan"></span>
+            <input type = hidden value="${email }" id="hasEmail">
+         </form>
+         <br>
+         <br> <span id="result" style="color: yellow"></span>
+         <c:if test="${result==null}">
+            <span id="defaultSpan"></span>
+         </c:if>
+         <c:if test="${result=='NotOK'}">
+            <span>사용 중인 아이디입니다</span>
+         </c:if>
+         <c:if test="${result=='OK'}">
+            <span>사용 가능한 아이디입니다</span>
+            <br>
+            <input type=button id= "checkBtn" value="사용하기" onclick="ok()">
+            <br>
+         </c:if>
+      </div>
+
+   </center>
+
 </body>
 </html>

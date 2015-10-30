@@ -144,27 +144,28 @@
 			 <c:if test="${sessionScope.email!=null }">
 			    <form method=post action="logout.do" id="logout_frm">
 			 	<a href="logout.do" id="logoutBtn">로그아웃</a>
-				<a href="join.do">내정보보기</a>
+				<a href="meeting.do">내정보보기</a>
             	<a href="#">고객센터</a>
             	<br>
-				${sessionScope.name }(${sessionScope.admin == 'y'?"관리자":"일반" }) 님 로그인중입니다
+				${sessionScope.name }() 님 로그인중입니다
 				</form>
 			</c:if>
 
-			
 			<div class="clear"></div>
     		</nav>
        	</div>
-
 	<div class="clear"></div>
 
-       
     </header>
-    	
- <%-- 	<div class="middleContent">
+
+
+
+    
+ 	<div class="middleContent">
+ 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
-	</div>  --%>
-	
+	</div>  
+
 
     <div id="intro">
 
@@ -178,52 +179,10 @@
 			<p><a href="#" class="button button-slider">개설하기</a>
 			<a href="#" class="button button-reversed button-slider">만들기</a>
 			<a href="#" class="button button-reversed button-slider">만들기</a></p>
-                    
 
             	</div>
-                
             </div>
-            
-
 	</div>
-
-    <div id="body">
-
-
-
-	<div class="width">
-		<form class="form-wrapper">
-    	<input type="text" id="search" placeholder="Search for CSS3, HTML5, jQuery ..." required>
-    	<input type="submit" value="Serch" id="submit">
-		</form>
-		
-		<section id="content" >
-			<%
-				for(int i=0;i<7;i++)
-				{
-			%>
-           		 <div class="box">
-				<p><a href=""><img src="../images/back.jpg" alt="썸네일" width=300 height=306 /></a></p>
-				<a href="" class="titleCover">
-					<span class="title">쿨하게 생존하라 워크샵</span>
-					<span class="lang">한국어 ↔ 영어</span>
-					<span class="place">서울파트너스 하우스(추후약도제공)</span>
-					<span class="date">2015-10-31 ~ 2015-10-31</span>
-				</a>
-				<ul>
-					<li>접수마감 : <span>2015-10-31</span></li>
-					<li>모집인원 : <span>20</span>명</li>
-				</ul>
-			</div>
-			<%
-				}
-			%>
-        </section>
-       
-    	<div class="clear"></div>
-    </div>
-</div>
-
 
     <footer>
         <div class="footer-content width">
@@ -231,54 +190,40 @@
             	<li><h4>Proin accumsan</h4></li>
                 <li><a href="#">Rutrum nulla a ultrices</a></li>
                 <li><a href="#">Blandit elementum</a></li>
-                <li><a href="#">Proin placerat accumsan</a></li>
-                <li><a href="#">Morbi hendrerit libero </a></li>
-                <li><a href="#">Curabitur sit amet tellus</a></li>
+ 
             </ul>
             
             <ul>
             	<li><h4>Condimentum</h4></li>
                 <li><a href="#">Curabitur sit amet tellus</a></li>
                 <li><a href="#">Morbi hendrerit libero </a></li>
-                <li><a href="#">Proin placerat accumsan</a></li>
-                <li><a href="#">Rutrum nulla a ultrices</a></li>
-                <li><a href="#">Cras dictum</a></li>
+
             </ul>
 
  	    <ul>
                 <li><h4>Suspendisse</h4></li>
                 <li><a href="#">Morbi hendrerit libero </a></li>
                 <li><a href="#">Proin placerat accumsan</a></li>
-                <li><a href="#">Rutrum nulla a ultrices</a></li>
-                <li><a href="#">Curabitur sit amet tellus</a></li>
-                <li><a href="#">Donec in ligula nisl.</a></li>
             </ul>
             
             <ul class="endfooter">
             	<li><h4>Suspendisse</h4></li>
                 <li>Integer mattis blandit turpis, quis rutrum est. Maecenas quis arcu vel felis lobortis iaculis fringilla at ligula. Nunc dignissim porttitor dolor eget porta. <br /><br />
 
-<div class="social-icons">
-
-<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-
-<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-
-<a href="#"><i class="fa fa-youtube fa-2x"></i></a>
-
-<a href="#"><i class="fa fa-instagram fa-2x"></i></a>
-
-</div>
-
+		<div class="social-icons">
+		<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+		<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="#"><i class="fa fa-youtube fa-2x"></i></a>
+		<a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+	</div>
 </li>
-            </ul>
-            
-            <div class="clear"></div>
+</ul>
+        <div class="clear"></div>
         </div>
         <div class="footer-bottom">
             <p>&copy; YourSite 2015. <a href="http://zypopwebtemplates.com/">Free CSS Web Templates</a> by ZyPOP</p>
          </div>
-    </footer>
+ </footer>
 </div>
 </body>
 </html>

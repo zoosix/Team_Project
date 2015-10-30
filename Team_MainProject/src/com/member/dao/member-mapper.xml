@@ -5,10 +5,22 @@
 <mapper namespace="com.member.dao.member-mapper">
     
     <select id = "memberIdCount" resultType="int" parameterType="String">
-        SELECT COUNT(*) FROM lmember WHERE email = #{email} 
+        SELECT COUNT(*) FROM lmember WHERE email=#{email}
     </select>
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
-        SELECT pwd, name, admin FROM lmember WHERE email = #{email} 
+        SELECT pwd,nickname,name,nation,tel,lang,admin FROM lmember WHERE email=#{email}
     </select>
+
+    <insert id="memberInsert" parameterType="Member">
+    INSERT INTO Lmember VALUES(#{email},#{pwd},#{name},#{nickname},#{sex},#{age},
+    	#{nation},#{tel},#{lang},#{intro},#{photo},#{admin})
+  	</insert>
+
+    <!-- 회원정보수정 -->
+<!--     <select id="modifyselect" resultType="Member" parameterType="String"></select> -->
+    <update id="modifyupdate" parameterType="Member">
+      UPDATE lmember SET nickname=#{nickname}, tel=#{tel}, pwd=#{pwd} WHERE email=#{email}
+  </update>
+
 </mapper>
 

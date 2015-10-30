@@ -7,11 +7,13 @@ import javax.servlet.http.HttpSession;
 import com.member.dao.MemberDAO;
 import com.member.dao.MemberDTO;
 
-public class LoginModel implements Model {
+public class MyMeetingModel implements Model{
 
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		req.setAttribute("jsp", "../member/login.jsp");
+		// TODO Auto-generated method stub
+	
+		req.setAttribute("jsp", "../mypage/meeting.jsp");
 		return "main/main.jsp";
 	}
 }

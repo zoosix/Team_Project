@@ -8,6 +8,7 @@ public class MainModel implements Model{
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
+		req.setAttribute("slide", "../main/slide.jsp");
 		req.setAttribute("jsp", "../main/mainlist.jsp");
 		return "main/main.jsp";
 	}
