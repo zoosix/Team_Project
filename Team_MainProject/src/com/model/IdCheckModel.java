@@ -10,20 +10,29 @@ public class IdCheckModel implements Model{
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		String email = req.getParameter("email");
-		int count = MemberDAO.memberIdCount(email);
-		String result = "";
-		
-		if(count == 0)
+		String email;
+		int count = 0;
+		System.out.println("dfdf"+req.getParameter("email"));
+		if(req.getParameter("email") == null)
 		{
-			result = "OK";
+			email = "";
 		}
 		else
 		{
-			result = "NotOK";
+			email = req.getParameter("email");
+			count = MemberDAO.memberIdCount(email)+1;
 		}
 		
+		String result = "";
+		if(count == 0)
+			result = "null";
+		else if (count == 1)
+			result = "OK";
+		else
+			result = "NotOK";
+		
 		req.setAttribute("result", result);
+		req.setAttribute("email", email);
 		return "member/idcheck.jsp";
 	}
 }

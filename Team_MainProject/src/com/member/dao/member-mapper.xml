@@ -10,6 +10,9 @@
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
         SELECT pwd, name, admin FROM lmember WHERE email = #{email} 
     </select>
-    
+    <insert id="memberInsert" parameterType="Member">
+    INSERT INTO Lmember VALUES(#{email},#{pwd},#{name},#{nickname},#{sex},#{age},
+    	#{nation},#{tel},#{lang},#{intro},#{photo},#{admin})
+  	</insert>
 </mapper>
 

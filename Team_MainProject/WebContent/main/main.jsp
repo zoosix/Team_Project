@@ -147,7 +147,7 @@
 				<a href="meeting.do">내정보보기</a>
             	<a href="#">고객센터</a>
             	<br>
-				${sessionScope.name }(${sessionScope.admin == 'y'?"관리자":"일반" }) 님 로그인중입니다
+				${sessionScope.name }() 님 로그인중입니다
 				</form>
 			</c:if>
 

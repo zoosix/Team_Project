@@ -15,6 +15,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 
+
 public class MemberDAO {
 	
 	private static SqlSessionFactory ssf;
@@ -45,5 +46,12 @@ public class MemberDAO {
     	MemberDTO d = session.selectOne("memberGetInfo", email);
     	session.close();
     	return d;
+    }
+    
+    public static void memberInsert(MemberDTO d)
+    {
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("memberInsert",d);
+    	session.close();
     }
 }

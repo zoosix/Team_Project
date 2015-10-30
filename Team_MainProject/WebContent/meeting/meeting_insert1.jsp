@@ -15,7 +15,7 @@ $(function(){
 		if(category1==0)
 		{
 			$('.category1').focus();
-			$('#selectSpan').text("*언어를 선택하세요");
+			$('#selectSpan').text("* 언어를 선택하세요");
 			return;
 		}
 		$('#selectSpan').text("");
