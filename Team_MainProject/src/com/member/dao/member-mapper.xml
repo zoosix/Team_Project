@@ -8,12 +8,20 @@
         SELECT COUNT(*) FROM lmember WHERE email=#{email}
     </select>
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
-        SELECT pwd,nickname,name,nation,tel,lang,admin FROM lmember WHERE email=#{email}
+        SELECT pwd,nickname,name,nation,tel,lang,admin,intro FROM lmember WHERE email=#{email}
     </select>
+
+    <insert id="memberInsert" parameterType="Member">
+    INSERT INTO Lmember VALUES(#{email},#{pwd},#{name},#{nickname},#{sex},#{age},
+    	#{nation},#{tel},#{lang},#{intro},#{photo},#{admin})
+  	</insert>
+
     <!-- 회원정보수정 -->
 <!--     <select id="modifyselect" resultType="Member" parameterType="String"></select> -->
     <update id="modifyupdate" parameterType="Member">
-      UPDATE lmember SET nickname=#{nickname}, tel=#{tel}, pwd=#{pwd} WHERE email=#{email}
+      UPDATE lmember SET pwd=#{pwd},nickname=#{nickname},tel=#{tel},lang=#{lang},intro=#{intro} 
+      WHERE email=#{email}
   </update>
+
 </mapper>
 

@@ -10,7 +10,7 @@ CREATE TABLE Lmember(
 	nation VARCHAR2(20) CONSTRAINT Lmember_nn_nation NOT NULL,
 	tel VARCHAR2(20) CONSTRAINT Lmember_nn_tel NOT NULL,
 	lang VARCHAR2(20) CONSTRAINT Lmember_nn_lang NOT NULL,
-	introduction CLOB,
+	intro CLOB,
 	Photo BLOB,
     admin CHAR(1) DEFAULT 'n',
 	CONSTRAINT Lmember_pk_email PRIMARY KEY(email),

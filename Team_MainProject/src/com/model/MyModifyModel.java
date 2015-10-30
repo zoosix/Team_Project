@@ -18,9 +18,6 @@ public class MyModifyModel implements Model{
 		HttpSession session = req.getSession();
 		String email = (String)session.getAttribute("email");
 
-		 
-		 
-		 
 		 MemberDTO d = MemberDAO.memberGetInfo(email);
 
 		req.setAttribute("d", d);
@@ -29,7 +26,7 @@ public class MyModifyModel implements Model{
 		 req.setAttribute("tel1", st.nextToken());
 		 req.setAttribute("tel2", st.nextToken());
 		 req.setAttribute("tel3", st.nextToken());
-		
+		 
 		
 		req.setAttribute("jsp", "../mypage/modify.jsp");
 		return "main/main.jsp";
