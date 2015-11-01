@@ -21,7 +21,7 @@ public class MyModifyModel implements Model{
 		 MemberDTO d = MemberDAO.memberGetInfo(email);
 
 		req.setAttribute("d", d);
-		
+          
 		 StringTokenizer st = new StringTokenizer(d.getTel(), "-");
 		 req.setAttribute("tel1", st.nextToken());
 		 req.setAttribute("tel2", st.nextToken());

@@ -34,6 +34,8 @@
 <form name="modifyFrm" method="post" action="modify_ok.do">	
 <!--  pwd,nickname,name,nation,tel,lang,admin 필수템************************************************************* -->
        <input type="hidden" name="mb_hp" id="mb_hp" value="${d.tel }">
+        <input type="hidden" name="my_sex" id="my_sex" value="${d.sex }">
+        <input type="hidden" name="my_lang" id="my_lang" value="${d.lang }">
 				<table border=1 width=940px  height=471px>
 				<colgroup>
 					<col width="20%" />
@@ -90,15 +92,16 @@
 								<option value="019">019</option>
 							</select>
 							<input type="text" name="tel2" id="tel2"  value="${tel2 }" /><input type="text" name="tel3" id="tel3" value="${tel3 }" />
-							<p class="mgt10">SD인사이트의 최근 소식 및 이벤트 정보 등을 SMS로 받아보시겠습니까? (결제관련내용은 수신동의 여부와 관계없이 발송됩니다.) </p>
+							<p class="mgt10">나들목의 최근 소식 및 이벤트 정보 등을 SMS로 받아보시겠습니까? (결제관련내용은 수신동의 여부와 관계없이 발송됩니다.) </p>
 							<p class="mgt05"><input type="checkbox" name="mb_hp_agree" id="sms" class="check01" value="Y"  /> <label for="sms">SMS 수신동의</label></p>
 						</p></td>
 					</tr>
 					<tr>
 						<th>성별</th>
 						<td><p>
-							<input type="radio" name="mb_sex" id="sex-m" class="radio01" value="M"  /> <label for="sex-m" class="mgr20 fs_14">남</label>
-							<input type="radio" name="mb_sex" id="sex-w" class="radio01" value="F"  /> <label for="sex-w" class="fs_14">여</label>
+								<input type="radio" name="sex" id="m" class="radio01" value="m" disabled="disabled"/> <label>남자</label>
+							<input type="radio" name="sex" id="w" class="radio01" value="w" disabled="disabled"/> <label>여자</label>
+					
 						</p></td>
 					</tr>
 					<tr>
@@ -115,12 +118,12 @@
 						<th>언어</th>
 						<td>	
 						    <p>	
-						    <select id="lang" name="lang">
-							      <option value="KOR"  <c:if test="${lang==KOR }">selected="selected"</c:if>>한국어</option>
-							      <option value="ENG" <c:if test="${lang==ENG }">selected="selected"</c:if>>영어</option>
-							      <option value="CHI" <c:if test="${lang==CHI }">selected="selected"</c:if>>중국어</option>
-							      <option value="GER" <c:if test="${lang==GER }">selected="selected"</c:if>>독일어</option>
-							      <option value="JPN" <c:if test="${lang==JPN }">selected="selected"</c:if>>일본어</option>
+						    <select id="lang" name="lang"><%-- <c:if test="${d.lang==KOR }">selected="selected"</c:if> --%>
+							          <option value="KOR">한국어</option>
+								      <option value="ENG">영어</option>
+								      <option value="CHI">중국어</option>
+								      <option value="GER">독일어</option>
+								      <option value="JPN">일본어</option>
 							    </select>
 						    </p>
 						    </td>			    
@@ -156,6 +159,18 @@
 </div>
 <!-- //subCont -->
 <script type="text/javascript">
+$(function(){
+     var sex =$('#my_sex').val();
+     if(sex=="남자"){
+    	 $('input:radio[name=sex]:input[value=m]').attr("checked", true);
+     }
+     if(sex=="여자"){
+    	 $('input:radio[name=sex]:input[value=w]').attr("checked", true);
+     }
+     var lang =$('#my_lang').val();/* 
+     if($('#lang').val()==lang){ */
+    	 $("select option[value="+lang+"]").attr("selected", true);
+});
 function _leavesubmit(f){			
 	if(!$("#mb_leavememo").val()) {
 		$("#mb_leavememo").focus();
@@ -183,6 +198,14 @@ function joinsubmit(){
 		alert("비밀번호는 6~20자의 영문 대소문자와 숫자로 구성되어야 하며, 공백은 사용할 수 없습니다."); 
 		return;
 	} */
+	
+	if($('#password').val()=="")
+	{
+		alert("비밀번호를 입력해주세요.");	
+		$('#password').focus();
+		return;
+	}
+	
 	if($("#password").val().length > 0 && $("#password").val() != $("#password_re").val() ) {
 		$("#password").focus();
 		$("#password_re").val("");
