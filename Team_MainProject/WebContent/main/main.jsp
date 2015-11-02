@@ -55,6 +55,11 @@
 		}
 		f.submit();
 	}
+	function logout(){
+		var f2=document.logout_frm;
+		f2.submit();
+	}
+
 </script>
 </head>
 <body>
@@ -93,13 +98,13 @@
 			<span id="Log_group"
 				style="float: right; margin: 23px; margin-right: 100px; !important">
 				<c:if test="${sessionScope.email==null }">
-					<button type="button" class="btn btn-default">Sign UP</button>
-					<button type="button" class="btn btn-default">Login</button>
+			<!-- 	<form name="joinFrm" method="post" action="join.do"> -->
+					<button type="button" class="btn btn-default"><a href="join.do" class="mainGo">Sign UP</a></button>
+		<!-- 			</form> -->
 					<!-- Button trigger modal -->
 					<!-- Trigger the modal with a button -->
 					<button type="button" class="btn btn-info " 
-					data-toggle="modal" data-target="#myModal">Open Small
-						Modal</button>
+					data-toggle="modal" data-target="#myModal">Login</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" role="dialog">
@@ -138,8 +143,8 @@
 	
 					
 			 </c:if> <c:if test="${sessionScope.email!=null }">
-		           
-					<button type="button" class="btn btn-dager"><a href="logout.do">Logout</a></button>
+		          
+					<button type="button" class="btn btn-dager" ><a href="logout.do" class="mainGo">Logout</a></button>
 					<div class="btn-group">
 						<button class="btn btn-default btn-sm dropdown-toggle"
 							type="button" data-toggle="dropdown" aria-expanded="false">
@@ -149,6 +154,7 @@
 							<h3>야잉ㅁ</h3>
 						</ul>
 					</div>
+					</form>
 				</c:if>
 			</span>
 		</div>

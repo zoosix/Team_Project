@@ -5,8 +5,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="../member/join.css"/>
-<link rel="stylesheet" type="text/css" href="../css/shadowbox.css"/>
+<link rel="stylesheet" type="text/css" href="/member/join.css"/>
+<link rel="stylesheet" type="text/css" href="/css/shadowbox.css"/>
 <script type="text/javascript" src="js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">

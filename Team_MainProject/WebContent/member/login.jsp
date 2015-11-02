@@ -26,8 +26,7 @@
 		}
 		f.submit();
 	}
-	
-	function login()
+
 </script>
 </head>
 
