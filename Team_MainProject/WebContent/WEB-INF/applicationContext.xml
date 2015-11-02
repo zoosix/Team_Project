@@ -12,10 +12,14 @@
   <bean id="login_check" class="com.model.LoginCheckModel"/>
   <bean id="logout" class="com.model.LogoutModel"/>
   <bean id="idcheck" class="com.model.IdCheckModel"/>
+  <bean id="join_ok" class="com.model.JoinOkModel"/>	
+  
   <!-- 마이페이지 (Mypage)  -->
   <bean id="meeting" class="com.model.MyMeetingModel"/>
   <bean id="wish" class="com.model.MyWishModel"/>
   <bean id="modify" class="com.model.MyModifyModel"/>
+   <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
+  
 </beans>
   <!-- endElement() -->
   <!-- endDocument() -->

@@ -11,15 +11,17 @@
 </head>
 <body> 
 <Center>
+<div class="mypage_meeting">
 <div class="col-md-12">
+<br><br><br><br>
 	<h2>마이페이지<span>MY PAGE</span></h2>
-  <!-- ============================================================================================ -->
+  	<!-- ============================================================================================ -->
   	<table border=0 width=940>
   	<div class="communityCover" >
 		<ul class="menu_list type02">
 		    <li><a href="meeting.do" style="background:#2281c0; color:#fff;">내모임보기</a></li>
 			<li><a href="wish.do">위시리스트</a></li>
-			<li><a href="modify.do">회원정보수정</a></li>					
+			<li><a href="modify.do">회원정보수정</a></li>				
 		</ul>
       </div>
 </table>
@@ -37,7 +39,7 @@
 		<table border=1 bordercolor="#c2c2be" width=940 height=60>
 			<tr height=40>
 			    <th width=5%>번호</th>
-				<th width=*%>모임제목</th>								
+				<th width=*%>모임제목</th>							
 				<th width=20%>모임일자</th>
 			    <th width=20%>상태</th>
 				<th width=10%>비고</th>
@@ -45,9 +47,16 @@
 	            <tbody>
 					<tr><td colspan="5">모임 내역이 없습니다.</td></tr>						
 				</tbody>
+
+			</table>
+		</div>
+	</center>
+
 			</table>	
 			
 	</div> 
+	</div>
 </center>
+
 </body>
 </html>

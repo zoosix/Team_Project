@@ -5,8 +5,8 @@
 <head>
 <meta charset="EUC-KR">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="member/join.css"/>
-<link rel="stylesheet" type="text/css" href="css/shadowbox.css"/>
+<link rel="stylesheet" type="text/css" href="../member/join.css"/>
+<link rel="stylesheet" type="text/css" href="../css/shadowbox.css"/>
 <script type="text/javascript" src="js/shadowbox.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -157,22 +157,11 @@ Shadowbox.init({
 function idcheck()
 {
 	Shadowbox.open({
-		content:'member/idcheck.jsp',
+		content:'idcheck.do',
 		player:'iframe',
 		title:'아이디 중복체크',
 		width:300,
 		height:150
-	});
-}
-
-function postfind()
-{
-	Shadowbox.open({
-		content:'postfind.jsp',
-		player:'iframe',
-		title:'우편번호 검색',
-		width:430,
-		height:350
 	});
 }
 
@@ -214,7 +203,7 @@ function ck_phone()
 <body>
   <div id="wrapper">
  	<center><h3>회원 가입 창</h3></center>
-    <form id="joinForm" name="join_form" action="join_ok.jsp">
+    <form id="joinForm" name="join_form" action="join_ok.do">
     
     <p>
 	    <label for="userid">아이디(E-mail)</label>
@@ -293,11 +282,11 @@ function ck_phone()
     <p>
     <label for="userlanguage">언어</label>
     <select id="userlanguage" name="lang">
-	      <option>한국어</option>
-	      <option>영어</option>
-	      <option>중국어</option>
-	      <option>독일어</option>
-	      <option>일본어</option>
+		      <option value="KOR">한국어</option>
+		      <option value="ENG">영어</option>
+		      <option value="CHI">중국어</option>
+		      <option value="GER">독일어</option>
+		      <option value="JPN">일본어</option>
 	    </select>
     </p>
     
@@ -308,16 +297,6 @@ function ck_phone()
     </span>
     <br>
     <span style="text-align: center; color:red;" id="intronull"></span>
-    </p>
-    
-    <p>
-    <label for="userpost">주소</label>
-    <span id="cellStyle">
-     <input type=text id="userpost" readonly>
-     <input type=button value="우편번호검색" id="userpostBtn" onclick="postfind()">
-     <input type=text  id="useraddr1" readonly>
-     <input type=text id="useraddr2">
-    </span>
     </p>
     
     <p>

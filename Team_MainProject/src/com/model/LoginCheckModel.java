@@ -39,5 +39,5 @@ public class LoginCheckModel implements Model {
 		
 		return "member/login_check.jsp";
 	}
-
+	
 }
