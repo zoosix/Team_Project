@@ -18,7 +18,7 @@
   <bean id="meeting" class="com.model.MyMeetingModel"/>
   <bean id="wish" class="com.model.MyWishModel"/>
   <bean id="modify" class="com.model.MyModifyModel"/>
-    <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
+   <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
   
 </beans>
   <!-- endElement() -->
