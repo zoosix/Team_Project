@@ -55,15 +55,9 @@
 		}
 		f.submit();
 	}
-	function logout(){
-		var f2=document.logout_frm;
-		f2.submit();
-	}
-
 </script>
 </head>
 <body>
-
 	<div id="container">
 		<header>
 		<div class="width">
@@ -95,6 +89,7 @@
 			</ul>
 			<div class="clear"></div>
 			</nav>
+			
 			<span id="Log_group"
 				style="float: right; margin: 23px; margin-right: 100px; !important">
 				<c:if test="${sessionScope.email==null }">
@@ -135,16 +130,10 @@
 							</div>
 						</div>
 					</div>
-					
-					
-<!-- 					<form method=post action="logout.do" id="logout_frm">
-			 	<a href="logout.do" id="logoutBtn">로그아웃</a>
-		 -->
-	
-					
-			 </c:if> <c:if test="${sessionScope.email!=null }">
-		          
-					<button type="button" class="btn btn-dager" ><a href="logout.do" class="mainGo">Logout</a></button>
+			 </c:if> 
+			 <c:if test="${sessionScope.email!=null }">
+		          <form method=post action="logout.do" id="logout_frm">
+					<button type="button" class="btn btn-dager"  ><a href="logout.do" class="mainGo">Logout</a></button>
 					<div class="btn-group">
 						<button class="btn btn-default btn-sm dropdown-toggle"
 							type="button" data-toggle="dropdown" aria-expanded="false">
@@ -161,23 +150,15 @@
 			</span>
 		</div>
 		<div class="clear"></div>
-		</header>
+	
 	</div>
-
-
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-			
 			<jsp:include page="${slide }"></jsp:include>
 			<jsp:include page="${jsp }"></jsp:include>
 			
+		</div>
 
-		</div>
-		<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
-	</div>
+</header>
 </body>
 </html>

@@ -15,7 +15,7 @@
 <br><br><br><br>
 	<h2>마이페이지<span>MY PAGE</span></h2>
   <!-- ============================================================================================ -->
-  	<table border=0 width=940>
+  	<table border=1 width=940>
   	<div class="communityCover" >
 		<ul class="menu_list type02">
 		    <li><a href="meeting.do">내모임보기</a></li>

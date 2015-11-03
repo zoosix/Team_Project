@@ -16,10 +16,8 @@ public class MainModel implements Model{
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		List<gtableDTO> list=MemberDAO.gtableListData();
-
 		req.setAttribute("list", list);
-		req.setAttribute("title", "자유 게시판");
-		
+		req.setAttribute("title", "�옄�쑀 寃뚯떆�뙋");
 		req.setAttribute("slide", "../main/slide.jsp");
 		req.setAttribute("jsp", "../mypage/gtable.jsp");
 		return "main/main.jsp";

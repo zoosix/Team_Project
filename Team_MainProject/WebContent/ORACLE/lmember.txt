@@ -40,7 +40,7 @@ CREATE TABLE Interest(
 CONSTRAINT it_pk_ino PRIMARY KEY(i_no,i_email),
 CONSTRAINT it_fk_bno FOREIGN KEY(i_bno) REFERENCES g_table(g_no)
 );
-INSERT INTO g_table (g_no,g_email,g_title,g_content,g_regdate) VALUES((SELECT NVL(MAX(g_no)+1,1) FROM g_table),'488654@naver.com','영어할사람~~!!','마포구 영어스터디구해요',SYSDATE);
+INSERT INTO g_table (g_no,g_email,g_title,g_content,g_regdate) VALUES((SELECT NVL(MAX(g_no)+1,1) FROM g_table),'488654@naver.com','�쁺�뼱�븷�궗�엺~~!!','留덊룷援� �쁺�뼱�뒪�꽣�뵒援ы빐�슂',SYSDATE);
 COMMIT;
 
 

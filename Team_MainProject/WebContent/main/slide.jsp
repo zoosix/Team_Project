@@ -25,7 +25,6 @@
 			<span class="hero-unit"
 				style="font-stretch: extra-condensed; !important">
 				<h1>Hello, Naduelmok!</h1> <Br>
-
 			</span>
 			<form method="get" action="">
 				<div class="col-lg-6">
@@ -48,6 +47,6 @@
 				</div>
 			</form>
 		</div>
-		</div>
+	</div>
 </body>
 </html>

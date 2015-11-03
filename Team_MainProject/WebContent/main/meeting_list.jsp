@@ -6,7 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/main/style_common.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
 
+$(window).scroll(function () {
+    var scrollHeight = $(window).scrollTop() + $(window).height();
+    var documentHeight = $(document).height();
+
+    if (scrollHeight + 200 >= documentHeight) {
+        for (var i = 0; i < 10; i++) {
+            //스크롤이 내려가면 pagebottom 하단에 문자열을 추가한다. 
+            //(예: Mixsh.com 하단에 데이타 가져오는 부분처럼)
+            $('<h1>Infinity Scroll</h1>').appendTo('main'); 
+        }
+    }
+});
+</script>
 <title>메인그림</title>
 </head>
 <body>
@@ -14,7 +30,7 @@
 		<c:forEach begin="1" end="9" step="1">
 			<div class="view view-first">
 				<img src="images/main/meeting.jpg" />
-				<div class="mask">
+				<div id ="main" class="mask">
 					<h2>보드게임과 함께하는 만남</h2>
 					<p style="font: 맑은고딕;">같이 미쳐봅시다!</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
