@@ -26,6 +26,23 @@
 	 $('#border_main2').show();
 	});
 });
+ 
+ $(window).scroll(function () {
+     var scrollHeight = $(window).scrollTop() + $(window).height();
+     var documentHeight = $(document).height();
+
+     if (scrollHeight + 200 >= documentHeight) {
+         for (var i = 0; i < 10; i++) {
+             //스크롤이 내려가면 pagebottom 하단에 문자열을 추가한다. 
+             //(예: Mixsh.com 하단에 데이타 가져오는 부분처럼)
+             //$('.view view-first').appendTo('DIV#border_main'); 
+             $('#test1').text('aaaa');
+         }
+     }
+ });
+ 
+ 
+
 </script>
 </head>
 <body>
@@ -79,6 +96,9 @@
 				</div>
 			</div>
 		</c:forEach>
+		<div id="test1">
+		
+		</div>
 	</div>
 </body>
 </html>
