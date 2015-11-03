@@ -48,16 +48,16 @@ p {
 	margin-bottom: 25px;
 }
 
-a {
+/* a {
 	color: #699BBA;
 	border-bottom: 1px solid #AFC9DA;
 	text-decoration: none;
-}
+} */
 
-a:hover {
+/* a:hover {
 	border-bottom-color: #333;
 	color: #333;
-}
+} */
 
 a:focus {
 	outline: none;

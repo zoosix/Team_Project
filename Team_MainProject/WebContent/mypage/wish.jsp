@@ -8,6 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="../js/toucheffects.js"></script>
+		<link rel="stylesheet" type="text/css" href="default.css" />
+		<link rel="stylesheet" type="text/css" href="component.css" />
+		<script src="../js/modernizr.custom.js"></script>
 </head>
 <body> 
 <Center>
@@ -24,8 +28,31 @@
 		</ul>
       </div>
 </table>
-	<%-- <!-- ----------------------------------------------------------------- -->
+ <table border=0 width=940>
    	<div id="content">
+		<%	for(int i=0;i<4;i++){%>
+		<div class="col">
+                <ul class="grid cs-style-3">
+				<li>
+					
+						<img src="mypage/images/4.png" alt="img04" width=250 height=250>
+					
+							<h3>쿨하게 생존하라 워크샵</h3>
+							<span>2015/05/08</span>
+							<a href="#">상세보기</a>
+					
+				</li>
+			</ul>
+			</div>
+			<%}%>
+	</div> 
+</table> 
+</div>
+</center>
+</body>
+</html>
+<%--   
+     	<div id="content">
 		<%
 				for(int i=0;i<4;i++)
 				{
@@ -46,47 +73,6 @@
 			<%
 				}
 			%>
-	</div> 
-	<!-- ---------------------------------------------------------------- --> --%>
-</div>
-	</div> 
-</center>
-</body>
-</html>
-<!-- <!-- 
-lectureCover
-		<form name="deleteFrm" method="POST">
-		<input type="hidden" name="SW_IDX" />
-		<div class="lectureCover">
-						<div class="cont">
-				<p><a href="/lecture/"><img src="/FileData/lecture/f5ba15349.png" alt="썸네일" /></a></p>
-				<a href="/lecture/" class="titleCover">
-					<span class="title">빅픽처 읽기와 투자포지셔닝 정하기</span>
-					<span class="place">강남역 청원빌딩 3층</span>
-					<span class="date">2015-11-14 ~ 2015-11-15</span>
-				</a>
-				<ul>
-					<li>접수마감 : <span>2015-11-14</span></li>
-					<li>모집인원 : <span>40</span>명</li>
-				</ul>
-				<p class="delBnt"><a href="#btn" onclick="wishDelete('140');"><img src="/images/btn/delete.gif" alt="삭제" /></a></p>
-			</div>		
-								
-		</div>
-		</form>
-		// lectureCover			
-	</div>
-	// myCover
-</div>
-//subCont	
-<script type="text/javascript">
-function wishDelete(IDX)
-{
-	if(!confirm('정말로 삭제하시겠습니까?')) return false;
-	var f=document.deleteFrm;
-	f.SW_IDX.value = IDX;	
-	f.action='/mypage/wish/deleteProc';
-	f.submit();
-}
-</script>	BODY
- -->
+	</div>  --%>
+	
+	

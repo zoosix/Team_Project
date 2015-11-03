@@ -5,7 +5,11 @@
   <properties resource="com/common/db.properties"/>
   <typeAliases>
      <typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
+
+   <typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
+     
      <typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
+
   </typeAliases>
   <environments default="development">
     <environment id="development">

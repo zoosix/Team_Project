@@ -15,7 +15,7 @@
 <br><br><br><br>
 	<h2>마이페이지<span>MY PAGE</span></h2>
   <!-- ============================================================================================ -->
-  	<table border=0 width=940>
+  	<table border=1 width=940>
   	<div class="communityCover" >
 		<ul class="menu_list type02">
 		    <li><a href="meeting.do">내모임보기</a></li>
@@ -36,6 +36,7 @@
        <input type="hidden" name="mb_hp" id="mb_hp" value="${d.tel }">
         <input type="hidden" name="my_sex" id="my_sex" value="${d.sex }">
         <input type="hidden" name="my_lang" id="my_lang" value="${d.lang }">
+              <input type="hidden" name="tel11" id="tel11" value="${tel1 }">
 				<table border=1 width=940px  height=471px>
 				<colgroup>
 					<col width="20%" />
@@ -170,6 +171,8 @@ $(function(){
      var lang =$('#my_lang').val();/* 
      if($('#lang').val()==lang){ */
     	 $("select option[value="+lang+"]").attr("selected", true);
+     var tel1 =$('#tel11').val();
+    	 $("select option[value="+tel1+"]").attr("selected", true);
 });
 function _leavesubmit(f){			
 	if(!$("#mb_leavememo").val()) {
