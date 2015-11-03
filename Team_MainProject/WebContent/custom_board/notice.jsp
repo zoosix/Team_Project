@@ -139,14 +139,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				 <c:forEach var=d items="${list }">
+				 <%-- <c:forEach var=d items="${list }">
 					<tr>
 						<td>${d.n_No }</td>
 						<td>${d.n_Title }</td>
 						<td>${d.n_Regdate }</td>
 						<td>${d.n_Hit }</td>
 					</tr>
-				</c:forEach> 
+				</c:forEach>  --%>
 			</tbody>
 		</table>
 		<center>
