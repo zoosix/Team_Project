@@ -23,5 +23,11 @@
       WHERE email=#{email}
   </update>
 
+
+<select id="gtableListData" resultType="Gtable">
+    SELECT g_no,g_email,g_title,g_content,g_regdate 
+    FROM g_table ORDER BY g_no DESC
+ </select>
+
 </mapper>
 

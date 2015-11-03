@@ -68,7 +68,7 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a href="/" style="text-decoration: none;">Naduelmok</a>
+				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
 			<nav>
 			<ul class="sf-menu dropdown">
@@ -148,10 +148,12 @@
 					<div class="btn-group">
 						<button class="btn btn-default btn-sm dropdown-toggle"
 							type="button" data-toggle="dropdown" aria-expanded="false">
-							Small button <span class="caret"></span>
+							Small button <span class="caret"></span>	
 						</button>
 						<ul class="dropdown-menu" role="menu" style="height: 100px;">
 							<h3>야잉ㅁ</h3>
+							<a href="modify.do" ><h4>마이페이지</h4></a>
+							<a href="gtable.do" ><h4>내모임보기</h4></a>
 						</ul>
 					</div>
 					</form>
@@ -162,52 +164,13 @@
 		</header>
 	</div>
 
-	<div id="body">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
-		</ul>
-		<br>
-		<div class="width">
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
-
-			</span>
-			<form method="get" action="">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
-		</div>
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-
+			
+			<jsp:include page="${slide }"></jsp:include>
 			<jsp:include page="${jsp }"></jsp:include>
+			
 
 		</div>
 		<!-- 	<footer>

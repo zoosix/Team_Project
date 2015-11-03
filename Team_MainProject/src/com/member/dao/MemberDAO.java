@@ -4,6 +4,7 @@ import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -63,6 +64,12 @@ public class MemberDAO {
     	session.update("modifyupdate", d);
     	session.close();
  
+    }
+    public static List<gtableDTO> gtableListData(){
+ 	   SqlSession session= ssf.openSession();
+ 	   List<gtableDTO> list = session.selectList("gtableListData");
+ 	   session.close(); //반환
+ 	   return list;
     }
 
 }

@@ -1,15 +1,17 @@
 package com.model;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.dao.MemberDAO;
-import com.member.dao.gtableDTO;
+import com.member.dao.*;
 
-public class MainModel implements Model{
+public class GtableModel  implements Model{
 
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -19,9 +21,10 @@ public class MainModel implements Model{
 
 		req.setAttribute("list", list);
 		req.setAttribute("title", "자유 게시판");
-		
-		req.setAttribute("slide", "../main/slide.jsp");
+		// <c:set>
+		// ${title}
 		req.setAttribute("jsp", "../mypage/gtable.jsp");
+		// ${jsp}
 		return "main/main.jsp";
 	}
 

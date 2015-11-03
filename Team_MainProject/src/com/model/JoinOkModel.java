@@ -12,7 +12,7 @@ public class JoinOkModel implements Model{
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
 		
-		req.setCharacterEncoding("EUC-KR");
+		req.setCharacterEncoding("UTF-8");
 		String email = req.getParameter("email");
 		String pwd = req.getParameter("pwd");
 		String name = req.getParameter("name");
