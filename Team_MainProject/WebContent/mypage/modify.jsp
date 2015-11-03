@@ -196,11 +196,11 @@ function joinsubmit(){
 		alert("비밀번호는 6자 이상입니다.");				
 		return;
 	}
-	/* var pw = $("#password").val(); 
+	 var pw = $("#password").val(); 
 	if ($("#password").val().length > 0 && (!pw.match(/^[a-zA-Z0-9]{6,20}$/) || !pw.match(/[a-z]/) || !pw.match(/[0-9]/))) { 
 		alert("비밀번호는 6~20자의 영문 대소문자와 숫자로 구성되어야 하며, 공백은 사용할 수 없습니다."); 
 		return;
-	} */
+	} 
 	
 	if($('#password').val()=="")
 	{
