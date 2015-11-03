@@ -51,23 +51,23 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="index.html"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 57px;">언어별</a>
+				<li><a href="examples.html" style="height: 60px;">언어별</a>
 					<ul>
-						<li><a href="three-column.html">한</a></li>
-						<li><a href="one-column.html">One Column</a></li>
+						<li><a href="three-column.html">영어</a></li>
+						<li><a href="one-column.html">중국어</a></li>
 						<li><a href="text.html">Text page</a></li>
 					</ul></li>
-				<li><a href="#" style="height: 56px;">지역별</a>
+				<li><a href="#" style="height: 60px;">지역별</a>
 					<ul>
 						<li><a href="#">Product One</a></li>
 						<li><a href="#">Product Two</a></li>
 						<li><a href="#">Product Three</a></li>
 					</ul></li>
-				<li><a href="#" style="height: 56px;">고객센터</a>
+				<li><a href="#" style="height: 60px;">고객센터</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
+						<li><a href="#">QnA</a></li>
+						<li><a href="#">FnQ</a></li>
 					</ul></li>
 			</ul>
 			<div class="clear"></div>
@@ -127,6 +127,7 @@
 	</div>
 
 	<div id="body">
+		<div class="width">
 		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
 			<li><img src="images/main/slide1.jpg" />
 				<h3>안녕하세요</h3></li>
@@ -140,7 +141,6 @@
 			<li><img src="images/main/slide8.jpg" /></li>
 		</ul>
 		<br>
-		<div class="width">
 			<span class="hero-unit"
 				style="font-stretch: extra-condensed; !important">
 				<h1>Hello, Naduelmok!</h1> <Br>
@@ -168,6 +168,7 @@
 			</form>
 		</div>
 
+	</div>
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
 
@@ -179,6 +180,5 @@
 			<div class="clear"></div>
 		</div>
 	</footer>  -->
-	</div>
 </body>
 </html>

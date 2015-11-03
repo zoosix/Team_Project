@@ -17,6 +17,7 @@ public class Notice_BoardListModel implements Model {
 
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println(111111);
 		SimpleDateFormat sdf=
 				new SimpleDateFormat("yyyy-MM-dd");
 		String strPage=req.getParameter("page");
@@ -42,11 +43,8 @@ public class Notice_BoardListModel implements Model {
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);
 		
-		// <c:set>
-		// ${title}
-		/*req.setAttribute("jsp", "../board/board_list.jsp");*/
-		// ${jsp}
-		return "../custom_board/notice.jsp";
+		req.setAttribute("jsp", "../custom_board/notice_board.jsp");
+		return "custom_board/notice.jsp";
 	}
 
 }

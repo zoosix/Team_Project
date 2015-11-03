@@ -4,7 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.*;
-// XML ÆÄ¼­ 
+// XML ï¿½Ä¼ï¿½ 
 public class HandlerMapping extends DefaultHandler{
     Map map=new HashMap();
 	@Override
@@ -13,7 +13,6 @@ public class HandlerMapping extends DefaultHandler{
 		{
 			if(qName.equals("bean"))
 			{
-				// ¼Ó¼º 
 				String id=attributes.getValue("id");
 				String cls=attributes.getValue("class");
 				Class clsName=Class.forName(cls);

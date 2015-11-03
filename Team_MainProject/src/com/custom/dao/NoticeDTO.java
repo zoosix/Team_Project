@@ -6,6 +6,7 @@ public class NoticeDTO {
 	private String n_Content;
 	private int n_Hit;
 	private Date n_Regdate;
+	
 	public int getN_No() {
 		return n_No;
 	}

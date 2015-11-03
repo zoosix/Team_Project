@@ -25,9 +25,8 @@ public class NoticeDAO {
     public static List<NoticeDTO> notice_boardListData(Map map)
     {
     	SqlSession session=ssf.openSession();
-    	List<NoticeDTO> list=
-    			session.selectList("notice_boardListData",map);
-    	session.close();// ��ȯ
+    	List<NoticeDTO> list=session.selectList("notice_boardListData",map);
+    	session.close();
     	return list;
     }
     public static int notice_boardTotalPage()

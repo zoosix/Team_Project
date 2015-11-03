@@ -21,7 +21,7 @@
    <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
   
   <!-- 고객센터  -->
-  <bean id="notice" class="com.model.Notice_BoardListModel.java"/>
+  <bean id="notice" class="com.model.Notice_BoardListModel"/>
   
 </beans>
   <!-- endElement() -->
