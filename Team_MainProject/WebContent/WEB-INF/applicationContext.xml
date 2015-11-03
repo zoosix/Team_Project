@@ -20,6 +20,9 @@
   <bean id="modify" class="com.model.MyModifyModel"/>
    <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
   
+  <!-- 고객센터  -->
+  <bean id="notice" class="com.model.Notice_BoardListModel.java"/>
+  
 </beans>
   <!-- endElement() -->
   <!-- endDocument() -->
