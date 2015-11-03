@@ -1,4 +1,4 @@
-package cutom_board.dao;
+package com.custom.dao;
 import java.util.*;
 public class NoticeDTO {
 	private int n_No;

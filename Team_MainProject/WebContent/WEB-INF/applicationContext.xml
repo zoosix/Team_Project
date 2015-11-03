@@ -22,6 +22,9 @@
      <bean id="gtable" class="com.model.GtableModel"/>	
   
   
+  <!-- 고객센터  -->
+  <bean id="notice" class="com.model.Notice_BoardListModel.java"/>
+  
 </beans>
   <!-- endElement() -->
   <!-- endDocument() -->
