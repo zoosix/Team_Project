@@ -82,7 +82,7 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a href="/" style="text-decoration: none;">Naduelmok</a>
+				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
 			<nav>
 			<ul class="sf-menu dropdown">

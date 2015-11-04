@@ -62,11 +62,11 @@
 					<h2>보드게임과 함께하는 만남</h2>
 					<p style="font: 맑은고딕;">같이 미쳐봅시다!</p>
 				<div class="mask">
-					<h2>${dto.g_title }</h2>
-					<p sstyle="font: 맑은고딕;">${dto.g_content }</p>
+					<h2>${dto.m_title }</h2>
+					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
 						<li>접수마감 : <span>2015-10-30</span></li>					
-						<li>내아이디 : ${dto.g_email }
+						<li>내아이디 : ${dto.m_email }
 						</li>
 						<a href="meeting_detail.do" class="info">모임참여</a>
 						<a href="#" class="info">찜하기!</a>
@@ -86,7 +86,7 @@
 					<p style="font: 맑은고딕;">111111111111</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
 						<li>접수마감 : <span>2015-10-30</span></li>					
-						<li>내아이디 : ${dto.g_email }
+						<li>내아이디 : ${dto.m_email }
 						</li>
 						<a href="#" class="info">모임참여</a>
 						<a href="#" class="info">찜하기!</a>

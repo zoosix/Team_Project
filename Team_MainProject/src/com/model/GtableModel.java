@@ -20,7 +20,6 @@ public class GtableModel  implements Model{
 		List<gtableDTO> list=MemberDAO.gtableListData();
 
 		req.setAttribute("list", list);
-		req.setAttribute("title", "자유 게시판");
 		// <c:set>
 		// ${title}
 		req.setAttribute("jsp", "../mypage/gtable.jsp");

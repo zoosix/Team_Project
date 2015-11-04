@@ -72,6 +72,13 @@ public class MemberDAO {
  	   return list;
     }
     
+    public static List<MeetingDTO> meetingTableListData(){
+  	   SqlSession session= ssf.openSession();
+  	   List<MeetingDTO> list = session.selectList("meetingTableListData");
+  	   session.close();
+  	   return list;
+     }
+    
     public static List<gtableDTO> searchMeeting(String word){
   	   SqlSession session= ssf.openSession();
   	   List<gtableDTO> list = session.selectList("searchMeeting", word);
