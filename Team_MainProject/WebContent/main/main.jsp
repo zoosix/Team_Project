@@ -82,7 +82,7 @@
 		<header>
 		<div class="width">
 			<h1>
-				<a href="/" style="text-decoration: none;">Naduelmok</a>
+				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
 			<nav>
 			<ul class="sf-menu dropdown">
@@ -113,18 +113,17 @@
 			<span id="Log_group"
 				style="float: right; margin: 23px; margin-right: 100px; !important">
 				<c:if test="${sessionScope.email==null }">
-					<button type="button" class="btn btn-default">Sign UP</button>
-					<button type="button" class="btn btn-default">Login</button>
+					<a href="join.do"><button type="button" class="btn btn-default">SignUP</button></a>
 					<!-- Button trigger modal -->
 					<!-- Trigger the modal with a button -->
 					<button type="button" class="btn btn-info "
-						data-toggle="modal" data-target="#myModal">Open Small
-						Modal</button>
+						data-toggle="modal" data-target="#myModal">&nbsp;&nbsp;Login&nbsp;&nbsp;</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" role="dialog">
 						<div class="modal-dialog modal-sm">
 							<div class="modal-content">
+							<form name="loginFrm" method="post" action="login_check.do">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title">Login</h4>
@@ -132,38 +131,54 @@
 								<div class="modal-body">
 									<div class="form-group">
 									  <label for="usr">Name:</label>
-									  <input type="text" class="form-control" id="usr">
+									  <input type="text" class="form-control" name="email" id="email">
 									</div>
 									<div class="form-group">
 									  <label for="pwd">Password:</label>
-									  <input type="password" class="form-control" id="pwd">
+									  <input type="password" class="form-control"name="pwd" id="pwd">
 									</div>
 								</div>
 								<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+										data-dismiss="modal" onclick="login()">Login</button>
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Close</button>
 								</div>
+								</form>
 							</div>
 						</div>
 					</div>
-
 			 </c:if> 
 			 <c:if test="${sessionScope.email!=null }">
-		          <form method=post action="logout.do" id="logout_frm">
-					<button type="button" class="btn btn-dager"  ><a href="logout.do" class="mainGo">Logout</a></button>
-
-				</c:if> <c:if test="${sessionScope.email!=null }">
-					<button type="button" class="btn btn-dager">Logout</button>
-
-					<div class="btn-group">
+		       
+					      <ul class="nav navbar-nav">
+						        <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.name}님 환영합니다! <span class="glyphicon glyphicon-user pull-right"></span></a>
+						          <ul class="dropdown-menu">
+						            <li><a href="modify.do">회원정보 수정 <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+						            
+						            <li><a href="meeting.do">내모임보기 <span class="badge pull-right"> 42 </span></a></li>
+						          
+						            <li><a href="wish.do">위시리스트 <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+						      
+						            <li><a href="logout.do">로그아웃 <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						          </ul>
+						        </li>
+						      </ul>
+					
+					
+					<!-- <div class="btn-group">
 						<button class="btn btn-default btn-sm dropdown-toggle"
 							type="button" data-toggle="dropdown" aria-expanded="false">
-							Small button <span class="caret"></span>
+							Mypage <span class="caret"></span>	
 						</button>
 						<ul class="dropdown-menu" role="menu" style="height: 100px;">
-							<h3>야잉ㅁ</h3>
+							<a href="modify.do" ><button type="button" class="btn btn-default"></button><h4>내 모임보기</h4></a>
+							<a href="gtable.do" ><h4>위시리스트</h4></a>
+							<a href="gtable.do" ><h4>정보수정</h4></a>
 						</ul>
-					</div>
+					</div> -->
+			
 				</c:if>
 			</span>
 		</div>
@@ -172,52 +187,12 @@
 	</div>
 
 
-	<!-- <div id="body">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
-		</ul>
-		<br>
-		<div class="width">
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
 
-			</span>
-			<form method="get" action="search.do" id="searchFrm">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어" id="word" name="word">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" id="btnSub" onclick="search()">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
-		</div>
- -->
+
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-
+			<jsp:include page="${slide }"></jsp:include>
 			<jsp:include page="${jsp }"></jsp:include>
 
 		</div>

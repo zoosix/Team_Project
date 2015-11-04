@@ -19,6 +19,7 @@ public class MainModel implements Model{
 		req.setAttribute("list", list);
 		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
+		req.setAttribute("slide", "../main/slide.jsp");
 
 		return "main/main.jsp";
 	}
