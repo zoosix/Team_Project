@@ -54,7 +54,27 @@
 		}
 		f.submit();
 	}
-
+	
+	function search()
+	{
+		var f=document.searchFrm;
+		if(f.word.value=="")
+		{   alert("이메일을 입력해주세요.");
+			f.word.focus();
+			return;
+		}
+	}
+	
+	$(function(){
+		$('#btnSub').click(function(){
+			var word=$('#word').val();
+			if(word=="")
+			{
+				alert("검색어를 입력해 주세요");
+			}
+			$('#searchFrm').submit();
+		});
+	});
 </script>
 </head>
 <body>
@@ -152,7 +172,7 @@
 	</div>
 
 
-	<div id="body">
+	<!-- <div id="body">
 		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
 			<li><img src="images/main/slide1.jpg" />
 				<h3>안녕하세요</h3></li>
@@ -172,11 +192,11 @@
 				<h1>Hello, Naduelmok!</h1> <Br>
 
 			</span>
-			<form method="get" action="">
+			<form method="get" action="search.do" id="searchFrm">
 				<div class="col-lg-6">
 					<div class="input-group"
 						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
+						<input type="text" class="form-control" placeholder="보유언어" id="word" name="word">
 					</div>
 				</div>
 				<span class="glyphicon glyphicon-transfer"
@@ -187,13 +207,13 @@
 						style="width: 75%; margin-left: 95px; margin-top: 10px;">
 						<input type="text" class="form-control" placeholder="교환언어">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
+							<button class="btn btn-default" type="button" id="btnSub" onclick="search()">Search</button>
 						</span>
 					</div>
 				</div>
 			</form>
 		</div>
-
+ -->
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">

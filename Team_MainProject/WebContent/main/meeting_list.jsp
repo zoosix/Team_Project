@@ -26,7 +26,7 @@
 	 $('#border_main2').show();
 	});
 });
- 
+​
  $(window).scroll(function () {
      var scrollHeight = $(window).scrollTop() + $(window).height();
      var documentHeight = $(document).height();
@@ -41,8 +41,6 @@
      }
  });
  
- 
-
 </script>
 </head>
 <body>
@@ -70,7 +68,7 @@
 						<li>접수마감 : <span>2015-10-30</span></li>					
 						<li>내아이디 : ${dto.g_email }
 						</li>
-						<a href="#" class="info">모임참여</a>
+						<a href="meeting_detail.do" class="info">모임참여</a>
 						<a href="#" class="info">찜하기!</a>
 					</ul>
 				</div>

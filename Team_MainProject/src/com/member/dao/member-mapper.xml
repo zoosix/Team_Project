@@ -28,6 +28,11 @@
     SELECT g_no,g_email,g_title,g_content,g_regdate 
     FROM g_table ORDER BY g_no DESC
  </select>
+ 
+<select id="searchMeeting" resultType="Gtable" parameterType="String">
+    SELECT g_no,g_email,g_title,g_content,g_regdate 
+    FROM g_table WHERE g_content LIKE '%'||#{word}||'%' ORDER BY g_no DESC
+</select>
 
 </mapper>
 
