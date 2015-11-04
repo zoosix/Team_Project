@@ -11,23 +11,28 @@
         SELECT pwd,nickname,name,nation,tel,lang,admin,intro,sex FROM lmember WHERE email=#{email}
     </select>
 
-    <insert id="memberInsert" parameterType="Member">
+<insert id="memberInsert" parameterType="Member">
     INSERT INTO Lmember VALUES(#{email},#{pwd},#{name},#{nickname},#{sex},#{age},
     	#{nation},#{tel},#{lang},#{intro},#{photo},#{admin})
-  	</insert>
+</insert>
 
     <!-- 회원정보수정 -->
 <!--     <select id="modifyselect" resultType="Member" parameterType="String"></select> -->
-    <update id="modifyupdate" parameterType="Member">
+<update id="modifyupdate" parameterType="Member">
       UPDATE lmember SET pwd=#{pwd},nickname=#{nickname},tel=#{tel},lang=#{lang},intro=#{intro} 
       WHERE email=#{email}
-  </update>
+</update>
 
 
 <select id="gtableListData" resultType="Gtable">
     SELECT g_no,g_email,g_title,g_content,g_regdate 
     FROM g_table ORDER BY g_no DESC
- </select>
+</select>
+ 
+  <select id="meetingTableListData" resultType="Meetingtable">
+    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end
+    FROM meeting ORDER BY m_no DESC
+ </select> 
  
 <select id="searchMeeting" resultType="Gtable" parameterType="String">
     SELECT g_no,g_email,g_title,g_content,g_regdate 

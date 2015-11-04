@@ -216,7 +216,7 @@ $(function(){
 	</div>
 	<div id="div_2">
 		<div class="div_2-1">
-			<p><img src="image/bg.jpg"></p>
+			<p><img src="meeting/image/bg.jpg"></p>
 			<ul>
 				<li>모집인원: 6명</li>
 				<li>마감일: 2일 전</li>
