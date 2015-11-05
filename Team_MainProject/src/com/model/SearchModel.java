@@ -18,6 +18,7 @@ public class SearchModel implements Model{
 		System.out.println(word);
 		List<gtableDTO> list=MemberDAO.searchMeeting(word);
 		req.setAttribute("list", list);
+		req.setAttribute("slide", "../main/slide.jsp");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
 		
 		return "main/main.jsp";

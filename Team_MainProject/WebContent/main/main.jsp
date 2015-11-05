@@ -7,8 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>나들목</title>
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
+  <link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
@@ -65,16 +66,7 @@
 		}
 	}
 	
-	$(function(){
-		$('#btnSub').click(function(){
-			var word=$('#word').val();
-			if(word=="")
-			{
-				alert("검색어를 입력해 주세요");
-			}
-			$('#searchFrm').submit();
-		});
-	});
+
 </script>
 </head>
 <body>
@@ -149,19 +141,19 @@
 						</div>
 					</div>
 			 </c:if> 
-			 <c:if test="${sessionScope.email!=null }">
+	 <c:if test="${sessionScope.email!=null }">
 		       
 					      <ul class="nav navbar-nav">
 						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.name}님 환영합니다! <span class="glyphicon glyphicon-user pull-right"></span></a>
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white; padding-top:0px; ">${sessionScope.name}님 환영합니다  <span class="glyphicon glyphicon-user pull-right"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="modify.do">회원정보 수정 <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-						            
-						            <li><a href="meeting.do">내모임보기 <span class="badge pull-right"> 42 </span></a></li>
-						          
-						            <li><a href="wish.do">위시리스트 <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-						      
-						            <li><a href="logout.do">로그아웃 <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						            <li><a href="modify.do"><span class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
+						            <br>
+						            <li> <a href="meeting.do"><span class="badge pull-right"> 2 </span>내모임보기</a></li>
+						          <br>
+						            <li><a href="wish.do"><span class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>
+						      <br>
+						            <li><a href="logout.do"><span class="glyphicon glyphicon-log-out pull-right"></span>로그아웃 </a></li>
 						          </ul>
 						        </li>
 						      </ul>
