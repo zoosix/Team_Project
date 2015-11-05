@@ -44,7 +44,7 @@ public class Notice_BoardListModel implements Model {
 		req.setAttribute("curpage", curpage);
 		
 		req.setAttribute("jsp", "../custom_board/notice_board.jsp");
-		return "custom_board/notice.jsp";
+		return "custom_board/custom_main.jsp";
 	}
 
 }

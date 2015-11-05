@@ -3,14 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<div id="body">
 		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
 			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
+				<h3>안녕하세요</h3></li>	
 			<li><img src="images/main/slide2.jpg" />
 				<h3>새로운 친구를만나보세요.</h3></li>
 			<li><img src="images/main/slide3.jpg" /></li>

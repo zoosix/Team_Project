@@ -5,7 +5,7 @@ CREATE TABLE Lmember(
 	pwd VARCHAR2(10) CONSTRAINT Lmember_nn_pwd NOT NULL,
 	name VARCHAR2(34) CONSTRAINT Lmember_nn_name NOT NULL,
 	nickname VARCHAR2(34) CONSTRAINT Lmember_nn_nickname NOT NULL,
-	sex CHAR(4),
+	sex CHAR(6),
 	age NUMBER,
 	nation VARCHAR2(20) CONSTRAINT Lmember_nn_nation NOT NULL,
 	tel VARCHAR2(20) CONSTRAINT Lmember_nn_tel NOT NULL,
@@ -17,10 +17,10 @@ CREATE TABLE Lmember(
 	CONSTRAINT Lmember_ck_sex CHECK(sex IN('남자','여자')),
      CONSTRAINT Lmember_ck_admin CHECK(admin IN('y','n'))
 );
-*/
-INSERT INTO Lmember (email,pwd,name,nickname,nation,tel,lang,admin) VALUES('488654@naver.com','1234','joo','kidjoo','Korea','111-1111','KOR','y');
+
+INSERT INTO Lmember (email,pwd,name,nickname,nation,tel,lang,admin,sex) VALUES('488654@naver.com','1234','joo','kidjoo','KOR','010-1111-1111','JPN','y','여자');
 COMMIT;
-/*
+
 DROP TABLE g_table;
 CREATE TABLE g_table(
 g_no NUMBER CONSTRAINT gt_nn_gno NOT NULL,
@@ -32,7 +32,10 @@ g_hit NUMBER DEFAULT 0,
 g_regdate DATE DEFAULT SYSDATE,
 CONSTRAINT gt_pk_gno PRIMARY KEY(g_no)
 );
-
+*/
+INSERT INTO g_table (g_no,g_email,g_title,g_content,g_regdate) VALUES((SELECT NVL(MAX(g_no)+1,1) FROM g_table),'488654@naver.com','영22222222222222람~~!!','마포구 영어스터디구해요',SYSDATE);
+COMMIT;
+/*
 CREATE TABLE Interest(
  i_no NUMBER CONSTRAINT it_nn_ino NOT NULL,
  i_email VARCHAR2(30) CONSTRAINT it_nn_email NOT NULL,

@@ -68,7 +68,7 @@ public class MemberDAO {
     public static List<gtableDTO> gtableListData(){
  	   SqlSession session= ssf.openSession();
  	   List<gtableDTO> list = session.selectList("gtableListData");
- 	   session.close(); //반환
+ 	   session.close();
  	   return list;
     }
 

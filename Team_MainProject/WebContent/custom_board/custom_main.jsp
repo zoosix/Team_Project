@@ -119,5 +119,58 @@
 	</div>
 	<jsp:include page="${jsp}"></jsp:include>
 	
+	<%-- <div id="body">
+		<h2>공지사항</h2>
+		<p>나들목의 중요한 소식을 알려 드립니다.</p>
+			 <div class="col-lg-6" style="margin-left:71%;">
+				<div class="input-group" style="width:55%;">
+					<input type="text" class="form-control" placeholder="Search for...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+					</span>
+				</div>
+			</div> 
+		<table class="table table-bordered" style="margin-top:6%;">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Hit</th>
+				</tr>
+			</thead>
+			<tbody>
+				 <c:forEach var=d items="${list }">
+					<tr>
+						<td>${d.n_No }</td>
+						<td>${d.n_Title }</td>
+						<td>${d.n_Regdate }</td>
+						<td>${d.n_Hit }</td>
+					</tr>
+				</c:forEach> 
+			</tbody>
+		</table>
+		<center>
+			<nav1>
+			<ul class="pagination">
+				<li><a href="#" aria-label="Previous"> <span
+						aria-hidden="true">&laquo;</span>
+				</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+			</nav1>
+		</center>
+		<!-- 	<footer>
+		<div class="footer-content width">
+			<div class="clear"></div>
+		</div>
+	</footer>  -->
+	</div> --%>
 </body>
 </html>
