@@ -29,7 +29,7 @@
     FROM g_table ORDER BY g_no DESC
 </select>
  
-  <select id="meetingTableListData" resultType="Meetingtable">
+  <select id="meetingTableListData" resultType="Meeting">
     SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end
     FROM meeting ORDER BY m_no DESC
  </select> 

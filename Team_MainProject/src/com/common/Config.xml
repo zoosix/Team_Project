@@ -4,11 +4,10 @@
 <configuration>
   <properties resource="com/common/db.properties"/>
   <typeAliases>
-     <typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
-	<typeAlias type="com.member.dao.MeetingDTO" alias="Meetingtable"/>
-   <typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
-     
-     <typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
+	<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
+	<typeAlias type="com.meeting.dao.MeetingDTO" alias="Meeting"/>
+	<typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
+	<typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
 
   </typeAliases>
   <environments default="development">
@@ -24,6 +23,7 @@
   </environments>
   <mappers>
     <mapper resource="com/member/dao/member-mapper.xml"/>
+    <mapper resource="com/meeting/dao/meeting-mapper.xml"/>
     <mapper resource="com/custom/dao/notice-mapper.xml"/>
   </mappers>
 </configuration>

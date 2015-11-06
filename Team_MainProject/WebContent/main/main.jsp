@@ -98,7 +98,7 @@
 			</h1>
 			<nav>
 			<ul class="sf-menu dropdown">
-				<li class="selected"><a href="index.html"><font
+				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
 				<li><a href="examples.html" style="height: 57px;">언어별</a>
 					<ul>
