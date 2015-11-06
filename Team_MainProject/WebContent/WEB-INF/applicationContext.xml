@@ -14,6 +14,7 @@
   <bean id="idcheck" class="com.model.IdCheckModel"></bean>
   <bean id="join_ok" class="com.model.JoinOkModel"/>	
   <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
+  <bean id="daymeet" class="com.model.daymeetModel"/>
   
   <!-- 마이페이지 (Mypage)  -->
   <bean id="meeting" class="com.model.MyMeetingModel"/>

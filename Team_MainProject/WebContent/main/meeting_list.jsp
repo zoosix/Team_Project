@@ -6,7 +6,7 @@
 <head>
   <title>Bootstrap Case</title>
   <meta charset="utf-8">
-
+<script type="text/javascript" src="js/ajax/ajax2.js"></script>
   <script type="text/javascript">
  $(function() {
 	 $('#init').addClass('active');
@@ -27,15 +27,26 @@
  $('#cal').click(function() {
 	  $(this).addClass('active');
 	  $('#border_main3').show();
-	 $('#border_main').hide();
-	 $('#border_main2').hide();
 	});
  $('.datepicker').datepicker()
  });
+ 
+ 
+  function pushday(){
+	   var daymeet=$('#day_meeting').attr("value");
+	   $('#day').val(daymeet);
+	    var param="daymeet="+daymeet;
+		 sendMessage("GET", "daymeet.do", param, daymeet);
+	  }
 
- function pushday(){
-	 var daymeet=$('#day_meeting').val();
+   function daymeet(){
+		   if(httpRequest.readyState==4){
+				if(httpRequest.status==200){
+					$('.modal-footer').html(httpRequest.responseText);	
+				}    
+		   }
  }
+		
   </script>
 </head>
 <body>
@@ -54,8 +65,11 @@
 		  <c:forEach var="dto" items="${list }">
 
 			<div class="view view-first">
-				<img src="images/main/meeting.jpg" />
-				<h2>${dto.m_title }</h2>
+			<a href="#" style="background-image: url(../images/main/meeting.jpg) no-repeat center center fixed;">
+		<div class="nametag-photo-name groupCard--title">
+				<img src="images/main/meeting.jpg" 	/>
+				<h3>${dto.m_title }</h3>
+			</div></a>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>
 					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>
@@ -93,39 +107,47 @@
 			</div>
 		</c:forEach>
 	</div>
+	
+	
+	
 		<div id="border_main3"style="margin-left: 10px; margin-top: 50px; z-index: 900; display: none">
-	<!--  달력 -->
-	<div class="container">
-  <!-- Modal -->
-  <div class="modal fade" id="myModal2" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="color:black;">날짜별 모임</h4>
-        </div>
-        <div class="modal-body">
-        <!-- 캘린다 -->
-           <input type=date name="day_meeting" id="day_meeting" onchange="pushday()" value="">
-           <br><br>
-        <!--  -->
-        <div class="modal-footer">
-           list:1
-        </div>	
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-    <!--  달력 -->       
-     </div>
+		
+		
+		
+					<!--  달력 -->
+				  <!-- Modal -->
+				  <div class="modal fade" id="myModal2" role="dialog">
+				    <div class="modal-dialog">
+				    
+				      <!-- Modal content-->
+				      <div class="modal-content">
+				        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title" style="color:black;">날짜별 모임</h4>
+				        </div>
+				        <div class="modal-body">
+						        <!-- 캘린다 -->
+						        <!-- <form name="dayFrm" method="post" action="main.do">  "day.value=(this).value-->
+						           <input type=date name="day_meeting" class="day_meeting" id="day_meeting" onchange="pushday()" value="${partDate }">
+						            <input type=text name="day" id="day"  value="${partDate }"> 
+						           <br><br>
+						 </div>
+				        <div class="modal-footer">
+				        <span id="daylist"> </span>       
+				       ------
+							        <c:forEach var="d" items="${dlist }">
+							                                        모임타이틀: ${d.m_title }
+				                    </c:forEach>  
+				           
+				        </div>	
+				        <div class="modal-footer">
+				          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        </div>
+				      </div>  
+				    </div>
+		 </div>
+				   
+     
       	
       	
 </body>
