@@ -38,7 +38,7 @@ $(window).scroll(function () {
 						<li>접수마감 : <span>2015-10-30</span></li>					
 						<li>내아이디 : ${dto.g_email }
 						</li>
-						<a href="#" class="info">모임참여</a>
+						<a href="../meeting/meeting_detail.jsp" class="info">모임참여</a>
 						<a href="#" class="info">찜하기!</a>
 					</ul>
 				</div>

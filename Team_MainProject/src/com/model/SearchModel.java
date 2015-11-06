@@ -1,28 +1,25 @@
 package com.model;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.dao.MeetingDTO;
 import com.member.dao.MemberDAO;
 import com.member.dao.gtableDTO;
 
-public class MainModel implements Model{
+public class SearchModel implements Model{
 
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		//List<gtableDTO> list=MemberDAO.gtableListData();
-		List<MeetingDTO> list=MemberDAO.meetingTableListData();
+		String word;
+		word = req.getParameter("word");
+		System.out.println(word);
+		List<gtableDTO> list=MemberDAO.searchMeeting(word);
 		req.setAttribute("list", list);
-		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
-		req.setAttribute("slide", "../main/slide.jsp");
-
+		
 		return "main/main.jsp";
 	}
 
