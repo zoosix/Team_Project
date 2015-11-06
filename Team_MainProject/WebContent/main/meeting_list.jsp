@@ -25,6 +25,16 @@
 	});
  });
   </script>
+  
+<style type="text/css">
+.inline-block, .inlineBlock {
+    display: inline-block;
+    zoom: 1;
+}
+.padding-none, .paddingNone {
+    padding: 0!important;
+}
+</style>
 </head>
 <body>
 
@@ -41,7 +51,11 @@
 		  <c:forEach var="dto" items="${list }">
 
 			<div class="view view-first">
+			<h3 class="padding-none inline-block loading" itemprop="name">
+					${dto.m_title }
 				<img src="images/main/meeting.jpg" />
+				
+				</h3>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>
 					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>

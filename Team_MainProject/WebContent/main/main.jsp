@@ -75,9 +75,21 @@
 			$('#searchFrm').submit();
 		});
 	});
+
 </script>
+
+<style type="text/css">
+.inline-block, .inlineBlock {
+    display: inline-block;
+    zoom: 1;
+}
+.padding-none, .paddingNone {
+    padding: 0!important;
+}
+</style>
 </head>
 <body>
+
 	<div id="container">
 		<header>
 		<div class="width">
@@ -183,12 +195,9 @@
 			</span>
 		</div>
 		<div class="clear"></div>
+		
 	
 	</div>
-
-
-
-
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
@@ -197,5 +206,7 @@
 
 		</div>
 </header>
+
+    <pre id="output"></pre>
 </body>
 </html>

@@ -6,7 +6,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
 
+</script>
 </head>
 <body>
 	<div id="body">
@@ -28,11 +30,11 @@
 				style="font-stretch: extra-condensed; !important">
 				<h1>Hello, Naduelmok!</h1> <Br>
 			</span>
-			<form method="get" action="">
+			<form method="get" id="searchFrm" action="search.do">
 				<div class="col-lg-6">
 					<div class="input-group"
 						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
+						<input type="text" class="form-control" placeholder="보유언어" name ="word">
 					</div>
 				</div>
 				<span class="glyphicon glyphicon-transfer"
@@ -43,7 +45,7 @@
 						style="width: 75%; margin-left: 95px; margin-top: 10px;">
 						<input type="text" class="form-control" placeholder="교환언어">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
+							<button class="btn btn-default" type="button" id="btnSub">Search</button>
 						</span>
 					</div>
 				</div>
