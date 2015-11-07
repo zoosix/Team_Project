@@ -1,5 +1,6 @@
 package com.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,38 +15,20 @@ public class Notice_BoardContentDataModel implements Model {
 	@Override
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-				String rPage=req.getParameter("rPage");
-				if(rPage==null)
-					rPage="1";
-				int rcurpage=Integer.parseInt(rPage);
-				
+		SimpleDateFormat sdf=
+				new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
 				String strNo=req.getParameter("no");
 				String strPage=req.getParameter("page");
-//				NoticeDTO d=NoticeDAO.notice_boardContentData()(Integer.parseInt(strNo));
-//				List<NoticeDTO> temp=
-//						NoticeDAO.notice_boardContentData(Integer.parseInt(strNo));
-//				List<NoticeDTO> list=
-//						new ArrayList<NoticeDTO>();
-//				int j=0;
-//				int pagecnt=(rcurpage*5)-5;
-//				for(int i=0;i<temp.size();i++)
-//				{
-//					if(j<5 && i>=pagecnt)
-//					{
-//						NoticeDTO dd=temp.get(i);
-//						list.add(dd);
-//						j++;
-//					}
-//				}
-//				//int rtotal=NoticeDAO.notice_boardTotalPage(Integer.parseInt(strNo));
-//				
-//				req.setAttribute("rcurpage", rcurpage);
-//			//	req.setAttribute("rtotal", rtotal);
-//				req.setAttribute("rlist", list);
-//				req.setAttribute("d", d);
-//				req.setAttribute("curpage", strPage);
-//				req.setAttribute("jsp", "../board/board_content.jsp");
-				return "main/main.jsp";
+				System.out.println("NO:"+strNo);
+				System.out.println("page:"+strPage);
+				//
+				NoticeDTO list=NoticeDAO.notice_boardContentData(Integer.parseInt(strNo));
+				list.setDbday(sdf.format(list.getN_Regdate()));
+				System.out.println("list.title:"+list.getN_Title());
+				//
+				req.setAttribute("list",list);
+				req.setAttribute("jsp", "../custom_board/notice_board_content.jsp");
+				return "custom_board/custom_main.jsp";
 	}
 
 }

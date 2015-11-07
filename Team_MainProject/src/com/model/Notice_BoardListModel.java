@@ -17,11 +17,9 @@ public class Notice_BoardListModel implements Model {
 
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println(111111);
 		SimpleDateFormat sdf=
-				new SimpleDateFormat("yyyy-MM-dd");
+				new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 a");
 		String strPage=req.getParameter("page");
-		System.out.println("호롤:"+strPage);
 		if(strPage==null)
 			strPage="1";
 		int curpage=Integer.parseInt(strPage);

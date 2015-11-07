@@ -27,10 +27,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$('#e').click(function(){
-		
-	
-});
+
 </script>
 </head>
 <body>
@@ -46,20 +43,20 @@ $('#e').click(function(){
 					</span>
 				</div>
 			</div> 
-		<table class="table table-hover" style="margin-top:6%;">
+		<table class="table table-bordered" style="margin-top:6%;">
 			<thead>
 				<tr>
 					<th>No</th>
-					<a href=""><th>Title</th></a>
+					<th>Title</th>
 					<th>Date</th>
 					<th>Hit</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="d" items="${list}">
-					<tr id=e>
+					<tr>
 						<td id="no">${d.n_No }</td>
-						<td>${d.n_Title }</td>
+						<td><a href="notice_content.do?no=${d.n_No}&page=${curpage}"> ${d.n_Title }</a></td>
 						<td>${d.dbday }</td>
 						<td>${d.n_Hit }</td>
 					</tr>

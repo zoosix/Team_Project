@@ -7,8 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>나들목</title>
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
+  <link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
@@ -17,11 +18,14 @@
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
+
 <link
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+	
+<script type="text/javascript" src="js/ajax/ajax2.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
@@ -75,6 +79,7 @@
 			$('#searchFrm').submit();
 		});
 	});
+
 
 </script>
 
@@ -161,35 +166,25 @@
 						</div>
 					</div>
 			 </c:if> 
-			 <c:if test="${sessionScope.email!=null }">
+	 <c:if test="${sessionScope.email!=null }">
 		       
 					      <ul class="nav navbar-nav">
+<!-- 					       <style type="text/css">
+					       a.dropdown-toggle:HOVER{background-color:transparent !important;}
+					       </style> -->
 						        <li class="dropdown">
-						          <a href="#" class="dropdown-toggle" data-toggle="dropdown">${sessionScope.name}님 환영합니다! <span class="glyphicon glyphicon-user pull-right"></span></a>
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white; padding-top:0px;">${sessionScope.name}님 환영합니다  <span class="glyphicon glyphicon-user pull-right"></span></a>
 						          <ul class="dropdown-menu">
-						            <li><a href="modify.do">회원정보 수정 <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-						            
-						            <li><a href="meeting.do">내모임보기 <span class="badge pull-right"> 42 </span></a></li>
-						          
-						            <li><a href="wish.do">위시리스트 <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-						      
-						            <li><a href="logout.do">로그아웃 <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+						            <li><a href="modify.do"><span class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
+						            <br>
+						            <li> <a href="meeting.do"><span class="badge pull-right"> 2 </span>내모임보기</a></li>
+						          <br>
+						            <li><a href="wish.do"><span class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>
+						      <br>
+						            <li><a href="logout.do"><span class="glyphicon glyphicon-log-out pull-right"></span>로그아웃 </a></li>
 						          </ul>
 						        </li>
 						      </ul>
-					
-					
-					<!-- <div class="btn-group">
-						<button class="btn btn-default btn-sm dropdown-toggle"
-							type="button" data-toggle="dropdown" aria-expanded="false">
-							Mypage <span class="caret"></span>	
-						</button>
-						<ul class="dropdown-menu" role="menu" style="height: 100px;">
-							<a href="modify.do" ><button type="button" class="btn btn-default"></button><h4>내 모임보기</h4></a>
-							<a href="gtable.do" ><h4>위시리스트</h4></a>
-							<a href="gtable.do" ><h4>정보수정</h4></a>
-						</ul>
-					</div> -->
 			
 				</c:if>
 			</span>
