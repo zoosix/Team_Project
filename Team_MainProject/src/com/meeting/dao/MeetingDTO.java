@@ -14,11 +14,19 @@ public class MeetingDTO {
 	private String m_place;
 	private String m_location;
 	private String m_email;
+	private String m_wish;
 	private String m_tel;
 	private String m_end;
 	private String m_filename;
 	private int m_filesize;
 	
+	
+	public String getM_wish() {
+		return m_wish;
+	}
+	public void setM_wish(String m_wish) {
+		this.m_wish = m_wish;
+	}
 	public int getM_filesize() {
 		return m_filesize;
 	}

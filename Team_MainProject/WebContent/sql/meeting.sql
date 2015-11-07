@@ -13,7 +13,8 @@ CREATE TABLE meeting(
   m_location VARCHAR2(100)  CONSTRAINT mt_nn_location NOT NULL,
   m_email VARCHAR2(30),
   m_tel VARCHAR2(30),
-  m_end VARCHAR2(10),
+  m_end VARCHAR2(10), 
+  m_wish NUMBER DEFAULT 0,
   m_filename VARCHAR2(260),
   m_filesize NUMBER,
   CONSTRAINT mt_pk_no PRIMARY KEY(m_no)

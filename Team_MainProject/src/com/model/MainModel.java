@@ -21,13 +21,7 @@ public class MainModel implements Model{
 
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
-			String partDate = req.getParameter("daymeet");
-			if(partDate==null) partDate=strdate;
-			List<MeetingDTO> dlist=MemberDAO.daybydayMeetingData(partDate);
-	        req.setAttribute("dlist", dlist);	
-	        System.out.println(partDate);
 
-			req.setAttribute("partDate", partDate);
 		req.setAttribute("list", list);
 		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");

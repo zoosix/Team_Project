@@ -9,6 +9,7 @@
 	<typeAlias type="com.meeting.dao.MeetingDTO" alias="Meeting"/>
 	<typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
 	<typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
+	<typeAlias type="com.meeting.dao.WishDTO" alias="Wish"/>
 
   </typeAliases>
   <environments default="development">

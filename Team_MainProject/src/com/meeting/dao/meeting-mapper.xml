@@ -18,4 +18,21 @@
 		FROM meeting
 		WHERE m_no=#{m_no}
 	</select>
+	
+	<insert id="meetingWish" parameterType="Wish">
+		<selectKey keyProperty="w_no" resultType="int" order="BEFORE">
+				SELECT NVL(MAX(w_no)+1,1) as w_no FROM wish
+		</selectKey>
+		INSERT INTO wish VALUES(#{w_no},#{w_mno},#{w_email})
+	</insert>
+	
+<!-- 	<select id="meetingDetail" resultType="Meeting" parameterType="int">
+	SELECT COUNT(*) FROM wish WHERE w_=Z_ID AND B_ZZIM=Z_NO;
+    </select> -->
+	
+<!-- 	<select id="zzimMeeting" resultType="Wish" parameterType="java.util.map">
+   SELECT w_no,w_mno,w_email FROM wish 
+    FROM meeting WHERE m_title LIKE '%'||#{word}||'%' ORDER BY m_no DESC
+</select> -->
+
 </mapper>
