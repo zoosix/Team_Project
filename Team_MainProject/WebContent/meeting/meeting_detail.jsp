@@ -101,7 +101,7 @@
 <!-- 모임 사진 및 기본 정보 -->
 		<div class="div_2-2">
 			<ul class="first">
-				<li>모임일자: ${d.m_meetingDate }</li>
+				<li>모임기간: ${d.m_meetingDate }</li>
 			</ul>
 			<ul class="second">
 				<li>참여신청: ${d.m_partDate }</li>
@@ -129,11 +129,16 @@
 				<li>언어2 참여자: 2명</li>
 			</ul>
 			<ul class="short_des">
-				<li>모임 요약설명: </li>
+				<li>모임 요약설명: ${d.m_summary } </li>
 			</ul>
 			<ul class="btn_list">
 				<li class="endApply">
-		     		<a href="#apply" onclick="applyCheck();">모임 참여하기</a>
+				<form id="applyForm" name="apply_form" method="post" action="meeting_apply.do"> 
+					<input type="hidden" name="email" value="${sessionScope.email }">
+					<input type="hidden" name="no" value="${d.m_no }">
+					<input type="submit" value="모임 참여하기">
+		     		<!-- <a href="#apply" onclick="applyCheck();">모임 참여하기</a> -->
+		     	</form>
 		    	</li>
 		    	<li class="wish">
 		     		<a href="#btn" onclick="wishCnt();">위시리스트</a>
@@ -147,7 +152,7 @@
 			<li class="title"><b>모임 개설자</b></li>
 			<li>
 				<img src="images\meeting\opener.png" width=70 height=70>
-				MINSYUUU     010-1234-5678     aaaa@naver.com
+				${d.m_email } ${d.m_tel }
 			</li>
 		</ul>
 	</div>

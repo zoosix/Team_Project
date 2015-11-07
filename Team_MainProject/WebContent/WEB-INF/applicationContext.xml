@@ -27,6 +27,7 @@
   <bean id="meeting_insert" class="com.model.MeetingInsertModel"/>
   <bean id="meeting_insert_ok" class="com.model.MeetingInsertOkModel"/>
   <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
+  <bean id="meeting_apply" class="com.model.MeetingApplyModel"/>
   <bean id="meeting_zzim" class="com.model.MeetingZzimModel"/>
   
 
