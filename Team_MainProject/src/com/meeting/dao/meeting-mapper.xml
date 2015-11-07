@@ -26,8 +26,8 @@
 		INSERT INTO wish VALUES(#{w_no},#{w_mno},#{w_email})
 	</insert>
 	
-<!-- 	<select id="meetingDetail" resultType="Meeting" parameterType="int">
-	SELECT COUNT(*) FROM wish WHERE w_=Z_ID AND B_ZZIM=Z_NO;
+<!--  	<select id="meetingDetail" resultType="int" parameterType="Wish">
+	SELECT COUNT(*) FROM wish WHERE w_mno=#{w_mno} AND w_email=#{w_email}
     </select> -->
 	
 <!-- 	<select id="zzimMeeting" resultType="Wish" parameterType="java.util.map">
