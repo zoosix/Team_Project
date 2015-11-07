@@ -31,6 +31,8 @@
   
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>
+  <bean id="notice_content" class="com.model.Notice_BoardContentDataModel"/>
+  
   
 </beans>
   <!-- endElement() -->

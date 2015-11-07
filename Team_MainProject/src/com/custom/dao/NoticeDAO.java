@@ -38,9 +38,10 @@ public class NoticeDAO {
     	session.close();
     	return total;
     }
-    public static NoticeDTO notice_boardContentData(){
+    
+    public static NoticeDTO notice_boardContentData(int no){
     	SqlSession session=ssf.openSession();
-    	NoticeDTO d=session.selectOne("notice_boardContentData");
+    	NoticeDTO d=session.selectOne("notice_boardContentData",no);
     	session.close();
     	return d;
  }

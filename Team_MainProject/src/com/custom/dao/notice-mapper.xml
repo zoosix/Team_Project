@@ -14,6 +14,6 @@
   </select>
   <!-- 공지사항 내용 보기 -->
   <select id="notice_boardContentData" resultType="notice" parameterType="int">
-    SELECT n_No,n_Title,n_Content,n_Regdate,n_Hit FROM notice  WHERE no=#{no}
+    SELECT n_No,n_Title,n_Content,n_Regdate,n_Hit FROM notice_Board WHERE n_No=#{no}
   </select>
 </mapper>

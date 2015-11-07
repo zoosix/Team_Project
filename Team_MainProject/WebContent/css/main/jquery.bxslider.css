@@ -47,7 +47,8 @@
 	border:  5px solid #fff;
 	left: -5px;
 	background: #fff;
-	
+	width:80%;
+	height:320px;
 	/*fix other elements on the page moving (on Chrome)*/
 	-webkit-transform: translatez(0);
 	-moz-transform: translatez(0);

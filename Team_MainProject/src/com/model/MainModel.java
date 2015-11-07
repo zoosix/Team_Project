@@ -18,10 +18,9 @@ public class MainModel implements Model{
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		String strdate = sdf.format(date);
-
+		
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
-
 		req.setAttribute("list", list);
 		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
