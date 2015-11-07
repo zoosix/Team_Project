@@ -1,25 +1,5 @@
-package com.member.dao;
-/*
- * CREATE TABLE meeting(
-  m_no NUMBER,
-  m_lang1 VARCHAR2(20)  CONSTRAINT mt_nn_lang1 NOT NULL,
-  m_lang2 VARCHAR2(20)  CONSTRAINT mt_nn_lang2 NOT NULL,
-  m_lang1num NUMBER  CONSTRAINT mt_nn_lang1num NOT NULL,
-  m_lang2num NUMBER  CONSTRAINT mt_nn_lang2num NOT NULL,
-  m_title VARCHAR2(40) CONSTRAINT mt_nn_title NOT NULL,
-  m_summary VARCHAR2(50)  CONSTRAINT mt_nn_summary NOT NULL,
-  m_content VARCHAR2(1000)  CONSTRAINT mt_nn_content NOT NULL,
-  m_meetingDate VARCHAR2(100)  CONSTRAINT mt_nn_mtdate NOT NULL,
-  m_partDate VARCHAR2(100)  CONSTRAINT mt_nn_pdate NOT NULL,
-  m_place VARCHAR2(20)  CONSTRAINT mt_nn_place NOT NULL,
-  m_location VARCHAR2(100)  CONSTRAINT mt_nn_location NOT NULL,
-  m_email VARCHAR2(30),
-  m_tel VARCHAR2(30),
-  m_end VARCHAR2(10),
-  CONSTRAINT mt_pk_no PRIMARY KEY(m_no)
-);
- * 
- */
+package com.meeting.dao;
+
 public class MeetingDTO {
 	private int m_no;
 	private String m_lang1;
@@ -36,7 +16,15 @@ public class MeetingDTO {
 	private String m_email;
 	private String m_tel;
 	private String m_end;
+	private String m_filename;
+	private int m_filesize;
 	
+	public int getM_filesize() {
+		return m_filesize;
+	}
+	public void setM_filesize(int m_filesize) {
+		this.m_filesize = m_filesize;
+	}
 	public int getM_no() {
 		return m_no;
 	}
@@ -127,4 +115,11 @@ public class MeetingDTO {
 	public void setM_end(String m_end) {
 		this.m_end = m_end;
 	}
+	public String getM_filename() {
+		return m_filename;
+	}
+	public void setM_filename(String m_filename) {
+		this.m_filename = m_filename;
+	}
+	
 }

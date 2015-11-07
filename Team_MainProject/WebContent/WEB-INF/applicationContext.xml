@@ -12,8 +12,7 @@
   <bean id="login_check" class="com.model.LoginCheckModel"/>
   <bean id="logout" class="com.model.LogoutModel"/>
   <bean id="idcheck" class="com.model.IdCheckModel"></bean>
-  <bean id="join_ok" class="com.model.JoinOkModel"/>	
-  <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
+  <bean id="join_ok" class="com.model.JoinOkModel"/>
   
   <!-- 마이페이지 (Mypage)  -->
   <bean id="meeting" class="com.model.MyMeetingModel"/>
@@ -23,6 +22,10 @@
   <bean id="gtable" class="com.model.GtableModel"/>	
   <bean id="search" class="com.model.SearchModel"/>	
   
+  <!-- 모임 -->
+  <bean id="meeting_insert" class="com.model.MeetingInsertModel"/>
+  <bean id="meeting_insert_ok" class="com.model.MeetingInsertOkModel"/>
+  <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
   
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>

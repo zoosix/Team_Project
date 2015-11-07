@@ -6,7 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.dao.MeetingDTO;
+import com.meeting.dao.MeetingDTO;
 import com.member.dao.MemberDAO;
 import com.member.dao.gtableDTO;
 
