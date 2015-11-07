@@ -6,9 +6,11 @@
   <typeAliases>
      <typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
 
-   <typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
+   	<typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
      
      <typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
+     
+     <typeAlias type="com.sort.dao.SortDTO" alias="Sort"/>
 
   </typeAliases>
   <environments default="development">
@@ -25,5 +27,6 @@
   <mappers>
     <mapper resource="com/member/dao/member-mapper.xml"/>
     <mapper resource="com/custom/dao/notice-mapper.xml"/>
+    <mapper resource="com/sort/dao/sort-mapper.xml"/>
   </mappers>
 </configuration>

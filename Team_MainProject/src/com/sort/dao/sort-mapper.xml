@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- PreparedStatement,ResultSet -->
+<mapper namespace="com.sort.dao.sort-mapper">
+	<select id="languageAllData" resultType="sort" parameterType="int">
+    	SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,rownum as num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo
+    	FROM Meeting ORDER BY m_No ASC))
+	</select>
+	<select id="languageListData" resultType="sort" parameterType="String">
+    	SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,rownum as num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo
+    	FROM Meeting WHERE m_Lang2=#{m_Lang2} ORDER BY m_No ASC))
+	</select>
+	<select id="languageCount" resultType="int">
+		SELECT COUNT(*) FROM Meeting
+	</select>
+	<select id="languageCountData" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM Meeting WHERE m_Lang2=#{m_Lang2}
+	</select>
+	<select id="areaAllData" resultType="sort">
+    	SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,rownum as num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo
+    	FROM Meeting ORDER BY m_No ASC))
+	</select>
+	<select id="areaListData" resultType="sort" parameterType="String">
+    	SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo,rownum as num
+    	FROM (SELECT m_No,m_Title,m_Summary,m_MeetingDate,m_Area,m_Place,m_Lang1,m_Lang2,m_TotalNum,m_Photo
+    	FROM Meeting WHERE m_Area=#{a_Area} ORDER BY m_No ASC))
+	</select>
+	<select id="areaCount" resultType="int">
+		SELECT COUNT(*) FROM Meeting
+	</select>
+	<select id="areaCountData" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM Meeting WHERE m_Area=#{m_Area}
+	</select>
+</mapper>

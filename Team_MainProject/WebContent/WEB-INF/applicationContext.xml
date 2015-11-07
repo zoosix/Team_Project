@@ -23,7 +23,9 @@
   <bean id="gtable" class="com.model.GtableModel"/>	
   <bean id="search" class="com.model.SearchModel"/>	
   
-  
+   <!-- 분류  -->
+  <bean id="language" class="com.model.LanguageListModel"/>
+  <bean id="area" class="com.model.AreaListModel"/>
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel.java"/>
   

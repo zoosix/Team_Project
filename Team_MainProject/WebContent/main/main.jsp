@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -88,18 +88,8 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="index.html"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 57px;">언어별</a>
-					<ul>
-						<li><a href="three-column.html">한</a></li>
-						<li><a href="one-column.html">One Column</a></li>
-						<li><a href="text.html">Text page</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 56px;">지역별</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
-					</ul></li>
+				<li><a href="language.do" style="height: 57px;">언어별</a></li>
+				<li><a href="area.do" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
@@ -172,48 +162,7 @@
 	</div>
 
 
-	<!-- <div id="body">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
-		</ul>
-		<br>
-		<div class="width">
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
-
-			</span>
-			<form method="get" action="search.do" id="searchFrm">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어" id="word" name="word">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" id="btnSub" onclick="search()">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
-		</div>
- -->
+	
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
