@@ -22,9 +22,13 @@ public class MainModel implements Model{
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
 		req.setAttribute("list", list);
-		req.setAttribute("title", "ììœ  ê²Œì‹œíŒ");
-		req.setAttribute("jsp", "../main/meeting_list.jsp");
+
+	
 		req.setAttribute("slide", "../main/slide.jsp");
+
+
+		req.setAttribute("title", "ÀÚÀ¯ °Ô½ÃÆÇ");
+		req.setAttribute("jsp", "../main/meeting_list.jsp");
 
 		return "main/main.jsp";
 	}
