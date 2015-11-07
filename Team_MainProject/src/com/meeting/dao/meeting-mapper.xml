@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.meeting.dao.meeting-mapper">
+	<!-- 글쓰기 -->
+	<!-- Sequence -->
+	<insert id="meetingInsert" parameterType="Meeting">
+		<selectKey keyProperty="m_no" resultType="int" order="BEFORE">
+				SELECT NVL(MAX(m_no)+1,1) as m_no FROM meeting
+		</selectKey>
+		INSERT INTO meeting VALUES(#{m_no},#{m_lang1},#{m_lang2},#{m_lang1num},#{m_lang2num},
+		#{m_title},#{m_summary},#{m_content},#{m_meetingDate},#{m_partDate},#{m_place},#{m_location},
+		#{m_email},#{m_tel},0,#{m_filename},#{m_filesize})
+	</insert>
+	<!-- 글내용 -->
+	<select id="meetingDetail" resultType="Meeting" parameterType="int">
+		SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,
+		m_meetingDate,m_partDate,m_location,m_email,m_tel,m_filename
+		FROM meeting
+		WHERE m_no=#{m_no}
+	</select>
+</mapper>

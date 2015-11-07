@@ -27,9 +27,9 @@ function sendMessage(method,url,param,callback)
 	if (httpMethod == 'GET' && httpParams != null) {
 		httpUrl = httpUrl + "?" + httpParams;
 	}
-	//alert(httpParams);
-	//alert(httpMethod);
-	//alert(httpUrl);
+	alert(httpParams);
+	alert(httpMethod);
+	alert(httpUrl);
 	httpRequest.open(httpMethod, httpUrl, true);
 	httpRequest.setRequestHeader(
 		'Content-Type', 'application/x-www-form-urlencoded');

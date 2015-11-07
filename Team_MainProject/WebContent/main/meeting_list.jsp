@@ -32,7 +32,7 @@
  });
  
  
-  function pushday(){
+/*   function pushday(){
 	   var daymeet=$('#day_meeting').attr("value");
 	   $('#day').val(daymeet);
 	    var param="daymeet="+daymeet;
@@ -42,12 +42,22 @@
    function daymeet(){
 		   if(httpRequest.readyState==4){
 				if(httpRequest.status==200){
-					$('.modal-footer').html(httpRequest.responseText);	
+					$('.daylist').html(httpRequest.responseText);	
 				}    
 		   }
- }
+ } */
 		
   </script>
+  
+<style type="text/css">
+.inline-block, .inlineBlock {
+    display: inline-block;
+    zoom: 1;
+}
+.padding-none, .paddingNone {
+    padding: 0!important;
+}
+</style>
 </head>
 <body>
 
@@ -64,12 +74,8 @@
 	<div id="border_main"style="margin-left: 10px; margin-top: 50px; z-index: 900">
 		  <c:forEach var="dto" items="${list }">
 
-			<div class="view view-first">
-			<a href="#" style="background-image: url(../images/main/meeting.jpg) no-repeat center center fixed;">
-		<div class="nametag-photo-name groupCard--title">
-				<img src="images/main/meeting.jpg" 	/>
-				<h3>${dto.m_title }</h3>
-			</div></a>
+			<div class="view view-first" style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
+			<h3  style="background-color:black;color:white; !important">${dto.m_title }</h3>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>
 					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>
@@ -110,9 +116,7 @@
 	
 	
 	
-		<div id="border_main3"style="margin-left: 10px; margin-top: 50px; z-index: 900; display: none">
-		
-		
+		<div id="border_main3" style="margin-left: 10px; margin-top: 50px; z-index: 900; display: none">
 		
 					<!--  달력 -->
 				  <!-- Modal -->
@@ -126,18 +130,20 @@
 						          <h4 class="modal-title" style="color:black;">날짜별 모임</h4>
 				        </div>
 				        <div class="modal-body">
-						        <!-- 캘린다 -->
+						        <%-- <!-- 캘린다 -->
 						        <!-- <form name="dayFrm" method="post" action="main.do">  "day.value=(this).value-->
 						           <input type=date name="day_meeting" class="day_meeting" id="day_meeting" onchange="pushday()" value="${partDate }">
 						            <input type=text name="day" id="day"  value="${partDate }"> 
-						           <br><br>
+						           <br><br> --%>
+						       <iframe src="https://calendar.google.com/calendar/embed?title=%EB%AA%A8%EC%9E%84%EC%9D%BC%EC%A0%95&amp;height=600&amp;wkst=1&amp;hl=ko&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FSeoul" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+						           
 						 </div>
 				        <div class="modal-footer">
-				        <span id="daylist"> </span>       
+	<%-- 			        <span class="daylist">gg </span>       
 				       ------
 							        <c:forEach var="d" items="${dlist }">
 							                                        모임타이틀: ${d.m_title }
-				                    </c:forEach>  
+				                    </c:forEach>   --%>
 				           
 				        </div>	
 				        <div class="modal-footer">

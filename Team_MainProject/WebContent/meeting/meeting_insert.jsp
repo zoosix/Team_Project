@@ -1,28 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/insert.css" type="text/css" />
-<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<link rel="stylesheet" href="meeting/css/insert.css" type="text/css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<!-- Smart Editor -->
+<script type="text/javascript" src="meeting/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<!-- Smart Editor -->
 <script type="text/javascript">
+//textArea에 이미지 첨부
 $(function(){
 	var oEditors = [];
 	nhn.husky.EZCreator.createInIFrame({
-		oAppRef: oEditors,
-		elPlaceHolder: "content",
-		sSkinURI: "se2/SmartEditor2Skin.html",
-		fCreator: "createSEditor2"
+	    oAppRef: oEditors,
+	    elPlaceHolder: "content",
+	    sSkinURI: "meeting/se2/SmartEditor2Skin.html",
+	    fCreator: "createSEditor2"
 	});
 	
 	// 다음 단계
 	$('.next.button').click(function(){
 		
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-		
 		var category1=$('.category1').val();
 		if(category1==0)
 		{
@@ -37,6 +40,24 @@ $(function(){
 		{
 			$('.category2').focus();
 			$('#selectSpan').text("* 언어를 선택하세요");
+			return;
+		}
+		$('#selectSpan').text("");
+		
+		var lang1num=$('.lang1num').val();
+		if(lang1num==0)
+		{
+			$('.lang1num').focus();
+			$('#selectSpan').text("* 인원을 선택하세요");
+			return;
+		}
+		$('#selectSpan').text("");
+		
+		var lang2num=$('.lang2num').val();
+		if(lang2num==0)
+		{
+			$('.lang2num').focus();
+			$('#selectSpan').text("* 인원을 선택하세요");
 			return;
 		}
 		$('#selectSpan').text("");
@@ -66,6 +87,7 @@ $(function(){
 			$('#contentSpan').text("* 상세내용을 입력하세요");
 			return;
 		}
+		$('#contentSpan').text("");
 		
 		$('.roundBox.firstStep').hide();
 		$('.roundBox.secondStep').show();
@@ -137,13 +159,88 @@ $(function(){
 		$('#writeForm').submit();
 	});
 });
+function previewImage(targetObj, previewId) {
+
+    var preview = document.getElementById(previewId); //div id   
+    var ua = window.navigator.userAgent;
+
+    if (ua.indexOf("MSIE") > -1) {//ie일때
+
+        targetObj.select();
+
+        try {
+            var src = document.selection.createRange().text; // get file full path 
+            var ie_preview_error = document
+                    .getElementById("ie_preview_error_" + previewId);
+
+            if (ie_preview_error) {
+                preview.removeChild(ie_preview_error); //error가 있으면 delete
+            }
+
+            var img = document.getElementById(previewId); //이미지가 뿌려질 곳 
+
+            img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"
+                    + src + "', sizingMethod='scale')"; //이미지 로딩, sizingMethod는 div에 맞춰서 사이즈를 자동조절 하는 역할
+        } catch (e) {
+            if (!document.getElementById("ie_preview_error_" + previewId)) {
+                var info = document.createElement("<p>");
+                info.id = "ie_preview_error_" + previewId;
+                info.innerHTML = "a";
+                preview.insertBefore(info, null);
+            }
+        }
+    } else { //ie가 아닐때
+        var files = targetObj.files;
+        for ( var i = 0; i < files.length; i++) {
+
+            var file = files[i];
+
+            var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+            if (!file.type.match(imageType))
+                continue;
+
+            var prevImg = document.getElementById("prev_" + previewId); //이전에 미리보기가 있다면 삭제
+            if (prevImg) {
+                preview.removeChild(prevImg);
+            }
+
+            var img = document.createElement("img"); //크롬은 div에 이미지가 뿌려지지 않는다. 그래서 자식Element를 만든다.
+            img.id = "prev_" + previewId;
+            img.classList.add("obj");
+            img.file = file;
+            img.style.width = '80px'; //기본설정된 div의 안에 뿌려지는 효과를 주기 위해서 div크기와 같은 크기를 지정해준다.
+            img.style.height = '80px';
+            
+            preview.appendChild(img);
+
+            if (window.FileReader) { // FireFox, Chrome, Opera 확인.
+                var reader = new FileReader();
+                reader.onloadend = (function(aImg) {
+                    return function(e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+                reader.readAsDataURL(file);
+            } else { // safari is not supported FileReader
+                //alert('not supported FileReader');
+                if (!document.getElementById("sfr_preview_error_"
+                        + previewId)) {
+                    var info = document.createElement("p");
+                    info.id = "sfr_preview_error_" + previewId;
+                    info.innerHTML = "not supported FileReader";
+                    preview.insertBefore(info, null);
+                }
+            }
+        }
+    }
+}
 </script>
 </head>
 <body>
-	<form id="writeForm" name="write_form" method="post" action="meeting_ok.jsp">
+	<form id="writeForm" name="write_form" method="post" action="meeting_insert_ok.do" enctype="multipart/form-data">
 	<div class="content">
 		<h2 class="title">개설하기</h2>
-		<div class="roundBox firstStep">
+		<div class="roundBox firstStep" >
 			<div class="firstCore">
 				<div class="title">
 					<h3 class="title">step.1 모임 기본 정보입력</h3>
@@ -156,31 +253,42 @@ $(function(){
 			<div class="core category">
 				<div class="input">
 					<div class="subCore category">
-						<h4 class="subTitle">언어 선택 / 제목 입력</h4>
-						<select class="category1" name="category1">
-							<option value="0">보유 언어</option>
-							<option value="1">한국어</option>
-							<option value="2">English</option>
-							<option value="3">日本語</option>
-							<option value="4">中國語</option>
-							<option value="5">le français</option>
-							<option value="6">獨逸語</option>
-							<option value="7">русский язык</option>
+						<h4 class="subTitle">언어 선택 / 제목 입력&nbsp;<span class="span" id="selectSpan"></span>
+						<span class="span" id="titleSpan"></span></h4>
+						<select class="category1" name="lang1">
+							<option value="0">교환 언어1</option>
+							<option value="한국어">한국어</option>
+							<option value="English">English</option>
+							<option value="日本語">日本語</option>
+							<option value="中國語">中國語</option>
+							<option value="le français">le français</option>
+							<option value="獨逸語">獨逸語</option>
+							<option value="русский язык">русский язык</option>
 						</select>
-						<select class="category2" name="category2">
-							<option value="0">교환 언어</option>
-							<option value="1">한국어</option>
-							<option value="2">English</option>
-							<option value="3">日本語</option>
-							<option value="4">中國語</option>
-							<option value="5">le français</option>
-							<option value="6">獨逸語</option>
-							<option value="7">русский язык</option>
+						<select class="lang1num" name="lang1num">
+							<option value="0">인원</option>
+							<c:forEach var="i" begin="1" end="50">
+								<option value="${i }">${i }</option>
+							</c:forEach>
+						</select><span class="space">명</span>
+						<select class="category2" name="lang2">
+							<option value="0">교환 언어2</option>
+							<option value="한국어">한국어</option>
+							<option value="English">English</option>
+							<option value="日本語">日本語</option>
+							<option value="中國語">中國語</option>
+							<option value="le français">le français</option>
+							<option value="獨逸語">獨逸語</option>
+							<option value="русский язык">русский язык</option>
 						</select>
+						<select class="lang2num" name="lang2num">
+							<option value="0">인원</option>
+							<c:forEach var="i" begin="1" end="50">
+								<option value="${i }">${i }</option>
+							</c:forEach>
+						</select><span class="space">명</span>
 						<input id="title" type="text" name="title" maxlength="64" class="text">
 						<div class="lengthMsg">
-						<span class="span" id="selectSpan"></span>
-						<span class="span" id="titleSpan"></span>
 						</div>
 					</div>
 				</div>
@@ -201,13 +309,15 @@ $(function(){
 						<div class="subCore banner noBanner">
 							<h4 class="subTitle">대표 이미지</h4>
 
-							<div class="innerBanner">
-								<img src="http://static.onoffmix.com/images2/default/thumbnail_null.jpg" default="http://static.onoffmix.com/images2/default/thumbnail_null.jpg" alt="대표이미지">
+							<div id="previewId" class="innerBanner">
+								
 							</div>
+							
+							<input type="file" onchange="previewImage(this,'previewId')" name="upload">
 						</div>
 						<div class="subCore abstract">
 							<h4 class="subTitle">요약내용 입력&nbsp;<span class="span" id="subTitleSpan"></span></h4>
-							<textarea id="abstract" class="text" title="모임 내용을 간단히 요약하여 입력해 주세요." name="abstract"></textarea>
+							<textarea id="abstract" class="text" title="모임 내용을 간단히 요약하여 입력해 주세요." name="summary"></textarea>
 						</div>
 					</div>
 					<div class="advice">
@@ -312,108 +422,108 @@ $(function(){
 				<div class="input">
 					<div class="subCore startEvent singleDay">
 							<h4 class="subTitle">모임기간 설정&nbsp;<span class="span" id="dateSpan1"></span></h4>
-							<div class="dateConfig" style="border-color: rgb(204, 204, 204);">
-								<input id="startEventDate1" class="text datepicker hasDatepicker" type="date" name="eventStartDateTime_date">
-								<select id="date-select1" class="date-select">
-									<option value="00:00">오전 0시 00분</option>
+							<div class="dateConfig">
+								<input id="startEventDate1" class="text datepicker hasDatepicker" type="date" name="meetingDate1">
+								<select id="date-select1" class="date-select" name="meetingTime1">
+									<option value="00:00">오전 0시</option>
 									<option value="00:30">오전 0시 30분</option>
-									<option value="01:00">오전 1시 00분</option>
+									<option value="01:00">오전 1시</option>
 									<option value="01:30">오전 1시 30분</option>
-									<option value="02:00">오전 2시 00분</option>
+									<option value="02:00">오전 2시</option>
 									<option value="02:30">오전 2시 30분</option>
-									<option value="03:00">오전 3시 00분</option>
+									<option value="03:00">오전 3시</option>
 									<option value="03:30">오전 3시 30분</option>
-									<option value="04:00">오전 4시 00분</option>
+									<option value="04:00">오전 4시</option>
 									<option value="04:30">오전 4시 30분</option>
-									<option value="05:00">오전 5시 00분</option>
+									<option value="05:00">오전 5시</option>
 									<option value="05:30">오전 5시 30분</option>
-									<option value="06:00">오전 6시 00분</option>
+									<option value="06:00">오전 6시</option>
 									<option value="06:30">오전 6시 30분</option>
-									<option value="07:00">오전 7시 00분</option>
+									<option value="07:00">오전 7시</option>
 									<option value="07:30">오전 7시 30분</option>
-									<option value="08:00">오전 8시 00분</option>
+									<option value="08:00">오전 8시</option>
 									<option value="08:30">오전 8시 30분</option>
-									<option value="09:00">오전 9시 00분</option>
+									<option value="09:00">오전 9시</option>
 									<option value="09:30">오전 9시 30분</option>
-									<option value="10:00">오전 10시 00분</option>
+									<option value="10:00">오전 10시</option>
 									<option value="10:30">오전 10시 30분</option>
-									<option value="11:00">오전 11시 00분</option>
+									<option value="11:00">오전 11시</option>
 									<option value="11:30">오전 11시 30분</option>
-									<option value="12:00">오후 0시 00분</option>
+									<option value="12:00">오후 0시</option>
 									<option value="12:30">오후 0시 30분</option>
-									<option value="13:00">오후 1시 00분</option>
+									<option value="13:00">오후 1시</option>
 									<option value="13:30">오후 1시 30분</option>
-									<option value="14:00">오후 2시 00분</option>
+									<option value="14:00">오후 2시</option>
 									<option value="14:30">오후 2시 30분</option>
-									<option value="15:00">오후 3시 00분</option>
+									<option value="15:00">오후 3시</option>
 									<option value="15:30">오후 3시 30분</option>
-									<option value="16:00">오후 4시 00분</option>
+									<option value="16:00">오후 4시</option>
 									<option value="16:30">오후 4시 30분</option>
-									<option value="17:00">오후 5시 00분</option>
+									<option value="17:00">오후 5시</option>
 									<option value="17:30">오후 5시 30분</option>
-									<option value="18:00">오후 6시 00분</option>
+									<option value="18:00">오후 6시</option>
 									<option value="18:30">오후 6시 30분</option>
-									<option value="19:00">오후 7시 00분</option>
+									<option value="19:00">오후 7시</option>
 									<option value="19:30">오후 7시 30분</option>
-									<option value="20:00">오후 8시 00분</option>
+									<option value="20:00">오후 8시</option>
 									<option value="20:30">오후 8시 30분</option>
-									<option value="21:00">오후 9시 00분</option>
+									<option value="21:00">오후 9시</option>
 									<option value="21:30">오후 9시 30분</option>
-									<option value="22:00">오후 10시 00분</option>
+									<option value="22:00">오후 10시</option>
 									<option value="22:30">오후 10시 30분</option>
-									<option value="23:00">오후 11시 00분</option>
+									<option value="23:00">오후 11시</option>
 									<option value="23:30">오후 11시 30분</option>
 								</select>
 								<span class="space">부터</span>
-								<input id="endEventDate1" class="text datepicker hasDatepicker" type="date" name="eventEndDateTime_date">
-								<select id="date-select2" class="date-select">
-									<option value="00:00">오전 0시 00분</option>
+								<input id="endEventDate1" class="text datepicker hasDatepicker" type="date" name="meetingDate2">
+								<select id="date-select2" class="date-select" name="meetingTime2">
+									<option value="00:00">오전 0시</option>
 									<option value="00:30">오전 0시 30분</option>
-									<option value="01:00">오전 1시 00분</option>
+									<option value="01:00">오전 1시</option>
 									<option value="01:30">오전 1시 30분</option>
-									<option value="02:00">오전 2시 00분</option>
+									<option value="02:00">오전 2시</option>
 									<option value="02:30">오전 2시 30분</option>
-									<option value="03:00">오전 3시 00분</option>
+									<option value="03:00">오전 3시</option>
 									<option value="03:30">오전 3시 30분</option>
-									<option value="04:00">오전 4시 00분</option>
+									<option value="04:00">오전 4시</option>
 									<option value="04:30">오전 4시 30분</option>
-									<option value="05:00">오전 5시 00분</option>
+									<option value="05:00">오전 5시</option>
 									<option value="05:30">오전 5시 30분</option>
-									<option value="06:00">오전 6시 00분</option>
+									<option value="06:00">오전 6시</option>
 									<option value="06:30">오전 6시 30분</option>
-									<option value="07:00">오전 7시 00분</option>
+									<option value="07:00">오전 7시</option>
 									<option value="07:30">오전 7시 30분</option>
-									<option value="08:00">오전 8시 00분</option>
+									<option value="08:00">오전 8시</option>
 									<option value="08:30">오전 8시 30분</option>
-									<option value="09:00">오전 9시 00분</option>
+									<option value="09:00">오전 9시</option>
 									<option value="09:30">오전 9시 30분</option>
-									<option value="10:00">오전 10시 00분</option>
+									<option value="10:00">오전 10시</option>
 									<option value="10:30">오전 10시 30분</option>
-									<option value="11:00">오전 11시 00분</option>
+									<option value="11:00">오전 11시</option>
 									<option value="11:30">오전 11시 30분</option>
-									<option value="12:00">오후 0시 00분</option>
+									<option value="12:00">오후 0시</option>
 									<option value="12:30">오후 0시 30분</option>
-									<option value="13:00">오후 1시 00분</option>
+									<option value="13:00">오후 1시</option>
 									<option value="13:30">오후 1시 30분</option>
-									<option value="14:00">오후 2시 00분</option>
+									<option value="14:00">오후 2시</option>
 									<option value="14:30">오후 2시 30분</option>
-									<option value="15:00">오후 3시 00분</option>
+									<option value="15:00">오후 3시</option>
 									<option value="15:30">오후 3시 30분</option>
-									<option value="16:00">오후 4시 00분</option>
+									<option value="16:00">오후 4시</option>
 									<option value="16:30">오후 4시 30분</option>
-									<option value="17:00">오후 5시 00분</option>
+									<option value="17:00">오후 5시</option>
 									<option value="17:30">오후 5시 30분</option>
-									<option value="18:00">오후 6시 00분</option>
+									<option value="18:00">오후 6시</option>
 									<option value="18:30">오후 6시 30분</option>
-									<option value="19:00">오후 7시 00분</option>
+									<option value="19:00">오후 7시</option>
 									<option value="19:30">오후 7시 30분</option>
-									<option value="20:00">오후 8시 00분</option>
+									<option value="20:00">오후 8시</option>
 									<option value="20:30">오후 8시 30분</option>
-									<option value="21:00">오후 9시 00분</option>
+									<option value="21:00">오후 9시</option>
 									<option value="21:30">오후 9시 30분</option>
-									<option value="22:00">오후 10시 00분</option>
+									<option value="22:00">오후 10시</option>
 									<option value="22:30">오후 10시 30분</option>
-									<option value="23:00">오후 11시 00분</option>
+									<option value="23:00">오후 11시</option>
 									<option value="23:30">오후 11시 30분</option>
 								</select>
 								<span class="space">까지</span>
@@ -421,108 +531,108 @@ $(function(){
 						</div>
 						<div class="subCore setupTime">
 							<h4 class="subTitle">참여기간 설정&nbsp;<span class="span" id="dateSpan2"></span></h4>
-							<div class="dateConfig" style="border-color: rgb(204, 204, 204);">
-								<input id="startEventDate2" class="text datepicker hasDatepicker" type="date" name="eventStartDateTime_date">
-								<select id="date-select3" class="date-select">
-									<option value="00:00">오전 0시 00분</option>
+							<div class="dateConfig">
+								<input id="startEventDate2" class="text datepicker hasDatepicker" type="date" name="partDate1">
+								<select id="date-select3" class="date-select" name="partTime1">
+									<option value="00:00">오전 0시</option>
 									<option value="00:30">오전 0시 30분</option>
-									<option value="01:00">오전 1시 00분</option>
+									<option value="01:00">오전 1시</option>
 									<option value="01:30">오전 1시 30분</option>
-									<option value="02:00">오전 2시 00분</option>
+									<option value="02:00">오전 2시</option>
 									<option value="02:30">오전 2시 30분</option>
-									<option value="03:00">오전 3시 00분</option>
+									<option value="03:00">오전 3시</option>
 									<option value="03:30">오전 3시 30분</option>
-									<option value="04:00">오전 4시 00분</option>
+									<option value="04:00">오전 4시</option>
 									<option value="04:30">오전 4시 30분</option>
-									<option value="05:00">오전 5시 00분</option>
+									<option value="05:00">오전 5시</option>
 									<option value="05:30">오전 5시 30분</option>
-									<option value="06:00">오전 6시 00분</option>
+									<option value="06:00">오전 6시</option>
 									<option value="06:30">오전 6시 30분</option>
-									<option value="07:00">오전 7시 00분</option>
+									<option value="07:00">오전 7시</option>
 									<option value="07:30">오전 7시 30분</option>
-									<option value="08:00">오전 8시 00분</option>
+									<option value="08:00">오전 8시</option>
 									<option value="08:30">오전 8시 30분</option>
-									<option value="09:00">오전 9시 00분</option>
+									<option value="09:00">오전 9시</option>
 									<option value="09:30">오전 9시 30분</option>
-									<option value="10:00">오전 10시 00분</option>
+									<option value="10:00">오전 10시</option>
 									<option value="10:30">오전 10시 30분</option>
-									<option value="11:00">오전 11시 00분</option>
+									<option value="11:00">오전 11시</option>
 									<option value="11:30">오전 11시 30분</option>
-									<option value="12:00">오후 0시 00분</option>
+									<option value="12:00">오후 0시</option>
 									<option value="12:30">오후 0시 30분</option>
-									<option value="13:00">오후 1시 00분</option>
+									<option value="13:00">오후 1시</option>
 									<option value="13:30">오후 1시 30분</option>
-									<option value="14:00">오후 2시 00분</option>
+									<option value="14:00">오후 2시</option>
 									<option value="14:30">오후 2시 30분</option>
-									<option value="15:00">오후 3시 00분</option>
+									<option value="15:00">오후 3시</option>
 									<option value="15:30">오후 3시 30분</option>
-									<option value="16:00">오후 4시 00분</option>
+									<option value="16:00">오후 4시</option>
 									<option value="16:30">오후 4시 30분</option>
-									<option value="17:00">오후 5시 00분</option>
+									<option value="17:00">오후 5시</option>
 									<option value="17:30">오후 5시 30분</option>
-									<option value="18:00">오후 6시 00분</option>
+									<option value="18:00">오후 6시</option>
 									<option value="18:30">오후 6시 30분</option>
-									<option value="19:00">오후 7시 00분</option>
+									<option value="19:00">오후 7시</option>
 									<option value="19:30">오후 7시 30분</option>
-									<option value="20:00">오후 8시 00분</option>
+									<option value="20:00">오후 8시</option>
 									<option value="20:30">오후 8시 30분</option>
-									<option value="21:00">오후 9시 00분</option>
+									<option value="21:00">오후 9시</option>
 									<option value="21:30">오후 9시 30분</option>
-									<option value="22:00">오후 10시 00분</option>
+									<option value="22:00">오후 10시</option>
 									<option value="22:30">오후 10시 30분</option>
-									<option value="23:00">오후 11시 00분</option>
+									<option value="23:00">오후 11시</option>
 									<option value="23:30">오후 11시 30분</option>
 								</select>
 								<span class="space">부터</span>
-								<input id="endEventDate2" class="text datepicker hasDatepicker" type="date" name="eventEndDateTime_date">
-								<select id="date-select4" class="date-select">
-									<option value="00:00">오전 0시 00분</option>
+								<input id="endEventDate2" class="text datepicker hasDatepicker" type="date" name="partDate2">
+								<select id="date-select4" class="date-select" name="partTime2">
+									<option value="00:00">오전 0시</option>
 									<option value="00:30">오전 0시 30분</option>
-									<option value="01:00">오전 1시 00분</option>
+									<option value="01:00">오전 1시</option>
 									<option value="01:30">오전 1시 30분</option>
-									<option value="02:00">오전 2시 00분</option>
+									<option value="02:00">오전 2시</option>
 									<option value="02:30">오전 2시 30분</option>
-									<option value="03:00">오전 3시 00분</option>
+									<option value="03:00">오전 3시</option>
 									<option value="03:30">오전 3시 30분</option>
-									<option value="04:00">오전 4시 00분</option>
+									<option value="04:00">오전 4시</option>
 									<option value="04:30">오전 4시 30분</option>
-									<option value="05:00">오전 5시 00분</option>
+									<option value="05:00">오전 5시</option>
 									<option value="05:30">오전 5시 30분</option>
-									<option value="06:00">오전 6시 00분</option>
+									<option value="06:00">오전 6시</option>
 									<option value="06:30">오전 6시 30분</option>
-									<option value="07:00">오전 7시 00분</option>
+									<option value="07:00">오전 7시</option>
 									<option value="07:30">오전 7시 30분</option>
-									<option value="08:00">오전 8시 00분</option>
+									<option value="08:00">오전 8시</option>
 									<option value="08:30">오전 8시 30분</option>
-									<option value="09:00">오전 9시 00분</option>
+									<option value="09:00">오전 9시</option>
 									<option value="09:30">오전 9시 30분</option>
-									<option value="10:00">오전 10시 00분</option>
+									<option value="10:00">오전 10시</option>
 									<option value="10:30">오전 10시 30분</option>
-									<option value="11:00">오전 11시 00분</option>
+									<option value="11:00">오전 11시</option>
 									<option value="11:30">오전 11시 30분</option>
-									<option value="12:00">오후 0시 00분</option>
+									<option value="12:00">오후 0시</option>
 									<option value="12:30">오후 0시 30분</option>
-									<option value="13:00">오후 1시 00분</option>
+									<option value="13:00">오후 1시</option>
 									<option value="13:30">오후 1시 30분</option>
-									<option value="14:00">오후 2시 00분</option>
+									<option value="14:00">오후 2시</option>
 									<option value="14:30">오후 2시 30분</option>
-									<option value="15:00">오후 3시 00분</option>
+									<option value="15:00">오후 3시</option>
 									<option value="15:30">오후 3시 30분</option>
-									<option value="16:00">오후 4시 00분</option>
+									<option value="16:00">오후 4시</option>
 									<option value="16:30">오후 4시 30분</option>
-									<option value="17:00">오후 5시 00분</option>
+									<option value="17:00">오후 5시</option>
 									<option value="17:30">오후 5시 30분</option>
-									<option value="18:00">오후 6시 00분</option>
+									<option value="18:00">오후 6시</option>
 									<option value="18:30">오후 6시 30분</option>
-									<option value="19:00">오후 7시 00분</option>
+									<option value="19:00">오후 7시</option>
 									<option value="19:30">오후 7시 30분</option>
-									<option value="20:00">오후 8시 00분</option>
+									<option value="20:00">오후 8시</option>
 									<option value="20:30">오후 8시 30분</option>
-									<option value="21:00">오후 9시 00분</option>
+									<option value="21:00">오후 9시</option>
 									<option value="21:30">오후 9시 30분</option>
-									<option value="22:00">오후 10시 00분</option>
+									<option value="22:00">오후 10시</option>
 									<option value="22:30">오후 10시 30분</option>
-									<option value="23:00">오후 11시 00분</option>
+									<option value="23:00">오후 11시</option>
 									<option value="23:30">오후 11시 30분</option>
 								</select>
 								<span class="space">까지</span>
@@ -533,8 +643,6 @@ $(function(){
 						<p class="subAdvice startEvent">
 							개설하려는 모임의 <strong>기간</strong>을 설정해 주세요.<br>
 							<br>
-							모임기간이 하루 이상일 경우 체크박스를 선택하면<br>
-							모임 시작일과 종료일 설정이 가능합니다.
 						</p>
 
 						<p class="subAdvice setupTime">
@@ -549,7 +657,7 @@ $(function(){
 					<div class="input">
 						<div class="subCore location">
 							<h4 class="subTitle">모임 지역 / 장소 설정&nbsp;<span class="span" id="locSpan"></span></h4>
-							<select id="place">
+							<select id="place" name=place>
 								<option value="0">지역 선택</option>
 								<option value="1">서울</option>
 								<option value="2">인천/경기</option>

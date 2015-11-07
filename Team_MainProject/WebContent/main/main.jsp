@@ -69,10 +69,32 @@
 		}
 	}
 	
+	$(function(){
+		$('#btnSub').click(function(){
+			var word=$('#word').val();
+			if(word=="")
+			{
+				alert("검색어를 입력해 주세요");
+			}
+			$('#searchFrm').submit();
+		});
+	});
+
 
 </script>
+
+<style type="text/css">
+.inline-block, .inlineBlock {
+    display: inline-block;
+    zoom: 1;
+}
+.padding-none, .paddingNone {
+    padding: 0!important;
+}
+</style>
 </head>
 <body>
+
 	<div id="container">
 		<header>
 		<div class="width">
@@ -81,7 +103,7 @@
 			</h1>
 			<nav>
 			<ul class="sf-menu dropdown">
-				<li class="selected"><a href="index.html"><font
+				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
 				<li><a href="examples.html" style="height: 57px;">언어별</a>
 					<ul>
@@ -168,12 +190,9 @@
 			</span>
 		</div>
 		<div class="clear"></div>
+		
 	
 	</div>
-
-
-
-
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
@@ -182,5 +201,7 @@
 
 		</div>
 </header>
+
+    <pre id="output"></pre>
 </body>
 </html>

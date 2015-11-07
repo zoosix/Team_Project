@@ -18,6 +18,7 @@ $(function(){
 		$('#searchFrm').submit();
 	});
 });
+
 </script>
 </head>
 <body>
@@ -35,14 +36,12 @@ $(function(){
 			<li><img src="images/main/slide8.jpg" /></li>
 		</ul>
 		<br>
-		
 		<div class="width" style="margin-left: 0px;">
-			<form method="get" action="search.do" id=searchFrm>
-			<div class="wow">
+			<form method="get" id="searchFrm" action="search.do">
 				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 2px; margin-top: 10px;">
+					<div class="input-group" style="width: 65%; margin-left: 2px; margin-top: 10px;">
 						<input type="text" class="form-control" placeholder="보유언어" id=word name=word>
+
 					</div>
 				</div>
 				<span class="glyphicon glyphicon-transfer"
@@ -53,7 +52,8 @@ $(function(){
 						style="width: 75%; margin-left: 0px; margin-top: 10px;">
 						<input type="text" class="form-control" placeholder="교환언어">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button" id=btnSub>Search</button>
+							<button class="btn btn-default" type="button" id="btnSub">Search</button>
+
 						</span>
 					</div>
 				</div>
