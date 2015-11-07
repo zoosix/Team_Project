@@ -15,7 +15,6 @@ public class NoticeDAO {
     	try
     	{
     		Reader reader=Resources.getResourceAsReader("com/common/Config.xml");
-
     		ssf=new SqlSessionFactoryBuilder().build(reader);
     	}catch(Exception ex)
     	{
@@ -26,6 +25,8 @@ public class NoticeDAO {
     {
     	SqlSession session=ssf.openSession();
     	List<NoticeDTO> list=session.selectList("notice_boardListData",map);
+    	System.out.println("start:"+map.get("start"));
+    	System.out.println("end:"+map.get("end"));
     	session.close();
     	return list;
     }
@@ -37,4 +38,10 @@ public class NoticeDAO {
     	session.close();
     	return total;
     }
+    public static NoticeDTO notice_boardContentData(){
+    	SqlSession session=ssf.openSession();
+    	NoticeDTO d=session.selectOne("notice_boardContentData");
+    	session.close();
+    	return d;
+ }
 }

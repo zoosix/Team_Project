@@ -21,6 +21,7 @@ public class Notice_BoardListModel implements Model {
 		SimpleDateFormat sdf=
 				new SimpleDateFormat("yyyy-MM-dd");
 		String strPage=req.getParameter("page");
+		System.out.println("호롤:"+strPage);
 		if(strPage==null)
 			strPage="1";
 		int curpage=Integer.parseInt(strPage);
@@ -32,13 +33,12 @@ public class Notice_BoardListModel implements Model {
 		map.put("end", end); // #{end}
 		List<NoticeDTO> list=
 				NoticeDAO.notice_boardListData(map);
-	/*	for(NoticeDTO d:list)
+		for(NoticeDTO d:list)
 		{
 			d.setDbday(sdf.format(d.getN_Regdate()));
-			d.setReplyCount(NoticeDAO.notice_boardTotalPage(d.getNo()));
-		}*/
+		}
 		int totalpage=NoticeDAO.notice_boardTotalPage();
-		/*req.setAttribute("today", sdf.format(new Date()));*/
+		req.setAttribute("today", sdf.format(new Date()));
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);

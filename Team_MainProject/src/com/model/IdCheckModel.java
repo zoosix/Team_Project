@@ -12,7 +12,6 @@ public class IdCheckModel implements Model{
 		// TODO Auto-generated method stub
 		String email;
 		int count = 0;
-		System.out.println("dfdf"+req.getParameter("email"));
 		if(req.getParameter("email") == null)
 		{
 			email = "";

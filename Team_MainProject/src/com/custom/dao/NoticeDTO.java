@@ -6,7 +6,15 @@ public class NoticeDTO {
 	private String n_Content;
 	private int n_Hit;
 	private Date n_Regdate;
+	private String dbday;
 	
+	
+	public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
 	public int getN_No() {
 		return n_No;
 	}
