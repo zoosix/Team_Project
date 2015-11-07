@@ -29,7 +29,7 @@
   <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
   
   <!-- 고객센터  -->
-  <bean id="notice" class="com.model.Notice_BoardListModel.java"/>
+  <bean id="notice" class="com.model.Notice_BoardListModel"/>
   
 </beans>
   <!-- endElement() -->

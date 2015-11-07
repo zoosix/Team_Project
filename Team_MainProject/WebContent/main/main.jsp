@@ -105,23 +105,23 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 57px;">언어별</a>
+				<li><a href="examples.html" style="height: 60px;">언어별</a>
 					<ul>
-						<li><a href="three-column.html">한</a></li>
-						<li><a href="one-column.html">One Column</a></li>
+						<li><a href="three-column.html">영어</a></li>
+						<li><a href="one-column.html">중국어</a></li>
 						<li><a href="text.html">Text page</a></li>
 					</ul></li>
-				<li><a href="#" style="height: 56px;">지역별</a>
+				<li><a href="#" style="height: 60px;">지역별</a>
 					<ul>
 						<li><a href="#">Product One</a></li>
 						<li><a href="#">Product Two</a></li>
 						<li><a href="#">Product Three</a></li>
 					</ul></li>
-				<li><a href="#" style="height: 56px;">고객센터</a>
+				<li><a href="#" style="height: 60px;">고객센터</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
+						<li><a href="#">QnA</a></li>
+						<li><a href="#">FnQ</a></li>
 					</ul></li>
 			</ul>
 			<div class="clear"></div>
@@ -193,6 +193,67 @@
 		
 	
 	</div>
+<<<<<<< HEAD
+<%-- <<<<<<< HEAD
+
+	<div id="body">
+		<div class="width">
+		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
+			<li><img src="images/main/slide1.jpg" />
+				<h3>안녕하세요</h3></li>
+			<li><img src="images/main/slide2.jpg" />
+				<h3>새로운 친구를만나보세요.</h3></li>
+			<li><img src="images/main/slide3.jpg" /></li>
+			<li><img src="images/main/slide4.jpg" /></li>
+			<li><img src="images/main/slide5.jpg" /></li>
+			<li><img src="images/main/slide6.jpg" /></li>
+			<li><img src="images/main/slide7.jpg" /></li>
+			<li><img src="images/main/slide8.jpg" /></li>
+		</ul>
+		<br>
+			<span class="hero-unit"
+				style="font-stretch: extra-condensed; !important">
+				<h1>Hello, Naduelmok!</h1> <Br>
+
+			</span>
+			<form method="get" action="">
+				<div class="col-lg-6">
+					<div class="input-group"
+						style="width: 65%; margin-left: 200px; margin-top: 10px;">
+						<input type="text" class="form-control" placeholder="보유언어">
+					</div>
+				</div>
+				<span class="glyphicon glyphicon-transfer"
+					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
+				<div class="col-lg-6"
+					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
+					<div class="input-group"
+						style="width: 75%; margin-left: 95px; margin-top: 10px;">
+						<input type="text" class="form-control" placeholder="교환언어">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Search</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+		<div id="switch_main"
+			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
+			<jsp:include page="${jsp }"></jsp:include>
+			
+======= --%>
+
+
+
+
+		</div>
+		<!-- 	<footer>
+		<div class="footer-content width">
+			<div class="clear"></div>
+		</div>
+	</footer>  -->
 
 		<div id="switch_main"
 			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">

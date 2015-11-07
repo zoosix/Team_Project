@@ -10,13 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 import com.model.*;
-// ��û => ó�� (Front Controller)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private WebApplicationContext wc;
 	public void init(ServletConfig config) throws ServletException {
 		String path=config.getInitParameter("xmlPath");
-		//System.out.println(path);
 		wc = new WebApplicationContext(path);
 	}
 
@@ -30,6 +28,7 @@ public class DispatcherServlet extends HttpServlet {
 			System.out.println("uri : "+request.getRequestURI());
 			System.out.println("url : "+request.getRequestURL());
 			System.out.println("cmd : "+cmd);
+			System.out.println("------------");
 			Model model = wc.getBean(cmd);
 			String jsp = model.handlerRequest(request, response);
 			System.out.println("jsp : "+jsp);

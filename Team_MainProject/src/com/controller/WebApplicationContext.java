@@ -1,12 +1,8 @@
 package com.controller;
 import java.io.File;
-// 클래스를 여러개 묶어서 관리 => Container(Spring)
-// 단순하다 , 결합성이 약하다
 import java.util.*;
-
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-
 import com.model.*;
 public class WebApplicationContext 
 {
