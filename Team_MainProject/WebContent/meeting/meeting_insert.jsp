@@ -258,12 +258,10 @@ function previewImage(targetObj, previewId) {
 						<select class="category1" name="lang1">
 							<option value="0">교환 언어1</option>
 							<option value="한국어">한국어</option>
-							<option value="English">English</option>
-							<option value="日本語">日本語</option>
-							<option value="中國語">中國語</option>
-							<option value="le français">le français</option>
-							<option value="獨逸語">獨逸語</option>
-							<option value="русский язык">русский язык</option>
+							<option value="영어">영어</option>
+							<option value="중국어">중국어</option>
+							<option value="독일어">독일어</option>
+							<option value="일본어">일본어</option>
 						</select>
 						<select class="lang1num" name="lang1num">
 							<option value="0">인원</option>
@@ -274,12 +272,10 @@ function previewImage(targetObj, previewId) {
 						<select class="category2" name="lang2">
 							<option value="0">교환 언어2</option>
 							<option value="한국어">한국어</option>
-							<option value="English">English</option>
-							<option value="日本語">日本語</option>
-							<option value="中國語">中國語</option>
-							<option value="le français">le français</option>
-							<option value="獨逸語">獨逸語</option>
-							<option value="русский язык">русский язык</option>
+							<option value="영어">영어</option>
+							<option value="중국어">중국어</option>
+							<option value="독일어">독일어</option>
+							<option value="일본어">일본어</option>
 						</select>
 						<select class="lang2num" name="lang2num">
 							<option value="0">인원</option>
@@ -288,6 +284,7 @@ function previewImage(targetObj, previewId) {
 							</c:forEach>
 						</select><span class="space">명</span>
 						<input id="title" type="text" name="title" maxlength="64" class="text">
+						<input type="hidden" name="email" value="${sessionScope.email }">
 						<div class="lengthMsg">
 						</div>
 					</div>
@@ -352,56 +349,7 @@ function previewImage(targetObj, previewId) {
 					</p>
 				</div>
 			</div>
-		<!-- 	<div class="core Admin">
-				<div class="input">
-				<div class="subCore admin">
-					<h4 class="subTitle">연락처 설정 <span class="star">*</span></h4>
-					<table width="100%">
-						<tbody>
-							<tr class="admin_num">
-								<th>개설자 전화번호 입력</th>
-								<td>
-									<label for="ownerPhone" class="displayNone">전화번호 앞부분 입력</label>
-									<input class="text mask-pint" type="text" name="ownerPhone_head" id="ownerPhone" value="" size="4" maxlength="4">
-									<label for="ownerPhoneBody" class="displayNone">전화번호 중간부분입력</label>
-									<input id="ownerPhoneBody" class="mask-pint text" type="text" name="ownerPhone_body" value="" size="4" maxlength="4">
-									<label for="ownerPhoneTail" class="displayNone">전화번호 뒷부분 입력</label>
-									<input id="ownerPhoneTail" class="text mask-pint" type="text" name="ownerPhone_tail" value="" size="4" maxlength="4">
-								</td>
-							</tr>
-							<tr class="admin_email">
-								<th>개설자 이메일 입력</th>
-								<td>
-									<input title="개설자 이메일 입력" id="email" class="text" type="text" name="ownerEmail">
-									<span class="at">@</span>
-									<input title="개설자 이메일 입력" id="email" class="text" type="text" name="ownerEmail">
-								
-									<select>
-										<option>hanmail.net</option>
-										<option>dreamwiz.com</option>
-										<option>empal.com</option>
-										<option>gmail.com</option>
-										<option>hotmail.com</option>
-										<option>msn.com</option>
-										<option>naver.com</option>
-										<option>paran.com</option>
-										<option>기타</option>
-									</select>
-									<input type="hidden" id="checkEmail" name="checkEmail" value="" equal="0" alias="이메일 중복확인이 되지 않았습니다."/>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				</div>
-				<div class="advice">
-					<p class="subAdvice admin focus">
-						연락처는 개설자의 전화번호, 이메일을 정확히<br>
-						입력해 주셔야 하며 모임에 대한 문의나 정보를<br>
-						공유할 수 있습니다.<br>
-					</p>
-				</div>
-			</div> -->
+		
 			<div class="lastCore">
 				<div class="action">
 					<input type="button" class="next button" value="다음 단계">
@@ -667,37 +615,9 @@ function previewImage(targetObj, previewId) {
 							</select>
 							<input class="location text" type="text" name="location" id="location" size="" maxlength="64" value="" minlen="3" required="" alias="장소를" title="정확한 장소명을 입력해 주세요.">
 						</div>
-						<!-- <div class="subCore map">
-							<div class="mapSearch">
-								<input id="POIword" title="시, 도, 구, 동 단위로 위치를 입력해 주세요." class="text outfocus" type="text" value=""><input class="search button" type="button" value=""><br>
-
-								<div class="search result">
-									<select id="SearchResult" style="display:none" multiple="">
-									</select>
-								</div>
-							</div>
-							<div class="map holder">
-								<div id="mapzone" style="width: 644px; height: 360px; display: block; padding: 0px;" class="_nmap_mapbox _nmap_uid(n207987563041)"><div class="nmap" style="margin: 0px; padding: 0px; border: 0px; width: 644px; height: 360px; position: relative; overflow: hidden;"><div class="nmap_movable_container" style="position: absolute; z-index: 0; border: 0px; padding: 0px; margin: 0px; overflow: visible; left: 137px; top: -9px;"><div class="nmap_base_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 10; display: block;"><img src="http://onetile3.map.naver.net/get/135/0/0/10/848/734/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 66px; top: 52px;"><img src="http://onetile4.map.naver.net/get/135/0/0/10/849/734/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 322px; top: 52px;"><img src="http://onetile1.map.naver.net/get/135/0/0/10/849/735/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 322px; top: -204px;"><img src="http://onetile4.map.naver.net/get/135/0/0/10/848/735/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 66px; top: -204px;"><img src="http://onetile3.map.naver.net/get/135/0/0/10/847/735/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -190px; top: -204px;"><img src="http://onetile2.map.naver.net/get/135/0/0/10/848/733/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 66px; top: 308px;"><img src="http://onetile2.map.naver.net/get/135/0/0/10/847/734/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -190px; top: 52px;"><img src="http://onetile1.map.naver.net/get/135/0/0/10/847/733/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -190px; top: 308px;"><img src="http://onetile3.map.naver.net/get/135/0/0/10/849/733/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: 322px; top: 308px;"><img src="http://onetile2.map.naver.net/get/135/0/0/10/846/735/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -446px; top: -204px;"><img src="http://onetile1.map.naver.net/get/135/0/0/10/846/734/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -446px; top: 52px;"><img src="http://onetile4.map.naver.net/get/135/0/0/10/846/733/bl_vc_bg/ol_vc_an" alt="" width="256" height="256" style="position: absolute; border: 0px; margin: 0px; padding: 0px; max-width: none; max-height: none; width: 256px; height: 256px; left: -446px; top: 308px;"></div><div class="nmap_hybrid_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 20;"></div><div class="nmap_traffic_bicycle_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 40;"></div><div class="nmap_drawing_pane _nmap_uid(n1414754889649)" style="z-index: 60; position: absolute; overflow: visible; left: 0px; top: 0px; padding: 0px; margin: 0px; border: 0px;"><div class="_nmap_uid(n470568108090)" style="border: 0px; margin: 0px; padding: 0px;"><svg:svg version="1.1" width="543912px" height="399657px" viewBox="-223529 -207017 543912 399657" overflow="visible" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; overflow: visible; margin: 0px; padding: 0px; border: 0px; width: 543912px; height: 399657px; left: -223529px; top: -207017px;"><path fill-rule="evenodd" d="M -222847,-205585 L 307183,-207007 320373,190700 -223519,192630 Z M -60873,-153801 L -60873,-153801 102154,-154773 115587,122817 -71310,123707 Z" style="stroke:black;stroke-width:10px;stroke-opacity:0.5;stroke-dasharray:30,10,10,10,10,10;fill:black;fill-opacity:0.5;" stroke-linejoin="round"></path></svg:svg></div></div><div class="nmap_overlay_pane _nmap_uid(n1445172054245)" style="z-index: 70; position: absolute; overflow: visible; left: 0px; top: 0px; padding: 0px; margin: 0px; border: 0px;"><div class="nmap_int_zoom" style="display:none"><span class="nmap_bx_lt"></span><span class="nmap_bx_rt"></span><span class="nmap_bx_lb"></span><span class="nmap_bx_rb"></span></div><img class="_nmap_marker nmap_png _nmap_uid(n1106453085526)" alt="" width="34" height="37" src="http://static.onoffmix.com/images2/map_pin.png" style="position: absolute; cursor: pointer; overflow: hidden; margin: -37px 0px 0px -14px; padding: 0px; border: 0px; max-width: none; max-height: none; width: 34px; height: 37px; top: 189px; left: 185px;"></div><div class="nmap_info_pane _nmap_uid(n887653847573)" style="z-index: 80; position: absolute; overflow: visible; left: 0px; top: 0px; padding: 0px; margin: 0px; border: 0px;"><div class="_nmap_uid(n49015190182)" style="position: absolute; left: 0px; top: 0px; visibility: hidden; display: none; border: 0px; margin: 0px; padding: 0px;"><div class="nmap_lay_htype1"><span class="nmap_lay_c"><span></span></span><span class="nmap_lay_r"></span></div></div><div class="nmap_duplayer nmap_openapi_duplayer _nmap_disdrag _nmap_diswheel _nmap_disdblclick" style="padding: 0px; margin: 0px; position: absolute; z-index: 999; display: none; visibility: hidden; left: -8.73955e+06px; top: 3.73644e+06px;">
-<div class="nmap_lay_int_duppin" style="position:relative; display:block;">
-<div class="nmap_int_duppin_content">
-<div class="nmap_scroll">
-<ul class="_nmap_group">
-</ul>
-</div>
-</div>
-</div>
-</div></div><div class="nmap_cadastral_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 30;"></div><div class="street_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 20;"></div><div class="nmap_ghost_pane" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 9;"></div><div class="nmap_static_container" style="position: absolute; top: 0px; left: 0px; border: 0px; padding: 0px; margin: 0px; overflow: visible; z-index: 0;"></div></div><div class="nmap_static_container" style="position: relative; z-index: 10; border: 0px; padding: 0px; margin: 0px; overflow: visible; width: 100%;"><div class="nmap_pano_dir nmap_pano_dir_move" style="z-index:20;display:none;"><div class="nmap_dir_icon" style="height:32px"><img src="http://static.naver.net/maps2/ico_pano_dir_final.png" width="900" height="400" class="png" style="max-width:none;max-height:none;"></div></div><div class="nmap_copyright_layer _nmap_diswheel _nmap_disdrag _nmap_disdblclick _nmap_disbubbling _nmap_uid(n686316220283)" style="top: 180px; display: none; left: 322px;"><div class="nmap_copyright_layer_body"><h5 class="nmap_copyright_tit" "="">지도 데이터&nbsp;&nbsp;&nbsp;</h5><div class="nmap_copyright_data"><span class="nmap_show" style="white-space:nowrap;">NAVER Corp.</span><span class="">/<a href="http://www.openstreetmap.org/copyright" target="_blank" style="font-family: nanumgothic,dotum,sans-serif !important">OpenStreetMap</a></span><span class="">/SPOT</span><span class="">/인천광역시</span><span class="">/국토지리정보원</span><span class="">/SK 플래닛/한국도로공사</span><span class="">/다울지오인포</span></div><a href="#" class="nmap_copyright_layer_close">닫기</a></div></div><div class="nmap_footer _nmap_uid(n870244644138)" style="bottom: 4px;"><div class="nmap_copyright"><span class="nmap_show">©&nbsp;NAVER Corp.</span><span class="">/<a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a></span><span class="">/SPOT</span><span class="">/인천광역시</span><span class="">/국토지리정보원</span><span class="">/SK 플래닛/한국도로공사</span><span class="">/다울지오인포</span><span class="nmap_cp_more">&nbsp;<a href="#">더보기</a></span></div><div class="nmap_scale_base"><a href="http://map.naver.com" target="_blank"><img class="nmap_logo_map" src="http://static.naver.net/maps/m/logo_naver.png" width="44" height="10" alt="NAVER" style="max-width:none;max-height:none;"></a><div class="nmap_scale_len"><span>200m</span></div></div></div><div class="nmap_scaler nmap_scaler_s14 nmap_scaler_left _nmap_diswheel _nmap_disdrag _nmap_disdblclick _nmap_disbubbling nmap_scaler_re _nmap_uid(n370148191976)" style="top: 45px; height: 199px; left: 10px;"><div class="nmap_ctr_zoom" style="height: 199px; left: 0px;"><div class="nmap_slider" style="height: 154px;"><div class="nmap_ctr_scale_on" style="height: 154px;"></div>nmap_ctr_scale_off height max 레벨:9px, 간격 10px<div class="nmap_ctr_scale_off" style="height: 49px;"></div>ctr_level top max 레벨:9px, 간격 10px<div class="nmap_slider-thumb S5458363" style="top: 49px;" title=""><img class="nmap_on" src="http://static.naver.net/maps2/blank.gif" width="18" height="15" alt=""></div></div><div class="nmap_ctr_plus"><a href="#"><img src="http://static.naver.net/maps2/blank.gif" width="24" height="24" alt="확대">확대</a></div>이미지 사이즈 변경<div class="nmap_ctr_minus" style="top: 173px;"><a href="#"><img src="http://static.naver.net/maps2/blank.gif" width="24" height="26" alt="축소">축소</a></div></div>동적으로 변경되는 classnmap_scaler_m(1-13)       : 설정 가능한 최대 레벨<div class="nmap_ctr_legend nmap_scaler_m14" style="height: 145px; left: 22px;"><div class="nmap_ctr_legend1"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="부동산"></div><div class="nmap_ctr_legend2"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="거리"></div><div class="nmap_ctr_legend3"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="읍.면.동"></div><div class="nmap_ctr_legend4"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="시.군.구"></div><div class="nmap_ctr_legend5"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="시.도"></div><div class="nmap_ctr_legend6"><img src="http://static.naver.net/maps2/blank.gif" width="36" height="15" alt="국가"></div></div></div><div class="nmap_btn nmap_sel_basic _nmap_diswheel _nmap_disdrag _nmap_disdblclick _nmap_disbubbling _nmap_uid(n56856305749)" style="top: 10px; left: 10px;"><div class="nmap_sel_normal"><a href="#" class="nmap_on"><span class="nmap_btn_wrap">일반</span></a></div><div class="nmap_sel_satellite"><a href="#"><span class="nmap_btn_wrap">위성</span></a><div class="nmap_lay_default nmap_lay_satellite" style="display: none;"><div class="nmap_lay_body"><div><input type="checkbox" class="nmap_ip_check" id="ip_check3" checked="checked"> <label for="ip_check3">겹쳐보기</label></div></div></div></div></div></div></div></div>
-								<input type="hidden" name="tm128x" id="tm128x" value="">
-								<input type="hidden" name="tm128y" id="tm128y" value="">
-								<input type="hidden" name="mapX" id="lng" size="" maxlength="64" value="127.1066861" required="" alias="지도좌표_X_를" confirm="123.">
-								<input type="hidden" name="mapY" id="lat" size="" maxlength="64" value="37.4851549" required="" alias="지도좌표_Y_를" confirm="123.">
-								<input type="hidden" name="locality" id="sido" value="서울특별시">
-								<input type="hidden" name="sublocality1" id="gugun" value="강남구">
-								<input type="hidden" name="sublocality2" id="dong" value="수서동">
-							</div>
-							.map.holder end
-						</div> -->
-											</div>
+						<div class="subCore map">
+							
+						</div>
 					<div class="advice">
 						<p class="subAdvice location">
 							참여자들이 장소를 명확히 알 수 있도록<br>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -102,19 +102,10 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 60px;">언어별</a>
-					<ul>
-						<li><a href="three-column.html">영어</a></li>
-						<li><a href="one-column.html">중국어</a></li>
-						<li><a href="text.html">Text page</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">지역별</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">고객센터</a>
+				<li><a href="language.do" style="height: 57px;">언어별</a></li>
+				<li><a href="area.do" style="height: 56px;">지역별</a></li>
+				<li><a href="#" style="height: 56px;">고객센터</a>
+
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="#">QnA</a></li>
@@ -190,7 +181,6 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-
 	<div id="switch_main"
 		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
 		<jsp:include page="${slide }"></jsp:include>

@@ -85,6 +85,20 @@ public class MemberDAO {
   	   session.close();
   	   return list;
      }
+    public static MemberDTO meetingOpenerData(String email)
+    {
+    	SqlSession session= ssf.openSession();
+   	   MemberDTO d = session.selectOne("meetingOpenerData", email);
+   	   session.close();
+   	   return d;
+    }
+    public static MemberDTO meetingMemberData(String email)
+    {
+    	SqlSession session= ssf.openSession();
+    	MemberDTO d = session.selectOne("meetingMemberData", email);
+    	session.close();
+    	return d;
+    }
  /*   public static List<MeetingDTO> daybydayMeetingData(String m_partDate){
    	   SqlSession session= ssf.openSession();
    	   List<MeetingDTO> list = session.selectList("daybydayMeetingData", m_partDate);

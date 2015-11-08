@@ -34,6 +34,12 @@ public class MeetingDAO {
     	session.close();
     	return d;
     }
+    public static void meetingApply(MeetingMemberDTO d)
+    {
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("meetingApply",d);
+    	session.close();
+    }
     public static void meetingWish(WishDTO d){
     	SqlSession session=ssf.openSession(true);
     	session.insert("meetingWish",d);
