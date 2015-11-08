@@ -83,7 +83,7 @@
 					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
 						<li>접수마감 : <span>2015-10-30</span></li>
-						<li>내아이디 : ${dto.m_email }</li>
+	"src/com/model/MeetingDetailModel.java"					<li>내아이디 : ${dto.m_email }</li>
 						<a href="meeting_detail.do" class="info">모임참여</a>
 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기!</a>
 					</ul>
