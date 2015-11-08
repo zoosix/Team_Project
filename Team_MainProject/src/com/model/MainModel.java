@@ -6,7 +6,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meeting.dao.MeetingDTO;
+import com.meeting.dao.*;
 import com.member.dao.MemberDAO;
 import com.member.dao.gtableDTO;
 
@@ -21,7 +21,10 @@ public class MainModel implements Model{
 		
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
+		List<MeetingDTO> list2=MeetingDAO.meetingTableListData2();	
+		
 		req.setAttribute("list", list);
+		req.setAttribute("list2", list2);
 		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
 		req.setAttribute("slide", "../main/slide.jsp");

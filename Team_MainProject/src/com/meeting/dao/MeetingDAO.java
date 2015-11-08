@@ -41,5 +41,36 @@ public class MeetingDAO {
     	
     }
     
+    public static int wishCount(WishDTO d){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("wishCount",d);
+    	session.close();
+    	return count;
+    }
+    public static void meetingWishAdd(int mno){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("meetingWishAdd",mno);
+    	session.close();
+    }
     
+    public static List<MeetingDTO> meetingTableListData2(){
+   	   SqlSession session= ssf.openSession();
+   	   List<MeetingDTO> list = session.selectList("meetingTableListData2");
+   	   session.close();
+   	   return list;
+      }
+    
+    public static void meetingWishMinus(int mno){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("meetingWishMinus",mno);
+    	session.close();
+    }
+    
+    public static void mywishDel(WishDTO d){
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("mywishDel",d);
+    	session.close();
+    	
+    }
+
 }

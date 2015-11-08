@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>나들목</title>
 <!-- 부트스트랩 -->
-<!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
@@ -25,7 +24,6 @@
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="js/ajax/ajax2.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
@@ -81,7 +79,7 @@
 </script>
 
 
-<style type="text/css">
+ <style type="text/css">
 .inline-block, .inlineBlock {
 	display: inline-block;
 	zoom: 1;
@@ -167,9 +165,7 @@
 				</c:if> <c:if test="${sessionScope.email!=null }">
 
 					<ul class="nav navbar-nav">
-						<!-- 					       <style type="text/css">
-					       a.dropdown-toggle:HOVER{background-color:transparent !important;}
-					       </style> -->
+						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
@@ -194,66 +190,6 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<%-- <<<<<<< HEAD
-
-	<div id="body">
-		<div class="width">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
-		</ul>
-		<br>
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
-
-			</span>
-			<form method="get" action="">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
-		</div>
-
-	</div>
-		<div id="switch_main"
-			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-			<jsp:include page="${jsp }"></jsp:include>
-			
-======= --%>
-
-
-
-
-	</div>
-	<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
 
 	<div id="switch_main"
 		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
