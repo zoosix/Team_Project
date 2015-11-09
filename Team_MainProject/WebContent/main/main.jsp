@@ -76,6 +76,7 @@
 	});
 
 
+	
 </script>
 
 
@@ -102,11 +103,10 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="language.do" style="height: 57px;">언어별</a></li>
-				<li><a href="area.do" style="height: 56px;">지역별</a></li>
+				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
+				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
-
-					<ul>
+				<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="qna.do">QnA</a></li>
 						<li><a href="fnq.do">FnQ</a></li>
@@ -157,8 +157,7 @@
 
 					<ul class="nav navbar-nav">
 						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">

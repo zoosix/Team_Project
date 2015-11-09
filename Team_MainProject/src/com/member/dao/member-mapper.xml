@@ -8,7 +8,7 @@
         SELECT COUNT(*) FROM lmember WHERE email=#{email}
     </select>
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
-        SELECT pwd,nickname,name,nation,tel,lang,admin,intro,sex FROM lmember WHERE email=#{email}
+        SELECT pwd,nickname,name,nation,tel,lang,admin,introduction,sex FROM lmember WHERE email=#{email}
     </select>
 
 <insert id="memberInsert" parameterType="Member">
@@ -52,6 +52,15 @@
 	SELECT nickname,lang,sex FROM Lmember WHERE email=#{email}
 </select>
 
+<select id="MeetingType" resultType="Meeting" parameterType="String">
+   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+    FROM meeting WHERE m_lang1 LIKE '%'||#{lang}||'%' ORDER BY m_no DESC
+</select>
+
+<select id="MeetingTypePlace" resultType="Meeting" parameterType="String">
+   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+    FROM meeting WHERE m_place LIKE '%'||#{place}||'%' ORDER BY m_no DESC
+</select>
 
 
 </mapper>
