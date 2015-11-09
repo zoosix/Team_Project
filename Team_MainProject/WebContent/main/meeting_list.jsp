@@ -48,6 +48,19 @@
     background-color: transparent;
     background-image: -webkit-linear-gradient(rgba(15,20,31,0) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%);
     background-image: linear-gradient(rgba(8, 8, 8, 0.51) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%)
+    
+}
+#tit{
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    font-weight: 300;
+    font-size: 1.7em;
+    margin-top: 130px;
+    font-family: 다음;
+    font-size: x-large;
+    float: left;
+    margin-left: 25px;
+    color: white;
 }
 </style>
 </head>
@@ -70,7 +83,7 @@
 				
 			<div class="view view-first" style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
 			<div class="groupCard--gradient">
-				<h3 style="color: white; !important">${dto.m_title }</h3>
+				<span id="tit">${dto.m_title }</span>
 			</div>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>

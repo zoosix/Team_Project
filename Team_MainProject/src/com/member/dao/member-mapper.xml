@@ -30,7 +30,7 @@
 </select>
  
   <select id="meetingTableListData" resultType="Meeting">
-    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
     FROM meeting ORDER BY m_no DESC
  </select> 
 <!-- 
@@ -40,7 +40,7 @@
  </select> 
   -->
 <select id="searchMeeting" resultType="Meeting" parameterType="String">
-   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
     FROM meeting WHERE m_title LIKE '%'||#{word}||'%' ORDER BY m_no DESC
 </select>
 <!-- 미팅 개설자 정보 -->
@@ -53,12 +53,12 @@
 </select>
 
 <select id="MeetingType" resultType="Meeting" parameterType="String">
-   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
     FROM meeting WHERE m_lang1 LIKE '%'||#{lang}||'%' ORDER BY m_no DESC
 </select>
 
 <select id="MeetingTypePlace" resultType="Meeting" parameterType="String">
-   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_location,m_email,m_tel,m_end,m_wish
+   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
     FROM meeting WHERE m_location LIKE '%'||#{place}||'%' ORDER BY m_no DESC
 </select>
 

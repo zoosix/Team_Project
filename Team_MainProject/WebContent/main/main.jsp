@@ -55,15 +55,7 @@
 			return;
 		}
 	}
-	$(function() {
-		$('#btnSub').click(function() {
-			var word = $('#word').val();
-			if (word == "") {
-				alert("검색어를 입력해 주세요");
-			}
-			$('#searchFrm').submit();
-		});
-	});
+
 </script>
 <style type="text/css">
 a.dropdown-toggle:HOVER 
@@ -75,7 +67,7 @@ a.dropdown-toggle:HOVER
 <body>
 	<div id="container">
 		<header>
-		<div class="width">
+		<div class="width" data-toggle="collapse" data-target="#nabar-collapse-1">
 			<h1>
 				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
@@ -134,9 +126,9 @@ a.dropdown-toggle:HOVER
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
 
-					<ul class="nav navbar-nav">
+					<ul class="nav navbar-nav" id="navbar-collapse-1" style="z-index:1000000;">
 				
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
+						<li class="dropdown" style="z-index:10000;"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
@@ -160,10 +152,9 @@ a.dropdown-toggle:HOVER
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
+	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 10px; z-index:2;">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
-
 	</div>
 	<pre id="output"></pre>
 	</header>

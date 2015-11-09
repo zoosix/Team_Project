@@ -89,7 +89,7 @@ body {
 	margin: 0 auto;
 	background-color: #505050;
 	color: #ddd;
-	z-index: 10000;
+ 	z-index: 10; 
 }
 
 .navbar-with-search {
@@ -121,7 +121,7 @@ body {
 		</ul>
 		<br>
 
-	<nav class="navbar navbar-inverse navbar-with-search" role="navigation" style="!important; margin-top: 0px; z-index: 1000;"> 
+	<nav class="navbar navbar-inverse navbar-with-search" role="navigation" style="!important; margin-top: 0px; z-index: 10;"> 
 		<a class="navbar-brand" href="#">모임 검색</a>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
