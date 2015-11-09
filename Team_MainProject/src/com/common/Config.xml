@@ -6,9 +6,15 @@
   <typeAliases>
 	<typeAlias type="com.member.dao.MemberDTO" alias="Member"/>
 	<typeAlias type="com.meeting.dao.MeetingDTO" alias="Meeting"/>
+	<typeAlias type="com.meeting.dao.MeetingMemberDTO" alias="MeetingMember"/>
 	<typeAlias type="com.member.dao.gtableDTO" alias="Gtable"/>
 	<typeAlias type="com.custom.dao.NoticeDTO" alias="Notice"/>
-	</typeAliases>
+	<typeAlias type="com.meeting.dao.WishDTO" alias="Wish"/>
+     <typeAlias type="com.sort.dao.SortDTO" alias="Sort"/>
+
+
+  </typeAliases>
+
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
@@ -24,5 +30,6 @@
     <mapper resource="com/member/dao/member-mapper.xml"/>
     <mapper resource="com/meeting/dao/meeting-mapper.xml"/>
     <mapper resource="com/custom/dao/notice-mapper.xml"/>
+    <mapper resource="com/sort/dao/sort-mapper.xml"/>
   </mappers>
 </configuration>

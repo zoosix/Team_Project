@@ -110,13 +110,13 @@
 		<div class="clear"></div>
 		</header>
 	</div>
-	<div id="intro">
+	<!-- <div id="intro">
 		<div class="width">
 			<div class="intro-content intro-content-short">
 				<h2>Custom</h2>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<jsp:include page="${jsp}"></jsp:include>
 	
 	

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meeting.dao.MeetingDAO;
 import com.meeting.dao.MeetingDTO;
+import com.member.dao.MemberDAO;
+import com.member.dao.MemberDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -45,10 +47,11 @@ public class MeetingInsertOkModel implements Model {
 		String m_partTime2=mr.getParameter("partTime2");
 		String m_place=mr.getParameter("place");
 		String m_location=mr.getParameter("location");
-		String m_meetingDate=m_meetingDate1+" "+m_meetingTime1+"~"+m_meetingDate2+" "+m_meetingTime2;
+		String m_meetingDate=m_meetingDate1+" "+m_meetingTime1+" ~ "+m_meetingDate2+" "+m_meetingTime2;
 		String m_partDate=m_partDate1+" "+m_partTime1+" ~ "+m_partDate2+" "+m_partTime2;
-		String m_email="aaaaa";
-		String m_tel="aaaa";
+		String m_email=mr.getParameter("email");
+		//String m_tel="aaaa";
+		MemberDTO md=MemberDAO.meetingOpenerData(m_email);
 		
 		MeetingDTO d=new MeetingDTO();
 		d.setM_lang1(m_lang1);
@@ -63,7 +66,7 @@ public class MeetingInsertOkModel implements Model {
 		d.setM_place(m_place);
 		d.setM_location(m_location);
 		d.setM_email(m_email);
-		d.setM_tel(m_tel);
+		d.setM_tel(md.getTel());
 		
 		if(filename==null)
 		{

@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.meeting.dao.MeetingDTO;
+import com.meeting.dao.*;
 import com.member.dao.MemberDAO;
 import com.member.dao.gtableDTO;
 
@@ -21,17 +22,16 @@ public class MainModel implements Model{
 		
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
-			String partDate = req.getParameter("daymeet");
-			if(partDate==null) partDate=strdate;
-			List<MeetingDTO> dlist=MemberDAO.daybydayMeetingData(partDate);
-	        req.setAttribute("dlist", dlist);	
-	        System.out.println("떠라"+partDate);
-	        
-			req.setAttribute("partDate", partDate);
+		List<MeetingDTO> list2=MeetingDAO.meetingTableListData2();	
+		
+		HttpSession session = req.getSession();
+		String email = (String)session.getAttribute("email");
+		
 		req.setAttribute("list", list);
+		req.setAttribute("list2", list2);
 		req.setAttribute("title", "자유 게시판");
-		req.setAttribute("jsp", "../main/meeting_list.jsp");
 		req.setAttribute("slide", "../main/slide.jsp");
+		req.setAttribute("jsp", "../main/meeting_list.jsp");
 
 		return "main/main.jsp";
 	}

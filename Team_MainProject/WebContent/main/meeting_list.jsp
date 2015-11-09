@@ -28,23 +28,8 @@
 			$(this).addClass('active');
 			$('#border_main3').show();
 		});
-		$('.datepicker').datepicker()
+
 	});
-
-	/*   function pushday(){
-	 var daymeet=$('#day_meeting').attr("value");
-	 $('#day').val(daymeet);
-	 var param="daymeet="+daymeet;
-	 sendMessage("GET", "daymeet.do", param, daymeet);
-	 }
-
-	 function daymeet(){
-	 if(httpRequest.readyState==4){
-	 if(httpRequest.status==200){
-	 $('.daylist').html(httpRequest.responseText);	
-	 }    
-	 }
-	 } */
 </script>
 
 <style type="text/css">
@@ -84,10 +69,12 @@
 					<ul align=left style="font-size: 12px; list-style: none;">
 						<li>접수마감 : <span>2015-10-30</span></li>
 						<li>내아이디 : ${dto.m_email }</li>
-						<a href="meeting_detail.do" class="info">모임참여</a>
-						<a href="#" class="info">찜하기!</a>
+						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
+						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
+						<img src="images/nowish.png" width="22px" height="26px" />
+						</a>
 					</ul>
-
+					
 				</div>
 			</div>
 
@@ -96,18 +83,18 @@
 
 	<div id="border_main2"
 		style="margin-left: 10px; margin-top: 50px; z-index: 900; display: none">
-		<c:forEach var="dto" items="${list }">
+		<c:forEach var="dto" items="${list2 }">
 
 			<div class="view view-first">
 				<img src="images/main/meeting.jpg" />
 				<h2>${dto.m_title }</h2>
 				<div class="mask">
-					<h2>리스트2받아서 처리할거</h2>
+					<h2>${dto.m_title }</h2>
 					<p style="font: 맑은고딕;">111111111111</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
 						<li>접수마감 : <span>2015-10-30</span></li>
 						<li>내아이디 : ${dto.m_email }</li>
-						<a href="meeting_detail.do" class="info">모임참여</a>
+						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
 						<a href="#" class="info">찜하기!</a>
 					</ul>
 				</div>
@@ -123,7 +110,7 @@
 			<div class="modal-dialog">
 
 				<!-- Modal content-->
-				<div class="modal-content">
+				<div class="modal-content" style="width: 842px;">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title" style="color: black;">날짜별 모임</h4>

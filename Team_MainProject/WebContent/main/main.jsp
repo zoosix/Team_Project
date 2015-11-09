@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,8 +10,6 @@
 <!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56404cf45816e20a" async="async"></script>
-
-
 
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -30,7 +28,6 @@
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="js/ajax/ajax2.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
@@ -85,6 +82,7 @@
 	});
 
 
+	
 </script>
 <style type="text/css">
 /* 퀵메뉴 */
@@ -92,7 +90,10 @@
 #aside {
 display:block; 
 position:absolute; 
-right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
+left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
+
+
+ <style type="text/css">
 .inline-block, .inlineBlock {
 	display: inline-block;
 	zoom: 1;
@@ -115,23 +116,13 @@ right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 60px;">언어별</a>
-					<ul>
-						<li><a href="three-column.html">영어</a></li>
-						<li><a href="one-column.html">중국어</a></li>
-						<li><a href="text.html">Text page</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">지역별</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">고객센터</a>
-					<ul>
+				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
+				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
+				<li><a href="#" style="height: 56px;">고객센터</a>
+				<ul>
 						<li><a href="notice.do">공지사항</a></li>
-						<li><a href="#">QnA</a></li>
-						<li><a href="#">FnQ</a></li>
+						<li><a href="qna.do">QnA</a></li>
+						<li><a href="fnq.do">FnQ</a></li>
 					</ul></li>
 			</ul>
 			<div class="clear"></div>
@@ -178,11 +169,8 @@ right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 				</c:if> <c:if test="${sessionScope.email!=null }">
 
 					<ul class="nav navbar-nav">
-						<!-- 					       <style type="text/css">
-					       a.dropdown-toggle:HOVER{background-color:transparent !important;}
-					       </style> -->
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">
@@ -204,7 +192,7 @@ right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 			</span>
 		</div>
 		<div class="clear"></div>
-		
+	</header>
 		<div id="aside">
 		<div class="well" style="margin-left: 0px auto; padding-left: 0px auto; margin-bottom: 0px;">
 		<ul style="list-style:none;padding-left:0px; margin-left: 0px; margin-bottom: 0px;" align=center>
@@ -219,13 +207,55 @@ right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 		</div>
 		</div>
 	</div>
+	 <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="panel-title" id="contactLabel"><span class="glyphicon glyphicon-info-sign"></span> Any questions? Feel free to contact us.</h4>
+                    </div>
+                    <form action="#" method="post" accept-charset="utf-8">
+                    <div class="modal-body" style="padding: 5px;">
+                          <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="firstname" placeholder="Firstname" type="text" required autofocus />
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="lastname" placeholder="Lastname" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="email" placeholder="E-mail" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                    <input class="form-control" name="subject" placeholder="Subject" type="text" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <textarea style="resize:vertical;" class="form-control" placeholder="Message..." rows="6" name="comment" required></textarea>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="panel-footer" style="margin-bottom:-14px;">
+                            <input type="submit" class="btn btn-success" value="Send"/>
+                                <!--<span class="glyphicon glyphicon-ok"></span>-->
+                            <input type="reset" class="btn btn-danger" value="Clear" />
+                                <!--<span class="glyphicon glyphicon-remove"></span>-->
+                            <button style="float: right;" type="button" class="btn btn-default btn-close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	<div id="switch_main"
 		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
-		
 	</div>
-	</header>
 
 	<pre id="output"></pre>
 </body>

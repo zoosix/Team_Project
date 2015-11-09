@@ -11,3 +11,12 @@ INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT 
 INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'아앙','아앙','0',SYSDATE);
 INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'아앙','아앙','0',SYSDATE);
 COMMIT;
+
+CREATE TABLE qna_Board(
+ q_no
+ q_title
+ q_content
+ q_hit
+ q_email
+ q_pwd
+);

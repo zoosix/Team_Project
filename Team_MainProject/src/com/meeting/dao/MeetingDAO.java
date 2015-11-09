@@ -34,4 +34,62 @@ public class MeetingDAO {
     	session.close();
     	return d;
     }
+    public static void meetingApply(MeetingMemberDTO d)
+    {
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("meetingApply",d);
+    	session.close();
+    }
+    public static void meetingWish(WishDTO d){
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("meetingWish",d);
+    	session.close();
+    	
+    }
+    
+    public static int wishCount(WishDTO d){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("wishCount",d);
+    	session.close();
+    	return count;
+    }
+    public static void meetingWishAdd(int mno){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("meetingWishAdd",mno);
+    	session.close();
+    }
+    
+    public static List<MeetingDTO> meetingTableListData2(){
+   	   SqlSession session= ssf.openSession();
+   	   List<MeetingDTO> list = session.selectList("meetingTableListData2");
+   	   session.close();
+   	   return list;
+      }
+    
+    public static void meetingWishMinus(int mno){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("meetingWishMinus",mno);
+    	session.close();
+    }
+    
+    public static void mywishDel(WishDTO d){
+    	SqlSession session=ssf.openSession(true);
+    	session.insert("mywishDel",d);
+    	session.close();
+    	
+    }
+    
+    public static List<MeetingDTO> mywishList(String email){
+    	SqlSession session=ssf.openSession();
+    	 List<MeetingDTO> list = session.selectList("mywishList",email);
+    	 return list;
+    }
+    
+    public static List<MeetingDTO> mymeetingData(String email) {
+    	SqlSession session=ssf.openSession();
+     	 List<MeetingDTO> list = session.selectList("mymeetingData",email);
+      	return list;
+    }
+  
+
 }

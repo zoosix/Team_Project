@@ -9,7 +9,7 @@
 		</selectKey>
 		INSERT INTO meeting VALUES(#{m_no},#{m_lang1},#{m_lang2},#{m_lang1num},#{m_lang2num},
 		#{m_title},#{m_summary},#{m_content},#{m_meetingDate},#{m_partDate},#{m_place},#{m_location},
-		#{m_email},#{m_tel},0,#{m_filename},#{m_filesize})
+		#{m_email},#{m_tel},0,0,#{m_filename},#{m_filesize})
 	</insert>
 	<!-- 글내용 -->
 	<select id="meetingDetail" resultType="Meeting" parameterType="int">
@@ -18,4 +18,64 @@
 		FROM meeting
 		WHERE m_no=#{m_no}
 	</select>
+	<!-- 모임 참여 -->
+	<insert id="meetingApply" parameterType="MeetingMember">
+		<selectKey keyProperty="mm_no" resultType="int" order="BEFORE">
+				SELECT NVL(MAX(mm_no)+1,1) as mm_no FROM meetingMember
+		</selectKey>
+		INSERT INTO meetingMember VALUES(#{mm_no},#{mm_mno},#{mm_email},#{mm_nickname},#{mm_lang},#{mm_sex})
+	</insert>
+	<!-- 모임 참가 리스트 -->
+	<select id="mymeetingData" resultType="Meeting" parameterType="String">
+	   
+		SELECT m_title,m_partdate,m_end,m_no,Rownum as mu_no FROM meeting,
+		meetingMember WHERE meetingMember.mm_email=#{mm_email} AND meetingMember.mm_no=meeting.m_no ORDER BY mu_no DESC
+	</select> 
+	<!-- 모임 찜 -->
+	<insert id="meetingWish" parameterType="Wish">
+		<selectKey keyProperty="w_no" resultType="int" order="BEFORE">
+				SELECT NVL(MAX(w_no)+1,1) as w_no FROM wish
+		</selectKey>
+		INSERT INTO wish VALUES(#{w_no},#{w_mno},#{w_email})
+	</insert>
+	
+ 	<select id="wishCount" resultType="int" parameterType="Wish">
+	SELECT COUNT(*) FROM wish WHERE w_mno=#{w_mno} AND w_email=#{w_email}
+    </select> 
+    
+   <update id="meetingWishAdd" parameterType="int">
+    UPDATE meeting SET m_wish=m_wish+1 WHERE m_no=#{m_no}
+    </update>
+    
+      <select id="meetingTableListData2" resultType="Meeting">
+ SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_email,m_tel,m_end,m_wish
+    FROM (SELECT  m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate,m_partDate,m_place,m_email,m_tel,m_end,m_wish
+    FROM meeting) ORDER BY m_wish DESC
+ </select> 
+  
+     <update id="meetingWishMinus" parameterType="int">
+    UPDATE meeting SET m_wish=m_wish-1 WHERE m_no=#{m_no}
+    </update>
+   
+   <delete id="mywishDel" parameterType="Wish">
+    DELETE FROM wish WHERE w_mno=#{w_mno} AND w_email=#{w_email}
+   </delete>
+   
+   
+   
+   <select id="mywishList" resultType="Meeting" parameterType="String">
+   SELECT m_title,m_content,m_no FROM wish,meeting WHERE w_email=#{w_email} AND m_no=w_mno
+   </select>
+   
+   <!-- 
+      @Results({
+	   @Result(property="no",column="no"),
+	   @Result(property="fvo.name",column="name"),
+	   @Result(property="id",column="id"),
+	   @Result(property="rday",column="rday"),
+	   @Result(property="inwon",column="inwon"),
+	   @Result(property="isCheck",column="isCheck"),
+   })
+   @Select("SELECT no,name,id,rday,inwon,isCheck FROM houseReserve hr,food f WHERE hr.code=f.no")
+   public List<houseReserveVO> foodReserveAllData();  -->
 </mapper>

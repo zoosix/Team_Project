@@ -13,6 +13,8 @@ public class MeetingDetailModel implements Model {
 		req.setCharacterEncoding("UTF-8");
 		String strNo=req.getParameter("no");
 		String strPage=req.getParameter("page");
+		System.out.println(strNo);
+		System.out.println(strPage);
 		
 		MeetingDTO d=MeetingDAO.meetingDetail(Integer.parseInt(strNo));
 		req.setAttribute("d", d);
