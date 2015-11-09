@@ -34,10 +34,11 @@ public class MeetingZzimModel implements Model {
         	   MeetingDAO.meetingWishAdd(Integer.parseInt(mno));
         	   System.out.println("count0:"+d.getW_email());
                 result="ok";
-           }else{ result="no";
+           }else{ 
            System.out.println("count-:"+d.getW_email());
               MeetingDAO.mywishDel(d);
               MeetingDAO.meetingWishMinus(Integer.parseInt(mno));
+              result="no";
            }
            }
            System.out.println("re="+result);

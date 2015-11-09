@@ -108,8 +108,8 @@
 
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
-						<li><a href="#">QnA</a></li>
-						<li><a href="#">FnQ</a></li>
+						<li><a href="qna.do">QnA</a></li>
+						<li><a href="fnq.do">FnQ</a></li>
 					</ul></li>
 			</ul>
 			<div class="clear"></div>

@@ -13,7 +13,7 @@
   <bean id="logout" class="com.model.LogoutModel"/>
   <bean id="idcheck" class="com.model.IdCheckModel"></bean>
   <bean id="join_ok" class="com.model.JoinOkModel"/>	
-  <bean id="daymeet" class="com.model.daymeetModel"/>
+
   
   <!-- 마이페이지 (Mypage)  -->
   <bean id="meeting" class="com.model.MyMeetingModel"/>

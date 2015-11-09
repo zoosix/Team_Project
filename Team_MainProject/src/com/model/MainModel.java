@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.meeting.dao.*;
 import com.member.dao.MemberDAO;
@@ -22,6 +23,9 @@ public class MainModel implements Model{
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
 		List<MeetingDTO> list2=MeetingDAO.meetingTableListData2();	
+		
+		HttpSession session = req.getSession();
+		String email = (String)session.getAttribute("email");
 		
 		req.setAttribute("list", list);
 		req.setAttribute("list2", list2);

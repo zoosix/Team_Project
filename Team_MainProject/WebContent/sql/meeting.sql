@@ -24,3 +24,6 @@ m_place,m_location,m_email,m_tel,m_end) VALUES((SELECT NVL(MAX(m_no)+1,1) FROM m
 '2015-12-20','홍대','홍대','jingul77@gmail.com','010-4045-0444','끝');
 COMMIT;
 
+
+
+

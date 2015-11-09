@@ -19,8 +19,15 @@ public class MeetingDTO {
 	private String m_end;
 	private String m_filename;
 	private int m_filesize;
+	private int mu_no;
 	
 	
+	public int getMu_no() {
+		return mu_no;
+	}
+	public void setMu_no(int mu_no) {
+		this.mu_no = mu_no;
+	}
 	public String getM_wish() {
 		return m_wish;
 	}

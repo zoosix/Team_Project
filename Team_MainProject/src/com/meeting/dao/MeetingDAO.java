@@ -78,5 +78,18 @@ public class MeetingDAO {
     	session.close();
     	
     }
+    
+    public static List<MeetingDTO> mywishList(String email){
+    	SqlSession session=ssf.openSession();
+    	 List<MeetingDTO> list = session.selectList("mywishList",email);
+    	 return list;
+    }
+    
+    public static List<MeetingDTO> mymeetingData(String email) {
+    	SqlSession session=ssf.openSession();
+     	 List<MeetingDTO> list = session.selectList("mymeetingData",email);
+      	return list;
+    }
+  
 
 }
