@@ -6,3 +6,8 @@ CREATE TABLE notice_Board(
     n_Hit NUMBER DEFAULT 0,
     CONSTRAINT nb_pk_nno PRIMARY KEY(n_No)
 );
+INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'오오','아앙','0',SYSDATE);
+INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'아앙','아앙','0',SYSDATE);
+INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'아앙','아앙','0',SYSDATE);
+INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) VALUES((SELECT NVL(MAX(n_no)+1,1) FROM notice_Board),'아앙','아앙','0',SYSDATE);
+COMMIT;

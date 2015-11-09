@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
@@ -27,7 +28,7 @@
 </script>
 <style type="text/css">
 .stylish-input-group .input-group-addon {
-	background: white !important;
+	background-color: white;
 }
 
 .stylish-input-group .form-control {

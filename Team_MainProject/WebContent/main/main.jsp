@@ -8,6 +8,11 @@
 <title>나들목</title>
 <!-- 부트스트랩 -->
 <!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56404cf45816e20a" async="async"></script>
+
+
+
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
@@ -32,6 +37,8 @@
 <script src="js/jquery.bxslider.js"></script>
 <!-- 슬라이더_CSS-->
 <link href="css/main/jquery.bxslider.css" rel="stylesheet" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="js/scrollBanner2.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.bxslider').bxSlider({
@@ -79,9 +86,13 @@
 
 
 </script>
-
-
 <style type="text/css">
+/* 퀵메뉴 */
+
+#aside {
+display:block; 
+position:absolute; 
+right:70px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 .inline-block, .inlineBlock {
 	display: inline-block;
 	zoom: 1;
@@ -193,73 +204,26 @@
 			</span>
 		</div>
 		<div class="clear"></div>
-	</div>
-	<%-- <<<<<<< HEAD
-
-	<div id="body">
-		<div class="width">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
+		
+		<div id="aside">
+		<div class="well" style="margin-left: 0px auto; padding-left: 0px auto; margin-bottom: 0px;">
+		<ul style="list-style:none;padding-left:0px; margin-left: 0px; margin-bottom: 0px;" align=center>
+			<li><a href="#" style="text-decoration: none;"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a></li><br><br>
+			<li><a href="#" style="text-decoration: none;"><span class="glyphicon glyphicon-headphones"></span>&nbsp;Language</a></li><br><br>
+			<li><a href="#" style="text-decoration: none;"><span class=" glyphicon glyphicon-globe"></span>&nbsp;Region</a></li><br><br>
+			<li><a href="#" style="text-decoration: none;"><span class=" glyphicon glyphicon-question-sign"></span>&nbsp;QnA</a></li><br><br>
+			<li><a href="#" style="text-decoration: none;"><span class="glyphicon glyphicon-menu-up"></span>&nbsp;TOP</a></li><br>
+			<br>
+			<div class="addthis_sharing_toolbox"></div>
 		</ul>
-		<br>
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
-
-			</span>
-			<form method="get" action="">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
 		</div>
-
-	</div>
-		<div id="switch_main"
-			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-			<jsp:include page="${jsp }"></jsp:include>
-			
-======= --%>
-
-
-
-
-	</div>
-	<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
 		</div>
-	</footer>  -->
-
+	</div>
 	<div id="switch_main"
 		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
-
+		
 	</div>
 	</header>
 
