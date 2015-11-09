@@ -6,3 +6,12 @@ CREATE TABLE notice_Board(
     n_Hit NUMBER DEFAULT 0,
     CONSTRAINT nb_pk_nno PRIMARY KEY(n_No)
 );
+
+CREATE TABLE qna_Board(
+ q_no
+ q_title
+ q_content
+ q_hit
+ q_email
+ q_pwd
+);

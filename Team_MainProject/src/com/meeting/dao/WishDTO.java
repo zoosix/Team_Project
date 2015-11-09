@@ -4,6 +4,16 @@ public class WishDTO {
    private int w_no;
    private int w_mno;
    private String w_email;
+   private MeetingDTO mdto = new MeetingDTO();
+   
+   
+   
+public MeetingDTO getMdto() {
+	return mdto;
+}
+public void setMdto(MeetingDTO mdto) {
+	this.mdto = mdto;
+}
 public int getW_no() {
 	return w_no;
 }

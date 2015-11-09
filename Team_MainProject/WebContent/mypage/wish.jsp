@@ -29,22 +29,21 @@
       </div>
 </table>
  <table border=0 width=940>
-   	<div id="content">
-		<%	for(int i=0;i<4;i++){%>
+   	<div id="content_mypage">
+		<c:forEach var="d" items="${list }">
 		<div class="col">
                 <ul class="grid cs-style-3">
 				<li>
-					
 						<img src="mypage/images/4.png" alt="img04" width=250 height=250>
 					
-							<h3>쿨하게 생존하라 워크샵</h3>
-							<span>2015/05/08</span>
-							<a href="#">상세보기</a>
+							<h3>${d.m_title }</h3>
+							<span>${d.m_content }</span>
+							<a href="meeting_detail.do?no=${d.m_no }">상세보기</a>
 					
 				</li>
 			</ul>
 			</div>
-			<%}%>
+			</c:forEach>
 	</div> 
 </table> 
 </div>

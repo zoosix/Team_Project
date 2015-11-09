@@ -88,8 +88,8 @@ a.dropdown-toggle:HOVER
 				<li><a href="#" style="height: 56px;">고객센터</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
-						<li><a href="#">QnA</a></li>
-						<li><a href="#">FnQ</a></li>
+						<li><a href="qna.do">QnA</a></li>
+						<li><a href="fnq.do">FnQ</a></li>
 					</ul></li>
 			</ul>
 			</nav>

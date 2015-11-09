@@ -5,6 +5,13 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="mypage/mypage.css"/>
+<link rel="stylesheet" href="css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="css/main/meetingStyle.css"
+	type="text/css" />
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -25,34 +32,42 @@
 		</ul>
       </div>
 </table>
-<!-- 	<table border=0 width=940>
-	          <form method=post action="qna_search.jsp"  name=frm>
-				  <tr border=1 bordercolor=gray>	
-					<td width=60% align=left><b>&nbsp;&nbsp;&nbsp;&nbsp;<font size=5>Q&A</font></b>&nbsp;&nbsp;&nbsp;문의 및 불편사항에 대해 답변드립니다.</td>
-					<td width=40% align=right>
-					<input type="text" name="q_search" placeholder="검색어를 입력하세요" />
-			        <input type="image" src="image/icon/search02.png" alt="검색" onclick="search()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-			        </td>
-			       </tr>
-			  </form>			  
-			</table> -->
-		<table border=1 bordercolor="#c2c2be" width=940 height=60>
-			<tr height=40>
-			    <th width=5%>번호</th>
-				<th width=*%>모임제목</th>							
-				<th width=20%>모임일자</th>
-			    <th width=20%>상태</th>
-				<th width=10%>비고</th>
-			</tr>
-	            <tbody>
-					<tr><td colspan="5">모임 내역이 없습니다.</td></tr>						
-				</tbody>
 
-			</table>
+	<div id="body">
+		<h2>My Meeting</h2>
+		<p>내가 신청한 모임보기.</p>
+		<table class="table table-bordered" style="margin-top:6%;">
+			<thead>
+				<tr>
+					<th width=10%>No</th>
+					<th width=40%>Title</th>
+					<th width=30%>party-Date</th>
+					<th width=20%>party-status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="d" items="${list}">
+				
+					<tr>
+						<td id="no" width=10%>${d.mu_no }</td>
+						<td width=40%><a href="meeting_detail.do?no=${d.m_no }"> ${d.m_title }</a></td>
+						<td width=30%>${d.m_partDate }</td>
+						<td width=20%>${d.m_end }</td>
+					</tr></c:forEach> 
+			</tbody>
+		</table>
+	
+		<!-- 	<footer>
+		<div class="footer-content width">
+			<div class="clear"></div>
 		</div>
-	</center>
+	</footer>  -->
+	</div>
 
-			</table>	
+
+
+
+	<!-- -------------------------------------------------------------------------------------- -->
 			
 	</div> 
 	</div>
