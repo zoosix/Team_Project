@@ -22,13 +22,21 @@
   <bean id="modify_ok" class="com.model.MyModify_OkModel"/>
   <bean id="gtable" class="com.model.GtableModel"/>	
   <bean id="search" class="com.model.SearchModel"/>	
-  
+ 
   <!-- 모임 -->
   <bean id="meeting_insert" class="com.model.MeetingInsertModel"/>
   <bean id="meeting_insert_ok" class="com.model.MeetingInsertOkModel"/>
   <bean id="meeting_detail" class="com.model.MeetingDetailModel"/>
+  <bean id="meeting_apply" class="com.model.MeetingApplyModel"/>
   <bean id="meeting_zzim" class="com.model.MeetingZzimModel"/>
+  <bean id="meeting_type" class="com.model.MeetingForTypeModel"/>
+  <bean id="meeting_place" class="com.model.MeetingForPlaceModel"/>
   
+
+   <!-- 분류  -->
+  <bean id="language" class="com.model.LanguageListModel"/>
+  <bean id="area" class="com.model.AreaListModel"/>
+
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>
   <bean id="notice_content" class="com.model.Notice_BoardContentDataModel"/>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -7,7 +7,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>나들목</title>
 <!-- 부트스트랩 -->
-<!--  <link rel="stylesheet" href="css/main/bootstrap.min.css" type="text/css" />  -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script
@@ -25,7 +24,6 @@
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="js/ajax/ajax2.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
@@ -78,10 +76,11 @@
 	});
 
 
+	
 </script>
 
 
-<style type="text/css">
+ <style type="text/css">
 .inline-block, .inlineBlock {
 	display: inline-block;
 	zoom: 1;
@@ -104,20 +103,10 @@
 			<ul class="sf-menu dropdown">
 				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 60px;">언어별</a>
-					<ul>
-						<li><a href="three-column.html">영어</a></li>
-						<li><a href="one-column.html">중국어</a></li>
-						<li><a href="text.html">Text page</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">지역별</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 60px;">고객센터</a>
-					<ul>
+				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
+				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
+				<li><a href="#" style="height: 56px;">고객센터</a>
+				<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="#">QnA</a></li>
 						<li><a href="#">FnQ</a></li>
@@ -167,11 +156,8 @@
 				</c:if> <c:if test="${sessionScope.email!=null }">
 
 					<ul class="nav navbar-nav">
-						<!-- 					       <style type="text/css">
-					       a.dropdown-toggle:HOVER{background-color:transparent !important;}
-					       </style> -->
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">
@@ -194,67 +180,6 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<%-- <<<<<<< HEAD
-
-	<div id="body">
-		<div class="width">
-		<ul class="bxslider" style="margin: 0px; padding: 0px;  !important">
-			<li><img src="images/main/slide1.jpg" />
-				<h3>안녕하세요</h3></li>
-			<li><img src="images/main/slide2.jpg" />
-				<h3>새로운 친구를만나보세요.</h3></li>
-			<li><img src="images/main/slide3.jpg" /></li>
-			<li><img src="images/main/slide4.jpg" /></li>
-			<li><img src="images/main/slide5.jpg" /></li>
-			<li><img src="images/main/slide6.jpg" /></li>
-			<li><img src="images/main/slide7.jpg" /></li>
-			<li><img src="images/main/slide8.jpg" /></li>
-		</ul>
-		<br>
-			<span class="hero-unit"
-				style="font-stretch: extra-condensed; !important">
-				<h1>Hello, Naduelmok!</h1> <Br>
-
-			</span>
-			<form method="get" action="">
-				<div class="col-lg-6">
-					<div class="input-group"
-						style="width: 65%; margin-left: 200px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="보유언어">
-					</div>
-				</div>
-				<span class="glyphicon glyphicon-transfer"
-					style="margin-right: 0px; border-right-width: 100px; right: 0px; left: 40px; top: 18px;"></span>
-				<div class="col-lg-6"
-					style="border-bottom-width: 10px; bottom: 21px; right: 15px;">
-					<div class="input-group"
-						style="width: 75%; margin-left: 95px; margin-top: 10px;">
-						<input type="text" class="form-control" placeholder="교환언어">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Search</button>
-						</span>
-					</div>
-				</div>
-			</form>
-		</div>
-
-	</div>
-		<div id="switch_main"
-			style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
-			<jsp:include page="${jsp }"></jsp:include>
-			
-======= --%>
-
-
-
-
-	</div>
-	<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
-
 	<div id="switch_main"
 		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
 		<jsp:include page="${slide }"></jsp:include>

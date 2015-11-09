@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meeting.dao.MeetingDTO;
 import com.member.dao.MemberDAO;
 import com.member.dao.gtableDTO;
 
@@ -16,7 +17,7 @@ public class SearchModel implements Model{
 		String word;
 		word = req.getParameter("word");
 		System.out.println(word);
-		List<gtableDTO> list=MemberDAO.searchMeeting(word);
+		List<MeetingDTO> list=MemberDAO.searchMeeting(word);
 		req.setAttribute("list", list);
 		req.setAttribute("slide", "../main/slide.jsp");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
