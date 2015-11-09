@@ -28,7 +28,7 @@
 	<!-- 모임 참가 리스트 -->
 	<select id="mymeetingData" resultType="Meeting" parameterType="String">
 	   
-		SELECT m_title,m_partdate,m_end,Rownum as mu_no FROM meeting,
+		SELECT m_title,m_partdate,m_end,m_no,Rownum as mu_no FROM meeting,
 		meetingMember WHERE meetingMember.mm_email=#{mm_email} AND meetingMember.mm_no=meeting.m_no ORDER BY mu_no DESC
 	</select> 
 	<!-- 모임 찜 -->

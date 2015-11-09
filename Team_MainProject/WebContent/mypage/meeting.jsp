@@ -50,7 +50,7 @@
 				
 					<tr>
 						<td id="no" width=10%>${d.mu_no }</td>
-						<td width=40%><a href="#"> ${d.m_title }</a></td>
+						<td width=40%><a href="meeting_detail.do?no=${d.m_no }"> ${d.m_title }</a></td>
 						<td width=30%>${d.m_partDate }</td>
 						<td width=20%>${d.m_end }</td>
 					</tr></c:forEach> 
