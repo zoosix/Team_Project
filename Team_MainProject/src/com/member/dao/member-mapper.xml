@@ -40,7 +40,7 @@
  </select> 
   -->
 <select id="searchMeeting" resultType="Meeting" parameterType="String">
-   SELECT m_no,m_email,m_title,m_partdate2 FROM meeting WHERE lang1 LIKE '%'||#{word}||'%' OR lang2 LIKE '%'||#{word}||'%' ORDER BY g_no DESC
+   SELECT m_no,m_email,m_title,m_partdate2 FROM meeting WHERE m_lang1 LIKE '%'||#{word}||'%' OR m_lang2 LIKE '%'||#{word}||'%' ORDER BY m_no DESC
 </select>
 <!-- 미팅 개설자 정보 -->
 <select id="meetingOpenerData" resultType="Member" parameterType="String">

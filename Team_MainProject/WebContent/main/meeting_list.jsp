@@ -141,7 +141,6 @@
 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기</a>
 <%-- 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
 						<img src="images/nowish.png" width="22px" height="26px" /> --%>
-						</a>
 					</ul>
 					
 				</div>

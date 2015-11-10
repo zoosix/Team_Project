@@ -163,6 +163,20 @@ div#intro h2 {
     font-size: 30px;
     padding-top: 10px;
 }
+.sideMenu1 .menuArea1 {
+    display: inline-block;
+    width:175px;
+	height: 50px;
+    padding: 11px 0 0 0;
+    background: #8CB2CA;
+    border: 1px solid #699BBA;
+    border-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: top;
+    padding-left : 8px;
+}
 </style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -206,43 +220,46 @@ $(window).scroll(function(){
 	</ul>				
 </div>
 
-	<div class="sideMenu" style="position:absolute;  margin-top:300px; background-color: #8CB2CA; 
-				font-color: white; width: 170px; height: 300px; padding-top: 10px">
-				<form class="form-horizontal" method="get" id="search_Form" name="search_form" action="typedetailsearch_ok" enctype="multipart/form-data">
-						상세 검색 <br><br>
-						지역 : 
-						<select id="slocation" name="slocation">
-							<option>서울</option>
-							<option>인천/경기</option>
-							<option>강원</option>
-							<option>광주/전라</option>
-							<option>울산/경남</option>
-							<option>부산</option>
-							<option>제주</option>
-						</select> <br><br>
-						
-						장소 : 
-						 <select id="splace" name="splace">
-
-							<option>홍대</option>
-							<option>강남</option>
-							<option>신촌</option>
-							<option>역삼</option>
-							<option>구로</option>
-							<option>영등포</option>
-							<option>노량진</option>
-						</select> <br><br> 
-						
-						언어 : 
-						<select id="slang" name="slang">
-							<option>영어</option>
-							<option>중국어</option>
-							<option>일본어</option>
-							<option>독일어</option>
-						</select> <br><br>
-						<input type=submit id="btnSub" value=검색>
-					</form>
-				</div>
+	<div class="sideMenu1" style="position:absolute; margin-left:-35px;margin-top:250px; width: 175px;">
+		<form class="form-horizontal" method="get" id="search_Form" name="search_form" action="typedetailsearch_ok.do" enctype="multipart/form-data">
+			<ul style="list-style-type: none;">
+				<li class="menuArea1" style="text-align: center;">상세 검색</li>
+				<li class="menuArea1">지역:&nbsp;&nbsp;&nbsp;
+					<select id="slocation" name="slocation">
+						<option>서울</option>
+						<option>인천/경기</option>
+						<option>강원</option>
+						<option>광주/전라</option>
+						<option>울산/경남</option>
+						<option>부산</option>
+						<option>제주</option>	
+					</select>
+				</li> 
+				<li class="menuArea1">장소:&nbsp;&nbsp;&nbsp;
+					<select id="splace" name="splace">
+						<option>홍대</option>
+						<option>강남</option>
+						<option>신촌</option>
+						<option>역삼</option>
+						<option>구로</option>
+						<option>영등포</option>
+						<option>노량진</option>
+					</select>
+				</li>		
+				<li class="menuArea1">언어:&nbsp;&nbsp;&nbsp;
+					<select id="slang" name="slang">
+						<option>영어</option>
+						<option>중국어</option>
+						<option>일본어</option>
+						<option>독일어</option>
+						<option>한국어</option>
+					</select>
+				</li>		
+				<li class="menuArea1" style="text-align: center;">
+				<input type=submit id="btnSub" value=검색 size="25"></li>				
+			</ul>
+		</form>			
+	</div>
 
 </aside>
 
@@ -271,9 +288,7 @@ $(window).scroll(function(){
 						<li>접수마감 : <span>2015-10-30</span></li>
 						<li>내아이디 : ${dto.m_email }</li>
 						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
-						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
-						<img src="images/nowish.png" width="22px" height="26px" />
-						</a>
+						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기</a>
 					</ul>
 				</div>
 			</div>
@@ -281,7 +296,5 @@ $(window).scroll(function(){
 	</div>
 </c:if>
 </article>
-
-
 </body>
 </html>
