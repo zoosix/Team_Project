@@ -17,3 +17,8 @@ CREATE TABLE Lmember(
    CONSTRAINT Lmember_pk_email PRIMARY KEY(email),
    CONSTRAINT Lmember_ck_sex CHECK(sex IN('남자','여자'))        
 );
+*/
+
+
+INSERT INTO Lmember VALUES('488654@naver.com','1234','승주','주주','여자','24','한국','111-1111-11111','한국어','영어','안녕하세용요요용','jjjdd','123','y');
+COMMIT;

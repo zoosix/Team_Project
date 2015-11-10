@@ -205,10 +205,10 @@ div#intro h2 {
 			</div>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>
-					<p sstyle="font-family:다음;">${dto.m_content }</p>
+					<p sstyle="font-family:다음;">${dto.m_summary }</p>
 					<ul align=left style="font-size: 12px; list-style: none;" class="detail_list">
 						<li>접수마감일 : <span>2015-10-30</span></li>
-						<li>개설자 아이디 : ${dto.m_email }</li>
+						<li>개설자 아이디 : ${dto.m_email } ${dto.m_wish }</li>
 						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기</a>
 <%-- 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">

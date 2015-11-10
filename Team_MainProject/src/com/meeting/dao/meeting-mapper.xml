@@ -8,12 +8,12 @@
 				SELECT NVL(MAX(m_no)+1,1) as m_no FROM meeting
 		</selectKey>
 		INSERT INTO meeting VALUES(#{m_no},#{m_lang1},#{m_lang2},#{m_lang1num},#{m_lang2num},#{m_title},#{m_summary},#{m_content},#{m_meetingDate1},#{m_meetingDate2},
-		#{m_partDate1},#{m_partDate2},#{m_place},#{m_location},#{m_email},#{m_nickname},#{m_tel},0,0,#{m_filename},#{m_filesize})
+		#{m_partDate1},#{m_partDate2},#{m_place},#{m_location},#{m_email},#{m_tel},0,0,#{m_filename},#{m_filesize})
 	</insert>
 	<!-- 글내용 -->
 	<select id="meetingDetail" resultType="Meeting" parameterType="int">
 		SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,
-			m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_location,m_email,m_nickname,m_tel,m_filename 
+			m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_location,m_email,m_tel,m_filename 
 			FROM meeting WHERE m_no=#{m_no}
 	</select>
 	<!-- 모임 참여 -->
@@ -52,7 +52,7 @@
     
       <select id="meetingTableListData2" resultType="Meeting">
         SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,
-    		m_meetingDate1,m_partDate1,m_place,m_location,m_email,m_tel,m_end 
+    		m_meetingDate1,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end 
 			FROM meeting ORDER BY m_wish DESC
  </select> 
   
@@ -66,7 +66,7 @@
    
    
    <select id="mywishList" resultType="Meeting" parameterType="String">
-   SELECT m_MeetingDate1,m_partDate2,m_Lang1,m_Lang2,m_Summary,m_title,m_content,m_no FROM wish,meeting WHERE w_email=#{w_email} AND m_no=w_mno
+   SELECT m_MeetingDate1,m_partDate2,m_Lang1,m_Lang2,m_Summary,m_title,m_place, m_location,m_content,m_no FROM wish,meeting WHERE w_email=#{w_email} AND m_no=w_mno
    </select>
     	<select id="mywishCount" resultType="int" parameterType="String">
 	SELECT COUNT(*) FROM wish WHERE w_email=#{w_email}

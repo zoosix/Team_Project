@@ -286,9 +286,10 @@ div#intro h2 {
 						</div>
 						<div class="mask">
 							<h2>${dto.m_title }</h2>
-							<p sstyle="font-family:다음;">${dto.m_content }</p>
+							<p sstyle="font-family:다음;">${dto.m_summary }</p>
 							<ul align=left style="font-size: 12px; list-style: none;"
 								class="detail_list">
+								<li>교환 언어: <span>${dto.m_lang1 } ↔ ${dto.m_lang2 }</span></li>
 								<li>접수마감 : <span>2015-10-30</span></li>
 								<li>내아이디 : ${dto.m_email }</li>
 								<a href="meeting_detail.do" class="info"

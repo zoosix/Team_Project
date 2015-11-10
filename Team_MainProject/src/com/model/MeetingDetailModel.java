@@ -4,6 +4,7 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.meeting.dao.*;
 public class MeetingDetailModel implements Model {
@@ -13,6 +14,7 @@ public class MeetingDetailModel implements Model {
 		req.setCharacterEncoding("UTF-8");
 		String strNo=req.getParameter("no");
 		String strPage=req.getParameter("page");
+
 		System.out.println(strNo);
 		System.out.println(strPage);
 		

@@ -29,6 +29,7 @@ public class LoginCheckModel implements Model {
 				session.setAttribute("email", email);
 				session.setAttribute("name", d.getName());
 				session.setAttribute("admin", d.getAdmin());
+				session.setAttribute("nickname", d.getNickname());
 			}
 			else
 			{

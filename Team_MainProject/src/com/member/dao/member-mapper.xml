@@ -30,7 +30,7 @@
  
   <select id="meetingTableListData" resultType="Meeting">
     SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,
-    		m_meetingDate1,m_partDate1,m_place,m_location,m_email,m_tel,m_end 
+    		m_meetingDate1,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end 
 			FROM meeting ORDER BY m_no DESC
  </select> 
 <!-- 

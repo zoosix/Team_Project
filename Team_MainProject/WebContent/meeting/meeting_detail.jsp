@@ -101,10 +101,10 @@
 <!-- 모임 사진 및 기본 정보 -->
 		<div class="div_2-2">
 			<ul class="first">
-				<li>모임기간: ${d.m_meetingDate }</li>
+				<li>모임기간: ${d.m_meetingDate1 }</li>
 			</ul>
 			<ul class="second">
-				<li>참여신청: ${d.m_partDate }</li>
+				<li>참여신청: ${d.m_partDate1 }</li>
 			</ul>
 			<ul>
 				<li>모임장소: ${d.m_location }</li>
