@@ -1,35 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,java.text.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE HTML>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="mypage/mypage.css"/>
+<style type="text/css">
+@charset "utf-8";
+.groupCard--gradient {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(rgba(15, 20, 31, 0) 0,
+		rgba(15, 20, 31, .1) 25%, rgba(15, 20, 31, .8) 100%);
+	background-image: linear-gradient(rgba(8, 8, 8, 0.51) 0,
+		rgba(15, 20, 31, .1) 25%, rgba(15, 20, 31, .8) 100%)
+}
+
+.sideMenu .menuArea a {
+    display: inline-block;
+    width:175px;
+	height: 50px;
+    padding: 11px 0 0 0;
+    background: #8CB2CA url(/images3/main/bulArrow.png) no-repeat 92% 17px;
+    border: 1px solid #699BBA;
+    border-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: top;
+}
+div#intro {
+	background: #8E8E8E;
+    height: 50px;
+}
+div#intro h2 {
+    text-shadow: 2px 2px 0 #;
+    margin-left: 30px;
+    font-family:다음;
+    font-size: 30px;
+    padding-top: 10px;
+}
+
+</style>
+<meta charset="utf-8">
+<title>레이아웃3</title>
+<link href="layout3.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://static.onoffmix.com/css3/index.css?20151020" />
+<!-- 템플릿 CSS -->
+<link rel="stylesheet" href="../css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/meetingStyle.css" type="text/css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 </head>
 <body> 
-<Center>
+<div id="intro"style="margin-top: -10px">
+	<h2 style="margin-top:10px;">MY INFORMATION</h2>
+</div>
 <div class="col-md-12">
-<br><br><br><br>
-	<h2>마이페이지<span>MY PAGE</span></h2>
-  <!-- ============================================================================================ -->
-  	<table border=1 width=940>
-  	<div class="communityCover" >
-		<ul class="menu_list type02">
-		    <li><a href="meeting.do">내모임보기</a></li>
-			<li><a href="wish.do">위시리스트</a></li>	
-			<li><a href="modify.do" style="background:#2281c0; color:#fff;">회원정보수정</a></li>					
-		</ul>
-      </div>
-</table><br>
-<!--  ====================================================================================== -->
-		<table border=0 width=940>
-		  <tr border=1 bordercolor=gray>	
-				<td width=100% align=left>&nbsp;&nbsp;&nbsp;* 표시가 있는 항목은 필수 입력 항목 입니다.</td>
-		  </tr>
-      </table>
       <br><br>
 <form name="modifyFrm" method="post" action="modify_ok.do">	
 <!--  pwd,nickname,name,nation,tel,lang,admin 필수템************************************************************* -->
@@ -196,11 +229,13 @@ function joinsubmit(){
 		alert("비밀번호는 6자 이상입니다.");				
 		return;
 	}
-	 var pw = $("#password").val(); 
+	/*  var pw = $("#password").val(); 
 	if ($("#password").val().length > 0 && (!pw.match(/^[a-zA-Z0-9]{6,20}$/) || !pw.match(/[a-z]/) || !pw.match(/[0-9]/))) { 
 		alert("비밀번호는 6~20자의 영문 대소문자와 숫자로 구성되어야 하며, 공백은 사용할 수 없습니다."); 
-		return;
-	} 
+		return; 
+	}
+	*/
+	
 	
 	if($('#password').val()=="")
 	{
@@ -250,6 +285,5 @@ function joinsubmit(){
 
 </script>	
 	</div> 
-</center>
 </body>
 </html>
