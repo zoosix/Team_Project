@@ -37,7 +37,7 @@
 					<h2 align=center>${d.m_title }</h2>
 					<p>${d.m_summary }</p>
 					<ul align=left style="font-size: 12px; list-style: none;">
-						<li>접수마감 : <span>${d.m_meetingDate }</span></li>
+						<li>접수마감 : <span>${d.m_partDate2 }</span></li>
 						<%-- <li>모집인원 : <span>${d.m_TotalNum }</span>명 --%>
 						<li>교환언어 : <span>${d.m_lang1 }</span> ↔ <span>${d.m_lang2 }</span></li>
 						</li>

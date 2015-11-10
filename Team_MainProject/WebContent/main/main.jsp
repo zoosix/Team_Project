@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
+
 <link
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet"/>
@@ -24,9 +25,11 @@
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
 <script type="text/javascript">
+
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.bxslider.js"></script>
+
 <!-- 슬라이더_CSS-->
 <link href="css/main/jquery.bxslider.css" rel="stylesheet" />
 <script type="text/javascript">
@@ -38,7 +41,6 @@
 			controls : false
 		});
 	});
-
 	function login() {
 		var f = document.loginFrm;
 		if (f.email.value == "") {
@@ -46,7 +48,6 @@
 			f.id.focus();
 			return;
 		}
-
 		if (f.pwd.value == "") {
 			alert("비밀번호를 입력해주세요.");
 			f.pwd.focus();
@@ -54,7 +55,6 @@
 		}
 		f.submit();
 	}
-
 	function search() {
 		var f = document.searchFrm;
 		if (f.word.value == "") {
@@ -64,37 +64,18 @@
 		}
 	}
 
-	$(function() {
-		$('#btnSub').click(function() {
-			var word = $('#word').val();
-			if (word == "") {
-				alert("검색어를 입력해 주세요");
-			}
-			$('#searchFrm').submit();
-		});
-	});
-
-
-	
 </script>
-
-
- <style type="text/css">
-.inline-block, .inlineBlock {
-	display: inline-block;
-	zoom: 1;
-}
-
-.padding-none, .paddingNone {
-	padding: 0 !important;
+<style type="text/css">
+a.dropdown-toggle:HOVER 
+{
+	background-color: transparent !important; 
 }
 </style>
 </head>
 <body>
-
 	<div id="container">
 		<header>
-		<div class="width">
+		<div class="width" data-toggle="collapse" data-target="#nabar-collapse-1">
 			<h1>
 				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
@@ -105,13 +86,12 @@
 				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
 				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
-				<ul>
+					<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="qna.do">QnA</a></li>
 						<li><a href="faq.do">FAQ</a></li>
 					</ul></li>
 			</ul>
-			<div class="clear"></div>
 			</nav>
 
 			<span id="Log_group"
@@ -156,6 +136,7 @@
 					<ul class="nav navbar-nav">
 						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">
@@ -178,14 +159,12 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div id="switch_main"
-		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
+	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 10px; z-index:2;">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
-
 	</div>
+	<pre id="output"></pre>
 	</header>
 
-	<pre id="output"></pre>
 </body>
 </html>
