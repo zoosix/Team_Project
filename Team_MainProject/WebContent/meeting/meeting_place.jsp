@@ -1,0 +1,182 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<style type="text/css">
+@charset "utf-8";
+
+aside {
+    float: left;
+    width: 150px;
+    background-color: rgb(140, 178, 202);
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    height: 300px;
+    margin-left: 10px;
+    margin-top: 38px;
+    border-style: dotted;
+}
+
+aside nav {
+	border: none;
+	background: none;
+}
+
+aside nav ul {
+	list-style: none;
+}
+
+aside nav li {
+	padding: 0 5px;
+}
+
+aside nav ul li a {
+	width: 200px;
+	padding: 5px 0;
+}
+
+aside nav ul li a:hover {
+	background-color: transparent;
+}
+
+article {
+	margin: 5px 9px;
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 0.75em;
+	padding: 15px;
+	float: left;
+	width: 1000px;
+}
+
+article  hgroup {
+	padding: 5px;
+}
+
+article  hgroup h1, article>hgroup h2 {
+	margin: 0;
+	padding: 2px 0;
+}
+
+article  hgroup h1 {
+	font-size: 20px;
+}
+
+article  hgroup h2 {
+	font-size: 16px;
+}
+
+section {
+	width: 900px;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	word-wrap: break-word;
+}
+
+section  h2 {
+	font-size: 14px;
+	padding: 0 0 10px 0;
+	margin: 0;
+	color: rgba(255, 0, 0, 1);
+}
+
+.groupCard--gradient {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(rgba(15, 20, 31, 0) 0,
+		rgba(15, 20, 31, .1) 25%, rgba(15, 20, 31, .8) 100%);
+	background-image: linear-gradient(rgba(8, 8, 8, 0.51) 0,
+		rgba(15, 20, 31, .1) 25%, rgba(15, 20, 31, .8) 100%)
+}
+
+#tit {
+	margin-bottom: 10px;
+	letter-spacing: -1px;
+	font-weight: 300;
+	font-size: 1.7em;
+	margin-top: 100px;
+	font-family: 다음;
+	font-size: x-large;
+	float: left;
+	margin-left: 25px;
+	color: white;
+}
+
+#tit1 {
+	margin-bottom: 10px;
+	letter-spacing: -1px;
+	font-size: 1.7em;
+	font-family: 다음;
+	font-size: medium;
+	float: center;
+	margin-left: 40px;
+	color: hsla(64, 92%, 48%, 0.93);
+}
+.detail_list
+{
+  font-family: 다음;
+  color: white;
+
+}
+</style>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>레이아웃3</title>
+<link href="layout3.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div id="wrap">
+		<aside>
+			<nav>
+				<li>빠른 지역별 검색</li>
+				<ul>
+					<li><a href="meeting_place.do?place=서울">서울</a></li>
+					<li><a href="meeting_place.do?place=인천/경기">인천/경기</a></li>
+					<li><a href="meeting_place.do?place=인천/경기">강원</a></li>
+					<li><a href="meeting_place.do?place=대전/충천">광주/전라</a></li>
+					<li><a href="meeting_place.do?place=부산/울산/경남">울산/경남</a></li>
+					<li><a href="meeting_place.do?place=부산">부산</a></li>
+					<li><a href="meeting_place.do?place=제주">제주</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<article>
+			<div id="border_main" style="margin-left: 10px; z-index: 900">
+				<c:forEach var="dto" items="${list }">
+
+					<div class="view view-first"
+						style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
+						<div class="groupCard--gradient">
+							<span id="tit">${dto.m_title }</span> <span id="tit1"><br>
+								모임일 : 2015-11-25 ~ 2015-12-20 <br>장소: ${dto.m_location}(
+								${dto.m_place} )</span>
+						</div>
+						<div class="mask">
+							<h2>${dto.m_title }</h2>
+							<p sstyle="font-family:다음;">${dto.m_content }</p>
+							<ul align=left style="font-size: 12px; list-style: none;" class="detail_list">
+								<li>접수마감 : <span>2015-10-30</span></li>
+								<li>내아이디 : ${dto.m_email }</li>
+								<a href="meeting_detail.do" class="info"
+									style="margin-left: 30px; margin-top: 10px;">모임참여</a>
+								<a href="meeting_zzim.do?mno=${dto.m_no }" class="info"
+									style="background: transparent; !important"> <img
+									src="images/nowish.png" width="22px" height="26px" />
+								</a>
+							</ul>
+
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+
+		</article>
+</body>
+</html>

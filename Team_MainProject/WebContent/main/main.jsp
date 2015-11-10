@@ -62,6 +62,12 @@ a.dropdown-toggle:HOVER
 {
 	background-color: transparent !important; 
 }
+.sf-menu
+{
+	font-family: 다음;
+	font-size: 20px;
+
+}
 </style>
 </head>
 <body>
@@ -72,11 +78,10 @@ a.dropdown-toggle:HOVER
 				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
 			<nav>
-			<ul class="sf-menu dropdown">
-				<li class="selected"><a href="meeting_insert.do"><font
-						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
+			<ul class="sf-menu">
+				<li><a href="meeting_insert.do">개설하기 </a></li>
 				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
-				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
+				<li><a href="meeting_place.do?place=서울" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
@@ -126,7 +131,7 @@ a.dropdown-toggle:HOVER
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
 
-					<ul class="nav navbar-nav" id="navbar-collapse-1" style="z-index:1000000;">
+					<ul class="nav navbar-nav" id="navbar-collapse-1" style="z-index:1000;">
 				
 						<li class="dropdown" style="z-index:10000;"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님

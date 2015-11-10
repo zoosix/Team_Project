@@ -45,23 +45,23 @@
 }
 
 .view h2 {
-	text-transform: uppercase;
-	color: #fff;
-	text-align: center;
-	position: relative;
-	font-size: 17px;
-	padding: 10px;
-	background: rgba(0, 0, 0, 0.8);
-	margin: 20px 0 0 0;
+	font-family: 다음;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0 0 0 0;
+    letter-spacing: -1px;
 }
 
 .view p {
-	font-family: Georgia, serif;
-	font-style: italic;
-	font-size: 12px;
+	font-family: 다음;
+	font-size: 15px;
 	position: relative;
 	color: #fff;
-	padding: 10px 20px 20px;
+	padding: 10px;
 	text-align: center;
 }
 
@@ -95,7 +95,7 @@
 	-ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity = 0);
 	opacity: 0;
-	background-color: rgba(140, 178, 202, 0.66);
+	background-color: rgba(140, 178, 202, 0.82);
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
