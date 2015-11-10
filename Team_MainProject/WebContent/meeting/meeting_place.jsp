@@ -114,6 +114,7 @@ section  h2 {
 	float: left;
 	margin-left: 25px;
 	color: white;
+	width: 250px;
 }
 
 #tit1 {
