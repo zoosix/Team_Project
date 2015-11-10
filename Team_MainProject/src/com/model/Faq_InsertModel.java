@@ -19,6 +19,7 @@ public class Faq_InsertModel implements Model {
 		// TODO Auto-generated method stub
 
 		req.setAttribute("jsp", "../custom_board/faq_insert.jsp");
+
 		return "main/main.jsp";
 		}
 	}

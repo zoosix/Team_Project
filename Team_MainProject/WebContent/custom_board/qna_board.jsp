@@ -50,7 +50,7 @@
 	</div>
 	<div id="body">
 		<p>Ask an Organizer</p>
-		
+
 			 <div class="col-lg-6" style="margin-left:71%;">
 				<div class="input-group" style="width:55%;">
 					<input type="text" class="form-control" placeholder="Search for...">
@@ -97,6 +97,7 @@
 			</nav1> 
 		</center>
 		<ul class="pagination" height=35px;><li><a href="qna_insert.do">등록</a></li></ul>
+
 		<!-- 	<footer>
 		<div class="footer-content width">
 			<div class="clear"></div>

@@ -65,6 +65,7 @@ $(function(){
 			</tr>						
 			<tr>
 				<th scope="row">내용</th>
+
 				<td class="padding"><textarea name="f_content" id="faq_content" rows="10" cols="90" style="width:650px; height:250px;"></textarea></td>
 			</tr>
 		</tbody>

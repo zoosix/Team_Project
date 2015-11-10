@@ -33,6 +33,7 @@ public class MainModel implements Model{
 		req.setAttribute("list2", list2);
 		req.setAttribute("title", "자유 게시판");
 		req.setAttribute("slide", "../main/slide.jsp");
+		req.setAttribute("quick", "../main/quickmenu.jsp");
 		req.setAttribute("jsp", "../main/meeting_list.jsp");
 
 		return "main/main.jsp";

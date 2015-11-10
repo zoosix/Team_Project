@@ -34,6 +34,7 @@ public class Faq_BoardListModel implements Model {
 		{
 			d.setDb_fday(sdf.format(d.getF_regdate()));
 		}
+
 		int totalpage=NoticeDAO.faq_boardTotalPage();
 		System.out.println("total"+totalpage);
 		req.setAttribute("today", sdf.format(new Date()));

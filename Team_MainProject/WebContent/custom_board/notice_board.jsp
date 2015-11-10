@@ -24,7 +24,7 @@
 			$("#panel" + fno).focus();
 		});
 	});
-	
+
 	$(function(){
 		$('#searchBtn').click(function(){
 			var word=$('#word').val();

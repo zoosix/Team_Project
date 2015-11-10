@@ -15,7 +15,6 @@
   <select id="notice_boardContentData" resultType="notice" parameterType="int">
     SELECT n_No,n_Title,n_Content,n_Regdate,n_Hit FROM notice_Board WHERE n_No=#{no}
   </select>
-  
     <insert id="noticeInsert" parameterType="notice">
  INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) 
  VALUES((SELECT NVL(MAX(n_No)+1,1) FROM notice_Board),#{n_Title},#{n_Content},0,SYSDATE)
@@ -95,5 +94,4 @@
   DELETE FROM faq WHERE f_no=#{fno}
   </delete>
   
- 
 </mapper>

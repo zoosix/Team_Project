@@ -104,6 +104,5 @@ public class MeetingDAO {
     	session.close();
     	return count;
     }    
-    
-    
+
 }

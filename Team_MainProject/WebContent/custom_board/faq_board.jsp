@@ -106,6 +106,7 @@
 						<hr border=1>
 						<a href="#">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="f_delete.do?no=${d.f_no }">삭제</a></td>
 						</c:if> 
+
 					</tr>
 
 				</c:forEach>

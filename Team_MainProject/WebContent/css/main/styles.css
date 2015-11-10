@@ -364,7 +364,9 @@ nav ul li li a:hover, nav ul li.sfHover li a:hover {
 
 /*** ESSENTIAL STYLES ***/
 .sf-menu, .sf-menu * {
-	list-style:		none;
+	list-style: none;
+    font-family: 다음;
+    font-size: initial;
 }
 .sf-menu {
 	line-height:	1.0;
@@ -416,7 +418,8 @@ ul.sf-menu li li li.sfHover ul {
 
 /* intro */
 div#intro {
-	background: linear-gradient(#232323, #333);
+	background: #C2C7CA;
+    height: 50px;
 }
 
 div#intro .intro-content {

@@ -31,7 +31,8 @@
   <bean id="meeting_zzim" class="com.model.MeetingZzimModel"/>
   <bean id="meeting_type" class="com.model.MeetingForTypeModel"/>
   <bean id="meeting_place" class="com.model.MeetingForPlaceModel"/>
-  
+  <bean id="detailsearch_ok" class="com.model.DetailSearchModel"/>
+  <bean id="typedetailsearch_ok" class="com.model.DetailSearchTypeModel"/>
 
    <!-- 분류  -->
   <bean id="language" class="com.model.LanguageListModel"/>
