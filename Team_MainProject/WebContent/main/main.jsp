@@ -7,24 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>나들목</title>
 <!-- 부트스트랩 -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- 템플릿 CSS -->
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
-
 <link
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+<script type="text/javascript">
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.bxslider.js"></script>
@@ -109,7 +108,7 @@
 				<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="qna.do">QnA</a></li>
-						<li><a href="fnq.do">FnQ</a></li>
+						<li><a href="faq.do">FAQ</a></li>
 					</ul></li>
 			</ul>
 			<div class="clear"></div>
@@ -154,7 +153,6 @@
 						</div>
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
-
 					<ul class="nav navbar-nav">
 						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
@@ -165,7 +163,7 @@
 										class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
 								<br>
 								<li><a href="meeting.do"><span class="badge pull-right">
-											2 </span>내모임보기</a></li>
+											${sessionScope.m_count } </span>내모임보기</a></li>
 								<br>
 								<li><a href="wish.do"><span
 										class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>

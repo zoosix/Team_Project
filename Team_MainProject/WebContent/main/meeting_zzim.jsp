@@ -10,12 +10,14 @@
 </c:if>
 
 <c:if test="${result=='no' }">
-        <script>
-			alert("찜취소");
-			history.back();
-		</script>
-		
+
+       <script>
+  			alert("찜취소");
+  			history.back();
+  		</script>		
+
 </c:if>
+
 
 <c:if test="${result=='noid' }">
         <script>

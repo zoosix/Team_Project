@@ -31,7 +31,12 @@
 		SELECT m_title,m_partdate,m_end,m_no,Rownum as mu_no FROM meeting,
 		meetingMember WHERE meetingMember.mm_email=#{mm_email} AND meetingMember.mm_no=meeting.m_no ORDER BY mu_no DESC
 	</select> 
+		<!-- 내모임갯수 -->
+	<select id="mymeetingCount" resultType="int" parameterType="String">
+	  SELECT COUNT(*) FROM meetingMember WHERE mm_email=#{mm_email}
+	</select>
 	<!-- 모임 찜 -->
+	
 	<insert id="meetingWish" parameterType="Wish">
 		<selectKey keyProperty="w_no" resultType="int" order="BEFORE">
 				SELECT NVL(MAX(w_no)+1,1) as w_no FROM wish
@@ -62,20 +67,10 @@
    </delete>
    
    
-   
    <select id="mywishList" resultType="Meeting" parameterType="String">
-   SELECT m_title,m_content,m_no FROM wish,meeting WHERE w_email=#{w_email} AND m_no=w_mno
+   SELECT m_MeetingDate,m_Lang1,m_Lang2,m_Summary,m_title,m_content,m_no FROM wish,meeting WHERE w_email=#{w_email} AND m_no=w_mno
    </select>
-   
-   <!-- 
-      @Results({
-	   @Result(property="no",column="no"),
-	   @Result(property="fvo.name",column="name"),
-	   @Result(property="id",column="id"),
-	   @Result(property="rday",column="rday"),
-	   @Result(property="inwon",column="inwon"),
-	   @Result(property="isCheck",column="isCheck"),
-   })
-   @Select("SELECT no,name,id,rday,inwon,isCheck FROM houseReserve hr,food f WHERE hr.code=f.no")
-   public List<houseReserveVO> foodReserveAllData();  -->
+    	<select id="mywishCount" resultType="int" parameterType="String">
+	SELECT COUNT(*) FROM wish WHERE w_email=#{w_email}
+    </select> 
 </mapper>

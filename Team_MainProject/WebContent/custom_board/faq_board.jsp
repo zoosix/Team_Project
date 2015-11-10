@@ -43,16 +43,25 @@
 </style>
 </head>
 <body>
+<div id="intro" >
+			<div class="intro-content intro-content-short">
+				<h2>FAQ</h2>
+			</div>
+	</div>
 	<div id="body">
-		<h2>Notice</h2>
-		<p>나들목에 관한 소식을 알려 드립니다.</p>
+		<p>자주묻는 질문</p>
+		<div>
 		<div class="input-group stylish-input-group" style="width: 20%;margin-left:80%;top:50px;">
-			<input type="text" class="form-control" placeholder="Search">
+	    	<input type="text" class="form-control" placeholder="Search">
 			<span class="input-group-addon">
 				<button type="submit">
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
 			</span>
+		</div>
+		
+		<div>	<ul class="pagination" style="width: 20%;margin-left:74%;top:80px; margin-bottom:-1%; float:none;!important"><li> <a href="faq_insert.do">등록</a></li></ul>
+		</div>
 		</div>
 		<table class="table table-bordered" style="margin-top: 6%;">
 			<thead>
@@ -66,30 +75,31 @@
 			<tbody>
 				<c:forEach var="d" items="${list}">
 					<tr>
-						<td width="5%">${d.n_No}</td>
+						<td width="5%">${d.f_no}</td>
 						<td><a href="#" style="text-decoration: none;" class="flip"
-							value='${d.n_No}'>연습하고 있습니다.</a></td>
-						<td width="20%">${d.n_Regdate }</td>
-						<td width="5%">${d.n_Hit }</td>
+							value='${d.f_no}'>${d.f_title }</a></td>
+						<td width="20%">${d.db_fday }</td>
+						<td width="5%">${d.f_hit }</td>
 					</tr>
-					<tr id="panel${d.n_No}" height="100px" class="pan">
-						<td colspan="4" align="center">올랄라</td>
+					<tr id="panel${d.f_no}" height="100px" class="pan">
+						<td colspan="4" align="center">${d.f_content }</td>
 					</tr>
 
 				</c:forEach>
 			</tbody>
 		</table>
-			<ul class="pagination" style="margin-left: 43%;">
+					<center>
+			 <nav1>
+			<ul class="pagination">
 				<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
+				<c:forEach var="i" begin="1" end="${totalpage }" step="1">
+				<li><a href="faq.do?page=${i }">${i }</a></li>
+				</c:forEach>
+				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
+			</nav1> 
+		</center>
 	</div>
 </body>
 </html>

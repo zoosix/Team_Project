@@ -16,4 +16,44 @@
   <select id="notice_boardContentData" resultType="notice" parameterType="int">
     SELECT n_No,n_Title,n_Content,n_Regdate,n_Hit FROM notice_Board WHERE n_No=#{no}
   </select>
+  
+  <!-- QnA*************************************************************** -->
+  	<select id="qna_boardListData" resultType="qna" parameterType="java.util.Map">
+    SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth,num  
+    FROM (SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth,rownum as num 
+    FROM (SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth  
+    FROM qna ORDER BY q_no DESC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  
+    <select id="qna_boardRowCount" resultType="int">
+   SELECT COUNT(*) FROM qna
+  </select>
+  
+   <select id="qna_boardContentData" resultType="qna" parameterType="int">
+    SELECT q_no,q_title,q_content,q_regdate,q_regdate,q_mail,q_pwd,q_hit,q_answer,depth,rownum FROM qna WHERE q_No=#{no}
+  </select>
+  
+  <!-- FaQ*************************************************************** -->
+    	<select id="faq_boardListData" resultType="faq" parameterType="java.util.Map">
+    SELECT f_no,f_title,f_content,f_regdate,f_hit,num   
+    FROM (SELECT f_no,f_title,f_content,f_regdate,f_hit,rownum as num 
+     FROM (SELECT f_no,f_title,f_content,f_regdate,f_hit FROM faq ORDER BY f_no DESC)) 
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+
+  <select id="faq_boardRowCount" resultType="int">
+   SELECT COUNT(*) FROM faq
+  </select>
+  
+  <update id="faq_click" parameterType="int">
+   UPDATE faq SET f_hit=f_hit+1 WHERE f_No=#{f_no};
+  </update>
+  
+  <insert id="faqInsert" parameterType="faq">
+   INSERT INTO faq(f_No,f_Title,f_Content,f_Regdate,f_mail,f_hit) 
+   VALUES((SELECT NVL(MAX(f_no)+1,1) FROM faq),#{f_title},#{f_content},SYSDATE,'admin',0)
+  </insert>
+  
+  
 </mapper>

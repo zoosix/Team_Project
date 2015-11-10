@@ -39,7 +39,13 @@
 
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>
+  <bean id="qna" class="com.model.Qna_BoardListModel"/>
+  <bean id="faq" class="com.model.Faq_BoardListModel"/>
   <bean id="notice_content" class="com.model.Notice_BoardContentDataModel"/>
+  <bean id="qna_content" class="com.model.Qna_BoardContentDataModel"/>
+  
+  <bean id="faq_insert" class="com.model.Faq_InsertModel"/>
+  <bean id="faq_insert_ok" class="com.model.Faq_InsertOkModel"/>
   
   
 </beans>
