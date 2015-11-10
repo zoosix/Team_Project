@@ -5,6 +5,15 @@
 <html>
 <head>
 
+
+<link rel="stylesheet" type="text/css" href="http://static.onoffmix.com/css3/index.css?20151020" />
+<!-- 템플릿 CSS -->
+<link rel="stylesheet" href="../css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/meetingStyle.css" type="text/css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <style type="text/css">
 @charset "utf-8";
 
@@ -43,6 +52,7 @@ aside nav ul li a:hover {
 }
 
 article {
+    margin-top: -20px;
 	margin:5px;
 	padding:5px;
 	border-radius:5px;	
@@ -50,6 +60,13 @@ article {
 	padding:15px;
 	float:left;
 	width:1000px;
+	padding-left: 0px;
+    border-left-width: 1px;
+    margin-left: 40px;
+    margin-top: 0px;
+    padding-top: 10px;
+    border:1px solid #d8d8d8;
+    margin-top: 10px;
 }
 
 article  hgroup {
@@ -120,15 +137,6 @@ section  h2 {
 
 }
 </style>
-<link rel="stylesheet" type="text/css" href="http://static.onoffmix.com/css3/index.css?20151020" />
-<!-- 템플릿 CSS -->
-<link rel="stylesheet" href="../css/main/reset.css" type="text/css" />
-<link rel="stylesheet" href="../css/main/styles.css" type="text/css" />
-<link rel="stylesheet" href="../css/main/meetingStyle.css" type="text/css" />
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
 <style type="text/css">
 .sideMenu .menuArea a {
     display: inline-block;
@@ -142,6 +150,17 @@ section  h2 {
     font-weight: bold;
     color: #fff;
     vertical-align: top;
+}
+div#intro {
+	background: #8E8E8E;
+    height: 50px;
+}
+div#intro h2 {
+    text-shadow: 2px 2px 0 #;
+    margin-left: 30px;
+    font-family:다음;
+    font-size: 30px;
+    padding-top: 10px;
 }
 </style>
 
@@ -170,6 +189,9 @@ $(window).scroll(function(){
 </head>
 
 <body>
+<div id="intro"style="margin-top: -10px">
+	<h2>언어별 게시판</h2>
+</div>
 <div id="wrap">
 <aside>
 
@@ -182,8 +204,56 @@ $(window).scroll(function(){
 		<li class="menuArea"><a href="meeting_type.do?lang=일본어"><span class="textArea">프랑스어</span></a></li>
 	</ul>				
 </div>
+
+	<div class="sideMenu" style="position:absolute;  margin-top:300px; background-color: #8CB2CA; 
+				font-color: white; width: 170px; height: 300px; padding-top: 10px">
+				<form class="form-horizontal" method="get" id="search_Form" name="search_form" action="typedetailsearch_ok" enctype="multipart/form-data">
+						상세 검색 <br><br>
+						지역 : 
+						<select id="slocation" name="slocation">
+							<option>서울</option>
+							<option>인천/경기</option>
+							<option>강원</option>
+							<option>광주/전라</option>
+							<option>울산/경남</option>
+							<option>부산</option>
+							<option>제주</option>
+						</select> <br><br>
+						
+						장소 : 
+						 <select id="splace" name="splace">
+
+							<option>홍대</option>
+							<option>강남</option>
+							<option>신촌</option>
+							<option>역삼</option>
+							<option>구로</option>
+							<option>영등포</option>
+							<option>노량진</option>
+						</select> <br><br> 
+						
+						언어 : 
+						<select id="slang" name="slang">
+							<option>영어</option>
+							<option>중국어</option>
+							<option>일본어</option>
+							<option>독일어</option>
+						</select> <br><br>
+						<input type=submit id="btnSub" value=검색>
+					</form>
+				</div>
+
 </aside>
+
+
+
 <article>
+	<c:if test="${count==0 }">
+			<center><div class="alert alert-danger" role="alert">
+  				<a href="#" class="alert-link">검색할 수 없습니다.</a>
+				</div></center>
+			</c:if>
+			<c:if test="${count!=0 }">
 <div id="border_main"
 		style="margin-left: 10px; z-index: 900">
 		<c:forEach var="dto" items="${list }">
@@ -208,7 +278,7 @@ $(window).scroll(function(){
 			</div>
 		</c:forEach>
 	</div>
-
+</c:if>
 </article>
 
 

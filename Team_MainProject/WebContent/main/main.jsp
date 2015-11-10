@@ -99,7 +99,12 @@ a.dropdown-toggle:HOVER
 	font-family: 다음;
 	font-size: 20px;
 }
-
+.nav {
+    padding-left: 0;
+    font-family: 다음;
+    margin-bottom: 0;
+    list-style: none;
+}
 </style>
 </head>
 <body>

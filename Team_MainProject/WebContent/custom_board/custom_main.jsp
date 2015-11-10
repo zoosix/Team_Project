@@ -114,7 +114,7 @@
 		<div class="clear"></div>
 		</header>
 	</div>
-	<!-- <div id="intro">
+	<!-- <div id="intro"></div>
 		<div class="width">
 			<div class="intro-content intro-content-short">
 				<h2>Custom</h2>

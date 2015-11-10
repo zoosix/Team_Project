@@ -3,7 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <!-- PreparedStatement,ResultSet -->
 <mapper namespace="com.member.dao.member-mapper">
-    
     <select id = "memberIdCount" resultType="int" parameterType="String">
         SELECT COUNT(*) FROM lmember WHERE email=#{email}
     </select>
@@ -57,16 +56,33 @@
     FROM meeting WHERE m_lang1 LIKE '%'||#{lang}||'%' ORDER BY m_no DESC
 </select>
 
+<select id="MeetingTypeCount" resultType="int" parameterType="String">
+   SELECT COUNT(*) FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+    FROM meeting WHERE m_lang1 LIKE '%'||#{lang}||'%' ORDER BY m_no DESC)
+</select>
+
 <select id="MeetingTypePlace" resultType="Meeting" parameterType="String">
    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
     FROM meeting WHERE m_place LIKE '%'||#{place}||'%' ORDER BY m_no DESC
 </select>
 
+<select id="MeetingTypePlaceCount" resultType="int" parameterType="String">
+  	SELECT COUNT(*) FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+    FROM meeting WHERE m_place LIKE '%'||#{place}||'%' ORDER BY m_no DESC)
+</select>
+
 <select id="DetailSearchForPlace" resultType="Meeting" parameterType="Meeting">
-SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
-FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
-FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
-FROM meeting WHERE m_location LIKE '%'||#{m_location}||'%') WHERE m_place LIKE '%'||#{m_place}||'%') WHERE m_lang1 LIKE '%'||#{m_lang1}||'%' ORDER BY m_no DESC
+	SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM meeting WHERE m_location LIKE '%'||#{m_location}||'%') WHERE m_place LIKE '%'||#{m_place}||'%') WHERE m_lang1 LIKE '%'||#{m_lang1}||'%' ORDER BY m_no DESC
+</select>
+
+<select id="DetailSearchForPlaceCount" resultType="int" parameterType="Meeting">
+	SELECT COUNT(*) FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+	FROM meeting WHERE m_location LIKE '%'||#{m_location}||'%') WHERE m_place LIKE '%'||#{m_place}||'%') WHERE m_lang1 LIKE '%'||#{m_lang1}||'%' OR m_lang2 LIKE '%'||#{m_lang1}||'%' ORDER BY m_no DESC)
 </select>
 
 </mapper>

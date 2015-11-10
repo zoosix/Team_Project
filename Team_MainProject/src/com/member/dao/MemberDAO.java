@@ -1,21 +1,14 @@
 package com.member.dao;
 
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.meeting.dao.*;
+import com.meeting.dao.MeetingDTO;
 
 
 
@@ -108,7 +101,12 @@ public class MemberDAO {
    	   return list;
       }
     
-    
+    public static int MeetingTypeCount(String lang){
+    	   SqlSession session= ssf.openSession();
+    	   int count = session.selectOne("MeetingTypeCount", lang);
+    	   session.close();
+    	   return count;
+       }
     
     public static List<MeetingDTO> MeetingTypePlace(String place){
    	   SqlSession session= ssf.openSession();
@@ -117,17 +115,26 @@ public class MemberDAO {
    	   return list;
       }
     
+    
+    public static int MeetingTypePlaceCount(String place){
+   	   SqlSession session= ssf.openSession();
+   	   int count = session.selectOne("MeetingTypePlaceCount", place);
+   	   session.close();
+   	   return count;
+      }
+    
     public static List<MeetingDTO> DetailSearchForPlace(MeetingDTO d){
     	   SqlSession session= ssf.openSession();
     	   List<MeetingDTO> list = session.selectList("DetailSearchForPlace", d);
     	   session.close();
     	   return list;
        }
- /*   public static List<MeetingDTO> daybydayMeetingData(String m_partDate){
-   	   SqlSession session= ssf.openSession();
-   	   List<MeetingDTO> list = session.selectList("daybydayMeetingData", m_partDate);
-   	   session.close();
-   	   return list;
-      }*/
+    
+    public static int DetailSearchForPlaceCount(MeetingDTO d){
+ 	   SqlSession session= ssf.openSession();
+ 	   int count = session.selectOne("DetailSearchForPlaceCount", d);
+ 	   session.close();
+ 	   return count;
+    }
      
 }

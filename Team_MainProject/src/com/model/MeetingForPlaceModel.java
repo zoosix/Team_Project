@@ -17,8 +17,9 @@ public class MeetingForPlaceModel implements Model {
 		place = req.getParameter("place");
 		System.out.println(place);
 		List<MeetingDTO> list=MemberDAO.MeetingTypePlace(place);
+		int count = MemberDAO.MeetingTypePlaceCount(place);
 		req.setAttribute("list", list);
-	
+		req.setAttribute("count", count);
 		req.setAttribute("jsp", "../meeting/meeting_place.jsp");
 		return "main/main.jsp";
 	}

@@ -43,6 +43,7 @@ aside nav ul li a:hover {
 }
 
 article {
+    margin-top: -20px;
 	margin: 5px 9px;
 	padding: 5px;
 	border-radius: 5px;
@@ -50,6 +51,13 @@ article {
 	padding: 15px;
 	float: left;
 	width: 1000px;
+	padding-left: 0px;
+    border-left-width: 1px;
+    margin-left: 40px;
+    margin-top: 0px;
+    padding-top: 10px;
+    border:1px solid #d8d8d8;
+    margin-top: 10px;
 }
 
 article  hgroup {
@@ -164,14 +172,28 @@ section  h2 {
     color: #fff;
     vertical-align: top;
 }
+div#intro {
+	background: #8E8E8E;
+    height: 50px;
+}
+div#intro h2 {
+    text-shadow: 2px 2px 0 #;
+    margin-left: 30px;
+    font-family:다음;
+    font-size: 30px;
+    padding-top: 10px;
+}
 </style>
 </head>
 
 <body>
+<div id="intro"style="margin-top: -10px">
+	<h2 style="margin-top:10px;">장소별 게시판</h2>
+</div>
 	<div id="wrap">
 		<aside>
 			<div class="sideMenu"
-				style="position: absolute; margin-left: -35px; margin-top: -20px;">
+				style="position: absolute; margin-left: -35px; margin-top: -30px;">
 				<ul style="list-style-type: none; text-align: center;">
 					<li class="menuArea"><a href="meeting_place.do?place=서울">
 					<span class="textArea">서울</span></a></li>
@@ -184,15 +206,15 @@ section  h2 {
 					<li class="menuArea"><a href="meeting_place.do?place=광주/전라">
 					<span class="textArea">광주/전라</span></a></li>
 					<li class="menuArea"><a href="meeting_place.do?place=제주">
-					<span class="textArea">제주</span></a></li>
+					<span class="textArea">	제주</span></a></li>
 				</ul>
-			</div>
-			<nav>
-				<div class="form-group">
-					<form class="form-horizontal" method="get" id="search_Form"
-						name="search_form" action="detailsearch_ok.do"
-						enctype="multipart/form-data">
-
+				</div>
+				
+				<div class="sideMenu" style="position:absolute;  margin-top:300px; background-color: #8CB2CA; 
+				font-color: white; width: 170px; height: 300px; padding-top: 10px">
+				<form class="form-horizontal" method="get" id="search_Form" name="search_form" action="detailsearch_ok.do" enctype="multipart/form-data">
+						상세 검색 <br><br>
+						지역 : 
 						<select id="slocation" name="slocation">
 							<option>서울</option>
 							<option>인천/경기</option>
@@ -201,7 +223,10 @@ section  h2 {
 							<option>울산/경남</option>
 							<option>부산</option>
 							<option>제주</option>
-						</select> <br> <select id="splace" name="splace">
+						</select> <br><br>
+						
+						장소 : 
+						 <select id="splace" name="splace">
 
 							<option>홍대</option>
 							<option>강남</option>
@@ -210,17 +235,27 @@ section  h2 {
 							<option>구로</option>
 							<option>영등포</option>
 							<option>노량진</option>
-						</select> <br> <select id="slang" name="slang">
+						</select> <br><br> 
+						
+						언어 : 
+						<select id="slang" name="slang">
 							<option>영어</option>
 							<option>중국어</option>
 							<option>일본어</option>
 							<option>독일어</option>
-						</select> <br> <input type=submit id="btnSub" value=검색>
+						</select> <br><br>
+						<input type=submit id="btnSub" value=검색>
 					</form>
 				</div>
-			</nav>
 		</aside>
+		
 		<article>
+			<c:if test="${count==0 }">
+				<center><div class="alert alert-danger" role="alert">
+  				<a href="#" class="alert-link">검색할 수 없습니다.</a>
+				</div></center>
+			</c:if>
+			<c:if test="${count!=0 }">
 			<div id="border_main" style="margin-left: 10px; z-index: 900">
 				<c:forEach var="dto" items="${list }">
 
@@ -228,8 +263,8 @@ section  h2 {
 						style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
 						<div class="groupCard--gradient">
 							<span id="tit">${dto.m_title }</span> <span id="tit1"><br>
-								모임일 : 2015-11-25 ~ 2015-12-20 <br>장소: ${dto.m_location}(
-								${dto.m_place} )</span>
+								모임일 : 2015-11-25 ~ 2015-12-20 <br>
+								장소: ${dto.m_location}( ${dto.m_place} )</span>
 						</div>
 						<div class="mask">
 							<h2>${dto.m_title }</h2>
@@ -245,12 +280,12 @@ section  h2 {
 									src="images/nowish.png" width="22px" height="26px" />
 								</a>
 							</ul>
-
 						</div>
 					</div>
 				</c:forEach>
 			</div>
+			</c:if>
 		</article>
-		</div>
+	</div>
 </body>
 </html>

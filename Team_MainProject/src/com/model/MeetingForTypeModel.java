@@ -16,9 +16,10 @@ public class MeetingForTypeModel implements Model {
 		String lang;
 		lang = req.getParameter("lang");
 		System.out.println(lang);
+		int count = MemberDAO.MeetingTypeCount(lang);
 		List<MeetingDTO> list=MemberDAO.MeetingType(lang);
 		req.setAttribute("list", list);
-	
+		req.setAttribute("count", count);
 		req.setAttribute("jsp", "../meeting/meeting_type.jsp");
 		return "main/main.jsp";
 	}

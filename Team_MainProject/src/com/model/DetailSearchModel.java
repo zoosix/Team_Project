@@ -31,6 +31,8 @@ public class DetailSearchModel implements Model {
 		d.setM_lang1(m_lang1);
 		
 		List<MeetingDTO> list=MemberDAO.DetailSearchForPlace(d);
+		int count = MemberDAO.DetailSearchForPlaceCount(d);
+		req.setAttribute("count", count);
 		req.setAttribute("list", list);
 		req.setAttribute("jsp", "../meeting/meeting_place.jsp");
 		return "main/main.jsp";
