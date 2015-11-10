@@ -41,6 +41,27 @@
 .padding-none, .paddingNone {
 	padding: 0 !important;
 }
+.groupCard--gradient {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(rgba(15,20,31,0) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%);
+    background-image: linear-gradient(rgba(8, 8, 8, 0.51) 0,rgba(15,20,31,.1) 25%,rgba(15,20,31,.8) 100%)
+    
+}
+#tit{
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    font-weight: 300;
+    font-size: 1.7em;
+    margin-top: 130px;
+    font-family: 다음;
+    font-size: x-large;
+    float: left;
+    margin-left: 25px;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -59,6 +80,33 @@
 	<div id="border_main"
 		style="margin-left: 10px; margin-top: 50px; z-index: 900">
 		<c:forEach var="dto" items="${list }">
+				
+			<div class="view view-first" style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
+			<div class="groupCard--gradient">
+				<span id="tit">${dto.m_title }</span>
+			</div>
+				<div class="mask">
+					<h2>${dto.m_title }</h2>
+					<p sstyle="font: 맑은고딕;">${dto.m_content }</p>
+					<ul align=left style="font-size: 12px; list-style: none;">
+						<li>접수마감 : <span>2015-10-30</span></li>
+						<li>내아이디 : ${dto.m_email }</li>
+						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
+						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기</a>
+<%-- 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
+						<img src="images/nowish.png" width="22px" height="26px" /> --%>
+						</a>
+					</ul>
+					
+				</div>
+			</div>
+
+		</c:forEach>
+	</div>
+
+		<div id="border_main2"
+		style="margin-left: 10px; margin-top: 50px; z-index: 900;display: none">
+		<c:forEach var="dto" items="${list2 }">
 
 			<div class="view view-first"
 				style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
@@ -70,35 +118,15 @@
 						<li>접수마감 : <span>2015-10-30</span></li>
 						<li>내아이디 : ${dto.m_email }</li>
 						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
-						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
-						<img src="images/nowish.png" width="22px" height="26px" />
+						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info">찜하기</a>
+<%-- 						<a href="meeting_zzim.do?mno=${dto.m_no }" class="info" style="background:transparent; !important">
+						<img src="images/nowish.png" width="22px" height="26px" /> --%>
 						</a>
 					</ul>
 					
 				</div>
 			</div>
 
-		</c:forEach>
-	</div>
-
-	<div id="border_main2"
-		style="margin-left: 10px; margin-top: 50px; z-index: 900; display: none">
-		<c:forEach var="dto" items="${list2 }">
-
-			<div class="view view-first">
-				<img src="images/main/meeting.jpg" />
-				<h2>${dto.m_title }</h2>
-				<div class="mask">
-					<h2>${dto.m_title }</h2>
-					<p style="font: 맑은고딕;">111111111111</p>
-					<ul align=left style="font-size: 12px; list-style: none;">
-						<li>접수마감 : <span>2015-10-30</span></li>
-						<li>내아이디 : ${dto.m_email }</li>
-						<a href="meeting_detail.do" class="info" style="margin-left:30px; margin-top:10px;">모임참여</a>
-						<a href="#" class="info">찜하기!</a>
-					</ul>
-				</div>
-			</div>
 		</c:forEach>
 	</div>
 
@@ -133,7 +161,6 @@
 							        <c:forEach var="d" items="${dlist }">
 							                                        모임타이틀: ${d.m_title }
 				                    </c:forEach>   --%>
-
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -17,6 +17,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 <!-- 템플릿 CSS -->
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
@@ -24,14 +28,19 @@
 
 <link
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
+	rel="stylesheet"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
 <meta name="viewport"
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+<script type="text/javascript">
+
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.bxslider.js"></script>
+
 <!-- 슬라이더_CSS-->
 <link href="css/main/jquery.bxslider.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
@@ -45,7 +54,6 @@
 			controls : false
 		});
 	});
-
 	function login() {
 		var f = document.loginFrm;
 		if (f.email.value == "") {
@@ -53,7 +61,6 @@
 			f.id.focus();
 			return;
 		}
-
 		if (f.pwd.value == "") {
 			alert("비밀번호를 입력해주세요.");
 			f.pwd.focus();
@@ -61,7 +68,6 @@
 		}
 		f.submit();
 	}
-
 	function search() {
 		var f = document.searchFrm;
 		if (f.word.value == "") {
@@ -71,18 +77,6 @@
 		}
 	}
 
-	$(function() {
-		$('#btnSub').click(function() {
-			var word = $('#word').val();
-			if (word == "") {
-				alert("검색어를 입력해 주세요");
-			}
-			$('#searchFrm').submit();
-		});
-	});
-
-
-	
 </script>
 <style type="text/css">
 /* 퀵메뉴 */
@@ -93,7 +87,6 @@ position:absolute;
 left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 
 
- <style type="text/css">
 .inline-block, .inlineBlock {
 	display: inline-block;
 	zoom: 1;
@@ -101,14 +94,18 @@ left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 
 .padding-none, .paddingNone {
 	padding: 0 !important;
+
+a.dropdown-toggle:HOVER 
+{
+	background-color: transparent !important; 
+
 }
 </style>
 </head>
 <body>
-
 	<div id="container">
 		<header>
-		<div class="width">
+		<div class="width" data-toggle="collapse" data-target="#nabar-collapse-1">
 			<h1>
 				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
@@ -119,13 +116,12 @@ left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
 				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
-				<ul>
+					<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="qna.do">QnA</a></li>
-						<li><a href="fnq.do">FnQ</a></li>
+						<li><a href="faq.do">FAQ</a></li>
 					</ul></li>
 			</ul>
-			<div class="clear"></div>
 			</nav>
 
 			<span id="Log_group"
@@ -167,10 +163,10 @@ left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 						</div>
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
-
 					<ul class="nav navbar-nav">
 						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+
 								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">
@@ -178,7 +174,7 @@ left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
 										class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
 								<br>
 								<li><a href="meeting.do"><span class="badge pull-right">
-											2 </span>내모임보기</a></li>
+											${sessionScope.m_count } </span>내모임보기</a></li>
 								<br>
 								<li><a href="wish.do"><span
 										class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>
@@ -251,12 +247,13 @@ left:1020px; top:100; z-index:30; width:200px; padding-top:60px; height:510px; }
                 </div>
             </div>
         </div>
-	<div id="switch_main"
-		style="margin: 0; padding: 0; background-color: white; margin-top: 10px">
+
+	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 10px; z-index:2;">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
 	</div>
-
 	<pre id="output"></pre>
+	</header>
+
 </body>
 </html>

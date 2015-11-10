@@ -61,8 +61,10 @@ public class MeetingInsertOkModel implements Model {
 		d.setM_title(m_title);
 		d.setM_summary(m_summary);
 		d.setM_content(m_content);
-		d.setM_meetingDate(m_meetingDate);
-		d.setM_partDate(m_partDate);
+		d.setM_meetingDate1(m_meetingDate1);
+		d.setM_partDate1(m_partDate1);
+		d.setM_meetingDate2(m_meetingDate2);
+		d.setM_partDate2(m_partDate2);
 		d.setM_place(m_place);
 		d.setM_location(m_location);
 		d.setM_email(m_email);
