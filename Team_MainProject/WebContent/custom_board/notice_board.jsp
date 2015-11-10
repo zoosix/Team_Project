@@ -24,6 +24,19 @@
 			$("#panel" + fno).focus();
 		});
 	});
+
+	$(function(){
+		$('#searchBtn').click(function(){
+			var word=$('#word').val();
+			if(word=="")
+			{
+				alert("검색어를 입력해 주세요");
+				return;
+			}
+			$('#searchFrm').submit();
+		});
+	});
+
 </script>
 <style type="text/css">
 .stylish-input-group .input-group-addon {
@@ -52,28 +65,37 @@
 		<p>나들목에서 알리는 공지사항입니다.</p>
 			 <div class="col-lg-6" style="margin-left:71%;">
 				<div class="input-group" style="width:55%;">
-					<input type="text" class="form-control" placeholder="Search for...">
+				<form method="get" id="searchFrm" action="n_search.do">
+					<input type="text" class="form-control" placeholder="Search for..." id=word name=word>
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+						<button class="btn btn-default" type="button" id=searchBtn><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
 					</span>
+				</form>
 				</div>
 			</div> 
+			
+					<c:if test="${sessionScope.admin=='y' }">
+	<ul class="pagination" height=35px;><li><a href="notice_insert.do">등록</a></li></ul>
+         </c:if> 
+         
+         
 		<table class="table table-bordered" style="margin-top:6%;">
 			<thead>
 				<tr>
-					<th>No</th>
-					<th>Title</th>
-					<th>Date</th>
-					<th>Hit</th>
+					<th width=7% >No</th>
+					<th width=56% >Title</th>
+					<th width=20% >Date</th>
+					<th width=7% >writer</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="d" items="${list}">
 					<tr>
-						<td width=10% id="no">${d.n_No }</td>
-						<td width=50% ><a href="notice_content.do?no=${d.n_No}&page=${curpage}"> ${d.n_Title }</a></td>
-						<td width=30% >${d.dbday }</td>
-						<td width=10% >${d.n_Hit }</td>
+						<td width=7% id="no">${d.n_No }</td>
+						<td width=56% ><a href="notice_content.do?no=${d.n_No}&page=${curpage}"> ${d.n_Title }</a></td>
+						<td width=20% >${d.dbday }</td>
+						<td width=7% >admin</td>
+
 					</tr>
 				</c:forEach>  
 			</tbody>

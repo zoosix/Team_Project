@@ -37,6 +37,7 @@ public class MeetingInsertOkModel implements Model {
 		String m_title=mr.getParameter("title");
 		String m_summary=mr.getParameter("summary");
 		String m_content=mr.getParameter("content");
+		String m_nickname=mr.getParameter("nickname");
 		String m_meetingDate1=mr.getParameter("meetingDate1");
 		String m_meetingTime1=mr.getParameter("meetingTime1");
 		String m_meetingDate2=mr.getParameter("meetingDate2");
@@ -69,6 +70,7 @@ public class MeetingInsertOkModel implements Model {
 		d.setM_location(m_location);
 		d.setM_email(m_email);
 		d.setM_tel(md.getTel());
+		d.setM_nickname(m_nickname);
 		
 		if(filename==null)
 		{

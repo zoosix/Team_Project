@@ -54,7 +54,7 @@
 						</tr>
 						<tr>
 							<td>글쓴이</td>
-							<td>운영자 <span style='float: right'>조회 : ${list.n_Hit }</span>
+							<td>운영자 
 							</td>
 						</tr>
 						<tr>
@@ -66,21 +66,22 @@
 				</table>
 				<table id="commentTable" class="table table-condensed"></table>
                     <hr />
-                    <table class="table table-condensed">
+                             <table class="table table-condensed">
                         <thead>
                             <tr>
                                 <td>
+                   <style type="text/css"> a.btnh:HOVER{  text-decoration: none; !important;}
+                    a.btnh:focus{  text-decoration: none; !important;} </style> 
                                     <span style='float:right'>
                                         <button type="button" id="list"
-										class="btn btn-default">목록</button>
-										<!-- 공지사항의 경우 관리자 모드일때 아래 버튼 사용 -->
-										<c:if test="${sessionScope.admin=='y' }">
+										class="btn btn-default" onclick="javascript:history.back()">목록</button>
+										<c:if test="${sessionScope.admin=='y' }">    
                                         <button type="button"
-										id="modify" class="btn btn-default">수정</button>
+										id="modify" class="btn btn-default"><a href="#" class="btnh"style="color:black;">수정</a></button>
                                         <button type="button"
-										id="delete" class="btn btn-default">삭제</button>
-                                        </c:if>
-                                    </span>
+										id="delete" class="btn btn-default"><a href="n_delete.do?no=${list.n_No }" class="btnh" style="color:black;">삭제</a></button>
+                                       </c:if>
+                                   </span>
                                 </td>
                             </tr>
                         </thead>

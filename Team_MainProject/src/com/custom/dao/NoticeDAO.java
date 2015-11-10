@@ -45,6 +45,35 @@ public class NoticeDAO {
     	session.close();
     	return d;
  }
+    public static void noticeInsert(NoticeDTO d){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("noticeInsert",d);
+    	session.close();
+    }
+    
+    public static List<NoticeDTO> notice_searchListData(String word)
+    {
+    	SqlSession session=ssf.openSession();
+    	List<NoticeDTO> list=session.selectList("notice_searchListData",word);
+    	session.close();
+    	return list;
+    }
+    
+    public static int notice_searchTotalCount(String word){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("notice_searchboardRowCount",word);
+    	int total=(int)(Math.ceil(count/10.0));
+    	session.close();
+    	return total;
+    }
+    
+    public void notice_delete(int no){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("notice_delete",no);
+    	session.close();
+    }
+ 
+    
    // qna ******************************************************* 
     public static List<QnaVO> qna_boardListData(Map map)
     {
@@ -70,6 +99,12 @@ public class NoticeDAO {
     	session.close();
     	return d;
  }
+    public static void qnaInsert(QnaVO d){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("qnaInsert",d);
+    	session.close();
+    }
+  
     // qna ******************************************************* 
     // faq ******************************************************* 
     
@@ -86,6 +121,7 @@ public class NoticeDAO {
     {
     	SqlSession session=ssf.openSession();
     	int count=session.selectOne("faq_boardRowCount");
+    	System.out.println(count+"<<count");
     	int total=(int)(Math.ceil(count/10.0));
     	session.close();
     	return total;
@@ -101,5 +137,26 @@ public class NoticeDAO {
     	session.update("faqInsert",fvo);
     	session.close();
     }
+    
+    public static List<FaqVO> faq_searchListData(String word)
+    {
+    	SqlSession session=ssf.openSession();
+    	List<FaqVO> list=session.selectList("faq_searchListData",word);
+    	session.close();
+    	return list;
+    }
+    public static int faq_searchTotalCount(String word){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("faq_searchboardRowCount",word);
+    	int total=(int)(Math.ceil(count/10.0));
+    	session.close();
+    	return total;
+    }
+    public void faq_delete(int no){
+    	SqlSession session=ssf.openSession(true);
+    	session.update("faq_delete",no);
+    	session.close();
+    }
+    
     
 }

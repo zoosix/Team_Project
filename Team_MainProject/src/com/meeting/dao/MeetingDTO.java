@@ -20,6 +20,13 @@ public class MeetingDTO {
 	private String m_tel;
 	private String m_end;
 	private String m_filename;
+	private String m_nickname;
+	public String getM_nickname() {
+		return m_nickname;
+	}
+	public void setM_nickname(String m_nickname) {
+		this.m_nickname = m_nickname;
+	}
 	private int m_filesize;
 	private int mu_no;
 	

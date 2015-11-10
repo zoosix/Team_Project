@@ -38,48 +38,68 @@
 				<h2>QnA</h2>
 			</div>
 	</div>
+		<center>
+		<hr />
 		<div class="row">
-			<div class="col-md-10" style="left:105px;">
+			<div class="col-md-10">
 				<table class="table table-condensed">
 					<thead>
 						<tr align="center">
 							<th width="10%">제목</th>
-							<th width="60%">${list.q_title }</th>
+							<th width="60%">${list.q_title}</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>작성일</td>
-							<td>${list.db_qday }</td>
+							<td>${list.db_qday}</td>
 						</tr>
 						<tr>
 							<td>글쓴이</td>
-							<td>운영자 <span style='float: right'>조회 : ${list.q_hit }</span>
+							<td>${list.q_mail}
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" style="padding-bottom: 350px;">
-								<p>${list.q_content }</p>
+							<td colspan="2">
+								<p>${list.q_content}</p>
+
 							</td>
 						</tr>
 					</tbody>
 				</table>
 				<table id="commentTable" class="table table-condensed"></table>
-                    <hr />
+				<table class="table table-condensed">
+					<tr>
+						<td><span class="form-inline" role="form">
+								<p>
+                                        <div class="form-group">
+                                            <button type="button"
+										id="commentParentSubmit" name="commentParentSubmit"
+										class="btn btn-default">확인</button>
+                                        </div>
+                                    </p>
+								
+                                        <textarea id="commentParentText"
+									class="form-control col-lg-12" style="width:100%" rows="4"></textarea>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
                     <table class="table table-condensed">
                         <thead>
                             <tr>
                                 <td>
+                   <style type="text/css"> a.btnh:HOVER{  text-decoration: none; !important;}
+                    a.btnh:focus{  text-decoration: none; !important;} </style> 
                                     <span style='float:right'>
                                         <button type="button" id="list"
-										class="btn btn-default">목록</button>
-										<!-- 공지사항의 경우 관리자 모드일때 아래 버튼 사용 -->
-										<c:if test="${sessionScope.admin=='y' }">
+										class="btn btn-default" onclick="javascript:history.back()">목록</button>
                                         <button type="button"
-										id="modify" class="btn btn-default">수정</button>
+										id="modify" class="btn btn-default"><a href="#" class="btnh"style="color:black;">수정</a></button>
                                         <button type="button"
-										id="delete" class="btn btn-default">삭제</button>
-                                        </c:if>
+										id="delete" class="btn btn-default"><a href="#" class="btnh" style="color:black;">삭제</a></button>
+                                        <button type="button" id="write"
+										class="btn btn-default"><a href="qna_insert.do" class="btnh" style="color:black;">글쓰기</a></button>
                                     </span>
                                 </td>
                             </tr>
@@ -88,5 +108,8 @@
                 </div>
             </div>
             <hr />
+         </center>
+
+
     </body>
 </html>

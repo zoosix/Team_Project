@@ -24,6 +24,20 @@
 			$("#panel" + fno).focus();
 		});
 	});
+	
+	$(function(){
+		$('#searchBtn').click(function(){
+			var word=$('#word').val();
+			if(word=="")
+			{
+				alert("검색어를 입력해 주세요");
+				return;
+			}
+			$('#searchFrm').submit();
+		});
+	});
+
+
 </script>
 <style type="text/css">
 .stylish-input-group .input-group-addon {
@@ -50,26 +64,31 @@
 	</div>
 	<div id="body">
 		<p>자주묻는 질문</p>
-		<div>
-		<div class="input-group stylish-input-group" style="width: 20%;margin-left:80%;top:50px;">
-	    	<input type="text" class="form-control" placeholder="Search">
-			<span class="input-group-addon">
-				<button type="submit">
-					<span class="glyphicon glyphicon-search"></span>
-				</button>
-			</span>
-		</div>
-		
-		<div>	<ul class="pagination" style="width: 20%;margin-left:74%;top:80px; margin-bottom:-1%; float:none;!important"><li> <a href="faq_insert.do">등록</a></li></ul>
-		</div>
-		</div>
+		<div class="col-lg-6" style="margin-left:71%;">
+				<div class="input-group" style="width:55%;">
+				<form method="get" id="searchFrm" action="f_search.do">
+					<input type="text" class="form-control" placeholder="Search for..." id=word name=word>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"  id=searchBtn><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+					</span>
+			    </form>
+ 		</div> 
+		</div> 
 		<table class="table table-bordered" style="margin-top: 6%;">
+		
+		
+		<c:if test="${sessionScope.admin=='y' }">
+	<ul class="pagination" height=35px;><li><a href="faq_insert.do">등록</a></li></ul>
+         </c:if> 
+		
+		
+		
 			<thead>
 				<tr>
 					<th>No</th>
 					<th>Title</th>
 					<th>Date</th>
-					<th>Hit</th>
+					<th>Writer</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -79,10 +98,15 @@
 						<td><a href="#" style="text-decoration: none;" class="flip"
 							value='${d.f_no}'>${d.f_title }</a></td>
 						<td width="20%">${d.db_fday }</td>
-						<td width="5%">${d.f_hit }</td>
+						<td width="5%">admin</td>
 					</tr>
 					<tr id="panel${d.f_no}" height="100px" class="pan">
-						<td colspan="4" align="center">${d.f_content }</td>
+						<td colspan="4" align="center"><pre>${d.f_content }</pre>
+						<c:if test="${sessionScope.admin=='y' }">         
+						<hr border=1>
+						<a href="#">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="f_delete.do?no=${d.f_no }">삭제</a></td>
+						</c:if> 
+
 					</tr>
 
 				</c:forEach>

@@ -29,6 +29,7 @@ public class JoinOkModel implements Model {
       System.out.println("�̸�"+filename);
       req.setCharacterEncoding("UTF-8");
 
+
         String email = lr.getParameter("email");
         String pwd = lr.getParameter("pwd");
         String name = lr.getParameter("name");

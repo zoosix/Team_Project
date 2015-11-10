@@ -34,13 +34,14 @@ public class Faq_BoardListModel implements Model {
 		{
 			d.setDb_fday(sdf.format(d.getF_regdate()));
 		}
-		int totalpage=NoticeDAO.qna_boardTotalPage();
+
+		int totalpage=NoticeDAO.faq_boardTotalPage();
+		System.out.println("total"+totalpage);
 		req.setAttribute("today", sdf.format(new Date()));
 		req.setAttribute("totalpage", totalpage);
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);
 		req.setAttribute("jsp", "../custom_board/faq_board.jsp");
-		return "custom_board/custom_main.jsp";
+		return "main/main.jsp";
+		}
 	}
-
-}

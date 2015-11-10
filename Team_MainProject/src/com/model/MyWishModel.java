@@ -20,12 +20,14 @@ public class MyWishModel implements Model{
 		// TODO Auto-generated method stub
 		HttpSession session = req.getSession();
 		String email = (String)session.getAttribute("email");
-		
+
+	
 		int count=MeetingDAO.mywishCount(email);
 		List<MeetingDTO> list=MeetingDAO.mywishList(email);
 		
 		req.setAttribute("count", count);
 		req.setAttribute("list", list);
+
 		
 		req.setAttribute("jsp", "../mypage/wish.jsp");
 		return "main/main.jsp";

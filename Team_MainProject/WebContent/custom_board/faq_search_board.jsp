@@ -24,6 +24,20 @@
 			$("#panel" + fno).focus();
 		});
 	});
+	
+	$(function(){
+		$('#searchBtn').click(function(){
+			var word=$('#word').val();
+			if(word=="")
+			{
+				alert("검색어를 입력해 주세요");
+				return;
+			}
+			$('#searchFrm').submit();
+		});
+	});
+
+
 </script>
 <style type="text/css">
 .stylish-input-group .input-group-addon {
@@ -45,64 +59,70 @@
 <body>
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>QnA</h2>
+				<h2>FAQ</h2>
 			</div>
 	</div>
 	<div id="body">
-		<p>Ask an Organizer</p>
-
-			 <div class="col-lg-6" style="margin-left:71%;">
+		<p>자주묻는 질문</p>
+		<div class="col-lg-6" style="margin-left:71%;">
 				<div class="input-group" style="width:55%;">
-					<input type="text" class="form-control" placeholder="Search for...">
+				<form method="get" id="searchFrm" action="f_search.do">
+					<input type="text" class="form-control" placeholder="Search for..." id=word name=word>
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+						<button class="btn btn-default" type="button"  id=searchBtn><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
 					</span>
-			</div> 
+			    </form>
+ 		</div> 
 		</div> 
-			
-				
-		<table class="table table-bordered" style="margin-top:6%;">
+		<table class="table table-bordered" style="margin-top: 6%;">
+		
+		
+		<c:if test="${sessionScope.admin=='y' }">
+	<ul class="pagination" height=35px;><li><a href="faq_insert.do">등록</a></li></ul>
+         </c:if> 
+		
+		
+		
 			<thead>
 				<tr>
-					<th width=7%>No</th>
-					<th width=57%>Title</th>
-					<th width=10%>Writer</th>
-				    <th width=13%>Date</th>
-					<th width=13%>Status</th>
+					<th>No</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Writer</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="d" items="${list}">
 					<tr>
-						<td width=7% id="no">${d.q_no }</td>
-						<td width=57% ><a href="qna_content.do?no=${d.q_no}&page=${curpage}"> ${d.q_title }</a></td>
-						<td width=10% >${d.q_mail }</td>
-						<td width=13% >${d.db_qday }</td>
-						<td width=13% ><c:if test="${d.depth==0 }">미답변</c:if>
-						 <c:if test="${d.depth==1 }">답변완료</c:if></td>
+						<td width="5%">${d.f_rownum}</td>
+						<td><a href="#" style="text-decoration: none;" class="flip"
+							value='${d.f_no}'>${d.f_title }</a></td>
+						<td width="20%">${d.db_fday }</td>
+						<td width="5%">admin</td>
 					</tr>
-				</c:forEach>  
+					<tr id="panel${d.f_no}" height="100px" class="pan">
+						<td colspan="4" align="center"><pre>${d.f_content }</pre>
+						<c:if test="${sessionScope.admin=='y' }">         
+						<hr border=1>
+						<a href="#">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">삭제</a></td>
+						</c:if> 
+					</tr>
+
+				</c:forEach>
 			</tbody>
 		</table>
-		<center>
+					<center>
 			 <nav1>
 			<ul class="pagination">
 				<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach var="i" begin="1" end="${totalpage }" step="1">
-				<li><a href="notice.do?page=${i }">${i }</a></li>
+				<li><a href="faq.do?page=${i }">${i }</a></li>
 				</c:forEach>
 				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
 			</nav1> 
 		</center>
-		<ul class="pagination" height=35px;><li><a href="qna_insert.do">등록</a></li></ul>
-
-		<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
 	</div>
 </body>
 </html>

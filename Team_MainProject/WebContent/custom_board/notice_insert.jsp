@@ -38,11 +38,11 @@ $(function(){
 
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>FAQ</h2>
+				<h2>Notice</h2>
 			</div>
 	</div>
 	<div id="body">
-		<p>자주묻는 질문</p>
+		<p>나들목에서 알리는 공지사항입니다.</p>
 		</div>
 		<br><br><br>
 <center>
@@ -50,7 +50,7 @@ $(function(){
 <input type="hidden" name="b_show" value="1" />	
 <!-- 등록/수정 뷰 -->
 <div class="board_view">
-    <form id="writeForm" name="write_form" action="faq_insert_ok.do" method="post">
+    <form id="writeForm" name="write_form" action="notice_insert_ok.do" method="post">
 	<table cellpadding="0" cellspacing="0" border="0" summary="">
 		<caption>등록/수정</caption>
 		<colgroup>
@@ -65,8 +65,7 @@ $(function(){
 			</tr>						
 			<tr>
 				<th scope="row">내용</th>
-
-				<td class="padding"><textarea name="f_content" id="faq_content" rows="10" cols="90" style="width:650px; height:250px;"></textarea></td>
+				<td class="padding"><p><textarea name="f_content" id="faq_content" rows="10" cols="90" style="width:650px; height:250px;"></textarea></p></td>
 			</tr>
 		</tbody>
 	</table>	

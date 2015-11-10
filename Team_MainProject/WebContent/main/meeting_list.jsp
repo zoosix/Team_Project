@@ -122,6 +122,7 @@
 
 		<div id="border_main2"
 		style="margin-left: 10px; margin-top: 50px; z-index: 900;display: none">
+
 			<c:forEach var="dto" items="${list2 }">
 			<div class="view view-first" id="${dto.m_no }" style="background-image: url('images/main/meeting.jpg'); background-repeat: no-repeat;">
 			<div class="groupCard--gradient">
@@ -131,6 +132,7 @@
 			</div>
 				<div class="mask">
 					<h2>${dto.m_title }</h2>
+
 					<p sstyle="font-family:다음;">${dto.m_content }</p>
 					<ul align=left style="font-size: 12px; list-style: none;" class="detail_list">
 						<li>접수마감일 : <span>2015-10-30</span></li>
@@ -141,8 +143,10 @@
 						<img src="images/nowish.png" width="22px" height="26px" /> --%>
 						</a>
 					</ul>
+					
 				</div>
 			</div>
+
 		</c:forEach>
 	</div>
 

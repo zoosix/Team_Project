@@ -29,7 +29,6 @@ public class Qna_BoardContentDataModel implements Model {
 				//
 				req.setAttribute("list",list);
 				req.setAttribute("jsp", "../custom_board/qna_board_content.jsp");
-				return "custom_board/custom_main.jsp";
-	}
-
-}
+				return "main/main.jsp";
+			}
+		}

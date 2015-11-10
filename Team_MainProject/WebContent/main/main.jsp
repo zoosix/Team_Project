@@ -29,8 +29,6 @@
 	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
-<script type="text/javascript">
-
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.bxslider.js"></script>
@@ -212,6 +210,7 @@ a.dropdown-toggle:HOVER
 		</div>
 		</div>
 	</div>
+
 	 <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="panel panel-primary">

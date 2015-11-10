@@ -1,3 +1,4 @@
+
 DROP TABLE meeting;
 CREATE TABLE meeting(
   m_no NUMBER,
@@ -27,6 +28,7 @@ INSERT INTO meeting (m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summar
 m_place,m_location,m_email,m_tel,m_end) VALUES((SELECT NVL(MAX(m_no)+1,1) FROM meeting),'영어','한국어','1','2','영어배워용!','놀면서 배우는 영어 모임','영어모임','2015-11-11',
 '2015-12-20','2015-12-24','2015-12-26','홍대','홍대','jingul77@gmail.com','010-4045-0444','끝');
 COMMIT;
+
 
 
 

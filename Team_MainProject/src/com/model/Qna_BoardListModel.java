@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.custom.dao.NoticeDAO;
 import com.custom.dao.NoticeDTO;
@@ -16,7 +17,10 @@ import com.custom.dao.QnaVO;
 public class Qna_BoardListModel implements Model {
 
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-
+		HttpSession session = req.getSession();
+		String email = (String)session.getAttribute("email");
+		String admin = (String)session.getAttribute("admin");
+		System.out.println("email,admin:"+email+admin);
 		SimpleDateFormat sdf=
 				new SimpleDateFormat("yyyy-MM-dd");
 		String strPage=req.getParameter("page");
@@ -41,7 +45,6 @@ public class Qna_BoardListModel implements Model {
 		req.setAttribute("list", list);
 		req.setAttribute("curpage", curpage);
 		req.setAttribute("jsp", "../custom_board/qna_board.jsp");
-		return "custom_board/custom_main.jsp";
+		return "main/main.jsp";
 	}
-
 }

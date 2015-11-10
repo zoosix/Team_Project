@@ -15,69 +15,68 @@
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
+<script type="text/javascript">
 $(function(){
-	$('#faq_title').focus();
+	$('#q_title').focus();
 	$('#btnSub').click(function(){
-		var ftit=$('#faq_title').val();
-	    if(ftit==""){
-	    	$('#faq_title').focus();
+		var tit=$('#q_title').val();
+	    if(tit==""){
+	    	$('q_title').focus();
 	    	return;
 	    }
-		var fcont=$('#faq_content').val();
-	    if(fcont==""){
-         	$('#faq_content').focus();
+		var cont=$('#q_content').val();
+	    if(cont==""){
+	    	$('#q_content').focus();
 	    	return;
 	    }
-	    $('#writeForm').submit();
+	    
+	    $('#qwriteForm').submit();
  });
 });
 </script>
 </head>
 <body>
-
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>FAQ</h2>
+				<h2>QnA</h2>
 			</div>
 	</div>
 	<div id="body">
-		<p>자주묻는 질문</p>
+		<p>Ask an Organizer</p>
 		</div>
 		<br><br><br>
 <center>
-<input type="hidden" name="BNO" value="" />	
-<input type="hidden" name="b_show" value="1" />	
 <!-- 등록/수정 뷰 -->
 <div class="board_view">
-    <form id="writeForm" name="write_form" action="faq_insert_ok.do" method="post">
-	<table cellpadding="0" cellspacing="0" border="0" summary="">
-		<caption>등록/수정</caption>
+    <form id="qwriteForm" name="qwriteform" action="qna_insert_ok.do" method="post">
+	<table boarder=1 width=940>
 		<colgroup>
-			<col width="10%" />
+			<col width="20%" />
 			<col width="*" />															
 		</colgroup>
 		<tbody>
 			<tr>
 				<th scope="row">제목</th>
-				<td><input type="text" name="f_title" id="faq_title" class="intxt01" style="width:500px;" value=""  placeholder="제목을 입력하세요" />&nbsp;&nbsp;
-				</td>
-			</tr>						
-			<tr>
-				<th scope="row">내용</th>
-
-				<td class="padding"><textarea name="f_content" id="faq_content" rows="10" cols="90" style="width:650px; height:250px;"></textarea></td>
+				<td><input type="text" name="Q_title" id="q_title" style="width:500px;" placeholder="제목을 입력하세요" />&nbsp;&nbsp;
+				<em><input type="checkbox" name="Q_pwd" value="y"  checked />비밀글</em></td>
 			</tr>
-		</tbody>
+										
+		<tr>
+			<th scope="row">내용</th>
+			<td class="padding"><textarea name="Q_content" id="q_content" rows="10" cols="90" style="width:650px; height:250px;">
+			</textarea></td>
+			</tr>
+		</tbody>		
 	</table>	
+		
 	<!-- button -->
 	   <p class="btnSubmit">
     <input type=button id="btnSub" value=등록>
-    <input type=button id="btnCancel" value=취소 onclick="javascript:history.back()" >
+    <input type=button id="btnCancel" value=취소 onclick="javascript:history.back()">
     </p>
 	</form>
 </div>
-  
 </center>
 </body>
+</html>
 </html>

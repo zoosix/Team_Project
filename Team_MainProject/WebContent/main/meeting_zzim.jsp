@@ -13,9 +13,11 @@
 
        <script>
   			alert("찜취소");
-  		  history.back();
+  			history.back();
   		</script>		
+
 </c:if>
+
 
 <c:if test="${result=='noid' }">
         <script>
