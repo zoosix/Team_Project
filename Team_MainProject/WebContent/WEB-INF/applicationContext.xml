@@ -31,6 +31,7 @@
   <bean id="meeting_zzim" class="com.model.MeetingZzimModel"/>
   <bean id="meeting_type" class="com.model.MeetingForTypeModel"/>
   <bean id="meeting_place" class="com.model.MeetingForPlaceModel"/>
+  <bean id="detailsearch_ok" class="com.model.DetailSearchModel"/>
   
 
    <!-- 분류  -->
@@ -39,7 +40,13 @@
 
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>
+  <bean id="qna" class="com.model.Qna_BoardListModel"/>
+  <bean id="faq" class="com.model.Faq_BoardListModel"/>
   <bean id="notice_content" class="com.model.Notice_BoardContentDataModel"/>
+  <bean id="qna_content" class="com.model.Qna_BoardContentDataModel"/>
+  
+  <bean id="faq_insert" class="com.model.Faq_InsertModel"/>
+  <bean id="faq_insert_ok" class="com.model.Faq_InsertOkModel"/>
   
   
 </beans>

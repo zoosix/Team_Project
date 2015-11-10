@@ -21,7 +21,10 @@ public class MyWishModel implements Model{
 		HttpSession session = req.getSession();
 		String email = (String)session.getAttribute("email");
 	
+		int count=MeetingDAO.mywishCount(email);
 		List<MeetingDTO> list=MeetingDAO.mywishList(email);
+		
+		req.setAttribute("count", count);
 		req.setAttribute("list", list);
 		
     

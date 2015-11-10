@@ -35,7 +35,7 @@
 <body>
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>Notice</h2>
+				<h2>QnA</h2>
 			</div>
 	</div>
 		<div class="row">
@@ -44,22 +44,22 @@
 					<thead>
 						<tr align="center">
 							<th width="10%">제목</th>
-							<th width="60%">${list.n_Title }</th>
+							<th width="60%">${list.q_title }</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>작성일</td>
-							<td>${list.dbday }</td>
+							<td>${list.db_qday }</td>
 						</tr>
 						<tr>
 							<td>글쓴이</td>
-							<td>운영자 <span style='float: right'>조회 : ${list.n_Hit }</span>
+							<td>운영자 <span style='float: right'>조회 : ${list.q_hit }</span>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="padding-bottom: 350px;">
-								<p>${list.n_Content }</p>
+								<p>${list.q_content }</p>
 							</td>
 						</tr>
 					</tbody>

@@ -11,7 +11,6 @@
 aside {
     float: left;
     width: 150px;
-    background-color: rgb(140, 178, 202);
     margin: 5px 0;
     padding: 5px;
     border-radius: 5px;
@@ -121,6 +120,30 @@ section  h2 {
 
 }
 </style>
+<link rel="stylesheet" type="text/css" href="http://static.onoffmix.com/css3/index.css?20151020" />
+<!-- 템플릿 CSS -->
+<link rel="stylesheet" href="../css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/meetingStyle.css" type="text/css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<style type="text/css">
+.sideMenu .menuArea a {
+    display: inline-block;
+    width:175px;
+	height: 50px;
+    padding: 11px 0 0 0;
+    background: #8CB2CA url(/images3/main/bulArrow.png) no-repeat 92% 17px;
+    border: 1px solid #699BBA;
+    border-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: top;
+}
+</style>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -149,13 +172,16 @@ $(window).scroll(function(){
 <body>
 <div id="wrap">
 <aside>
-	<nav>
-    	<ul>
-          <li><a href="meeting_type.do?lang=영어">영어</a></li>
-          <li><a href="meeting_type.do?lang=중국어">중국어</a></li>
-          <li><a href="meeting_type.do?lang=일본어">일본어</a></li>
-   	  </ul>
-    </nav>
+
+<div class="sideMenu" style="position:absolute; margin-left:-35px; margin-top:-20px;">
+	<ul style="list-style-type: none; text-align: center;">
+		<li class="menuArea"><a href="meeting_type.do?lang=영어"><span class="textArea">영어</span></a></li>
+		<li class="menuArea"><a href="meeting_type.do?lang=중국어"><span class="textArea">중국어</span></a></li>
+		<li class="menuArea"><a href="meeting_type.do?lang=일본어"><span class="textArea">일본어</span></a></li>
+		<li class="menuArea"><a href="meeting_type.do?lang=일본어"><span class="textArea">독일어</span></a></li>
+		<li class="menuArea"><a href="meeting_type.do?lang=일본어"><span class="textArea">프랑스어</span></a></li>
+	</ul>				
+</div>
 </aside>
 <article>
 <div id="border_main"

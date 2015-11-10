@@ -34,76 +34,80 @@
 				<a href="main.do" style="text-decoration: none;">Naduelmok</a>
 			</h1>
 			<nav>
-			<ul class="sf-menu dropdown">
-				<li class="selected"><a href="index.html"><font
+						<ul class="sf-menu dropdown">
+				<li class="selected"><a href="meeting_insert.do"><font
 						style="font-family: 맑은 고딕;">개설하기</font> </a></li>
-				<li><a href="examples.html" style="height: 57px;">언어별</a>
-					<ul>
-						<li><a href="three-column.html">한</a></li>
-						<li><a href="one-column.html">One Column</a></li>
-						<li><a href="text.html">Text page</a></li>
-					</ul></li>
-				<li><a href="#" style="height: 56px;">지역별</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
-					</ul></li>
+				<li><a href="meeting_type.do?lang=영어" style="height: 57px;">언어별</a></li>
+				<li><a href="meeting_place.do?place=홍대" style="height: 56px;">지역별</a></li>
 				<li><a href="#" style="height: 56px;">고객센터</a>
-					<ul>
-						<li><a href="#">Product One</a></li>
-						<li><a href="#">Product Two</a></li>
-						<li><a href="#">Product Three</a></li>
+				<ul>
+						<li><a href="notice.do">공지사항</a></li>
+						<li><a href="qna.do">QnA</a></li>
+						<li><a href="faq.do">FAQ</a></li>
 					</ul></li>
-			</ul>
+			</ul>	
 			<div class="clear"></div>
 			</nav>
-			<span id="Log_group"
+				<span id="Log_group"
 				style="float: right; margin: 23px; margin-right: 100px; !important">
 				<c:if test="${sessionScope.email==null }">
-					<button type="button" class="btn btn-default">Sign UP</button>
-					<button type="button" class="btn btn-default">Login</button>
+					<a href="join.do"><button type="button" class="btn btn-default">SignUP</button></a>
 					<!-- Button trigger modal -->
 					<!-- Trigger the modal with a button -->
 					<button type="button" class="btn btn-info " data-toggle="modal"
-						data-target="#myModal">Open Small Modal</button>
+						data-target="#myModal">&nbsp;&nbsp;Login&nbsp;&nbsp;</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" role="dialog">
 						<div class="modal-dialog modal-sm">
 							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Login</h4>
-								</div>
-								<div class="modal-body">
-									<div class="form-group">
-										<label for="usr">Name:</label> <input type="text"
-											class="form-control" id="usr">
+								<form name="loginFrm" method="post" action="login_check.do">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Login</h4>
 									</div>
-									<div class="form-group">
-										<label for="pwd">Password:</label> <input type="password"
-											class="form-control" id="pwd">
+									<div class="modal-body">
+										<div class="form-group">
+											<label for="usr">Name:</label> <input type="text"
+												class="form-control" name="email" id="email">
+										</div>
+										<div class="form-group">
+											<label for="pwd">Password:</label> <input type="password"
+												class="form-control" name="pwd" id="pwd">
+										</div>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
-								</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal" onclick="login()">Login</button>
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">Close</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
-					<button type="button" class="btn btn-dager">Logout</button>
-					<div class="btn-group">
-						<button class="btn btn-default btn-sm dropdown-toggle"
-							type="button" data-toggle="dropdown" aria-expanded="false">
-							Small button <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" role="menu" style="height: 100px;">
-							<h3>뭐야</h3>
-						</ul>
-					</div>
+
+					<ul class="nav navbar-nav">
+						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
+								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
+						</a>
+							<ul class="dropdown-menu">
+								<li><a href="modify.do"><span
+										class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
+								<br>
+								<li><a href="meeting.do"><span class="badge pull-right">
+											2 </span>내모임보기</a></li>
+								<br>
+								<li><a href="wish.do"><span
+										class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>
+								<br>
+								<li><a href="logout.do"><span
+										class="glyphicon glyphicon-log-out pull-right"></span>로그아웃 </a></li>
+							</ul></li>
+					</ul>
+
 				</c:if>
 			</span>
 		</div>

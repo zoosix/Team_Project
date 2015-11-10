@@ -2,20 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!DOCTYPE HTML>
+<html>
+<head>
 <style type="text/css">
 @charset "utf-8";
 
 aside {
-    float: left;
-    width: 150px;
-    background-color: rgb(140, 178, 202);
-    margin: 5px 0;
-    padding: 5px;
-    border-radius: 5px;
-    height: 300px;
-    margin-left: 10px;
-    margin-top: 38px;
-    border-style: dotted;
+	float: left;
+	width: 150px;
+	margin: 5px 0;
+	padding: 5px;
+	border-radius: 5px;
+	height: 500px;
+	margin-left: 10px;
+	margin-top: 38px;
+	border-style: dotted;
 }
 
 aside nav {
@@ -116,35 +118,106 @@ section  h2 {
 	margin-left: 40px;
 	color: hsla(64, 92%, 48%, 0.93);
 }
-.detail_list
-{
-  font-family: 다음;
-  color: white;
 
+.detail_list {
+	font-family: 다음;
+	color: white;
+}
+
+.sideMenu .menuArea a {
+	display: inline-block;
+	width: 175px;
+	height: 50px;
+	padding: 11px 0 0 0;
+	background: #8CB2CA url(/images3/main/bulArrow.png) no-repeat 92% 17px;
+	border: 1px solid #699BBA;
+	border-bottom: 0;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	vertical-align: top;
 }
 </style>
-<!DOCTYPE HTML>
-<html>
-<head>
 <meta charset="utf-8">
 <title>레이아웃3</title>
 <link href="layout3.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://static.onoffmix.com/css3/index.css?20151020" />
+<!-- 템플릿 CSS -->
+<link rel="stylesheet" href="../css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="../css/main/meetingStyle.css" type="text/css" />
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<style type="text/css">
+.sideMenu .menuArea a {
+    display: inline-block;
+    width:175px;
+	height: 50px;
+    padding: 11px 0 0 0;
+    background: #8CB2CA url(/images3/main/bulArrow.png) no-repeat 92% 17px;
+    border: 1px solid #699BBA;
+    border-bottom: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    vertical-align: top;
+}
+</style>
 </head>
 
 <body>
 	<div id="wrap">
 		<aside>
-			<nav>
-				<li>빠른 지역별 검색</li>
-				<ul>
-					<li><a href="meeting_place.do?place=서울">서울</a></li>
-					<li><a href="meeting_place.do?place=인천/경기">인천/경기</a></li>
-					<li><a href="meeting_place.do?place=인천/경기">강원</a></li>
-					<li><a href="meeting_place.do?place=대전/충천">광주/전라</a></li>
-					<li><a href="meeting_place.do?place=부산/울산/경남">울산/경남</a></li>
-					<li><a href="meeting_place.do?place=부산">부산</a></li>
-					<li><a href="meeting_place.do?place=제주">제주</a></li>
+			<div class="sideMenu"
+				style="position: absolute; margin-left: -35px; margin-top: -20px;">
+				<ul style="list-style-type: none; text-align: center;">
+					<li class="menuArea"><a href="meeting_place.do?place=서울">
+					<span class="textArea">서울</span></a></li>
+					<li class="menuArea"><a href="meeting_place.do?place=인천/경기">
+					<span class="textArea">인천/경기</span></a></li>
+					<li class="menuArea"><a href="meeting_place.do?place=강원">
+					<span class="textArea">강원</span></a></li>
+					<li class="menuArea"><a href="meeting_place.do?place=대전/충천">
+					<span class="textArea">대전/충천</span></a></li>
+					<li class="menuArea"><a href="meeting_place.do?place=광주/전라">
+					<span class="textArea">광주/전라</span></a></li>
+					<li class="menuArea"><a href="meeting_place.do?place=제주">
+					<span class="textArea">제주</span></a></li>
 				</ul>
+			</div>
+			<nav>
+				<div class="form-group">
+					<form class="form-horizontal" method="get" id="search_Form"
+						name="search_form" action="detailsearch_ok.do"
+						enctype="multipart/form-data">
+
+						<select id="slocation" name="slocation">
+							<option>서울</option>
+							<option>인천/경기</option>
+							<option>강원</option>
+							<option>광주/전라</option>
+							<option>울산/경남</option>
+							<option>부산</option>
+							<option>제주</option>
+						</select> <br> <select id="splace" name="splace">
+
+							<option>홍대</option>
+							<option>강남</option>
+							<option>신촌</option>
+							<option>역삼</option>
+							<option>구로</option>
+							<option>영등포</option>
+							<option>노량진</option>
+						</select> <br> <select id="slang" name="slang">
+							<option>영어</option>
+							<option>중국어</option>
+							<option>일본어</option>
+							<option>독일어</option>
+						</select> <br> <input type=submit id="btnSub" value=검색>
+					</form>
+				</div>
 			</nav>
 		</aside>
 		<article>
@@ -161,7 +234,8 @@ section  h2 {
 						<div class="mask">
 							<h2>${dto.m_title }</h2>
 							<p sstyle="font-family:다음;">${dto.m_content }</p>
-							<ul align=left style="font-size: 12px; list-style: none;" class="detail_list">
+							<ul align=left style="font-size: 12px; list-style: none;"
+								class="detail_list">
 								<li>접수마감 : <span>2015-10-30</span></li>
 								<li>내아이디 : ${dto.m_email }</li>
 								<a href="meeting_detail.do" class="info"
@@ -176,7 +250,7 @@ section  h2 {
 					</div>
 				</c:forEach>
 			</div>
-
 		</article>
+		</div>
 </body>
 </html>

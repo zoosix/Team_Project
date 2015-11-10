@@ -8,12 +8,12 @@
         SELECT COUNT(*) FROM lmember WHERE email=#{email}
     </select>
     <select id = "memberGetInfo" resultType="Member" parameterType="String">
-        SELECT pwd,nickname,name,nation,tel,lang,admin,intro,sex FROM lmember WHERE email=#{email}
+        SELECT email, pwd,nickname,name,nation,tel,lang,language,pname,admin,intro,sex FROM lmember WHERE email=#{email}
     </select>
 
 <insert id="memberInsert" parameterType="Member">
     INSERT INTO Lmember VALUES(#{email},#{pwd},#{name},#{nickname},#{sex},#{age},
-    	#{nation},#{tel},#{lang},#{intro},#{photo},#{admin})
+       #{nation},#{tel},#{lang},#{language},#{intro},#{pname},#{psize},#{admin})
 </insert>
 
     <!-- 회원정보수정 -->
@@ -30,8 +30,9 @@
 </select>
  
   <select id="meetingTableListData" resultType="Meeting">
-    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
-    FROM meeting ORDER BY m_no DESC
+    SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,
+    		m_meetingDate1,m_partDate1,m_place,m_location,m_email,m_tel,m_end 
+			FROM meeting ORDER BY m_no DESC
  </select> 
 <!-- 
    <select id="daybydayMeetingData" resultType="Meeting" parameterType="String">
@@ -40,8 +41,7 @@
  </select> 
   -->
 <select id="searchMeeting" resultType="Meeting" parameterType="String">
-   SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
-    FROM meeting WHERE m_title LIKE '%'||#{word}||'%' ORDER BY m_no DESC
+   SELECT m_no,m_email,m_title,m_partdate2 FROM meeting WHERE lang1 LIKE '%'||#{word}||'%' OR lang2 LIKE '%'||#{word}||'%' ORDER BY g_no DESC
 </select>
 <!-- 미팅 개설자 정보 -->
 <select id="meetingOpenerData" resultType="Member" parameterType="String">
@@ -62,6 +62,12 @@
     FROM meeting WHERE m_place LIKE '%'||#{place}||'%' ORDER BY m_no DESC
 </select>
 
+<select id="DetailSearchForPlace" resultType="Meeting" parameterType="Meeting">
+SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+FROM (SELECT m_no,m_lang1,m_lang2,m_lang1num,m_lang2num,m_title,m_summary,m_content,m_meetingDate1,m_meetingDate2,m_partDate1,m_partDate2,m_place,m_location,m_email,m_tel,m_end,m_wish
+FROM meeting WHERE m_location LIKE '%'||#{m_location}||'%') WHERE m_place LIKE '%'||#{m_place}||'%') WHERE m_lang1 LIKE '%'||#{m_lang1}||'%' ORDER BY m_no DESC
+</select>
 
 </mapper>
 

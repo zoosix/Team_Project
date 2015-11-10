@@ -116,6 +116,13 @@ public class MemberDAO {
    	   session.close();
    	   return list;
       }
+    
+    public static List<MeetingDTO> DetailSearchForPlace(MeetingDTO d){
+    	   SqlSession session= ssf.openSession();
+    	   List<MeetingDTO> list = session.selectList("DetailSearchForPlace", d);
+    	   session.close();
+    	   return list;
+       }
  /*   public static List<MeetingDTO> daybydayMeetingData(String m_partDate){
    	   SqlSession session= ssf.openSession();
    	   List<MeetingDTO> list = session.selectList("daybydayMeetingData", m_partDate);

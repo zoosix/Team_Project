@@ -45,60 +45,61 @@
 <body>
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>QnA</h2>
+				<h2>FAQ</h2>
 			</div>
 	</div>
 	<div id="body">
-		<p>Ask an Organizer</p>
-			 <div class="col-lg-6" style="margin-left:71%;">
-				<div class="input-group" style="width:55%;">
-					<input type="text" class="form-control" placeholder="Search for...">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
-					</span>
-				</div>
-			</div> 
-		<table class="table table-bordered" style="margin-top:6%;">
+		<p>자주묻는 질문</p>
+		<div>
+		<div class="input-group stylish-input-group" style="width: 20%;margin-left:80%;top:50px;">
+	    	<input type="text" class="form-control" placeholder="Search">
+			<span class="input-group-addon">
+				<button type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</span>
+		</div>
+		
+		<div>	<ul class="pagination" style="width: 20%;margin-left:74%;top:80px; margin-bottom:-1%; float:none;!important"><li> <a href="faq_insert.do">등록</a></li></ul>
+		</div>
+		</div>
+		<table class="table table-bordered" style="margin-top: 6%;">
 			<thead>
 				<tr>
-					<th width=7%>No</th>
-					<th width=63%>Title</th>
-					<th width=13%>Writer</th>
-				    <th width=10%>Date</th>
-					<th width=7%>Hit</th>
+					<th>No</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Hit</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="d" items="${list}">
 					<tr>
-						<td width=5% id="no">${d.q_no }</td>
-						<td width=63% ><a href="qna_content.do?no=${d.q_no}&page=${curpage}"> ${d.q_title }</a>
-						<c:if test="${d.depth==0 }">답변대기</c:if>
-						 <c:if test="${d.depth==1 }">답변완료</c:if></td>
-						<td width=13% >${d.q_mail }</td>
-						<td width=14% >${d.db_qday }</td>
-						<td width=5% >${d.q_hit }</td>
+						<td width="5%">${d.f_no}</td>
+						<td><a href="#" style="text-decoration: none;" class="flip"
+							value='${d.f_no}'>${d.f_title }</a></td>
+						<td width="20%">${d.db_fday }</td>
+						<td width="5%">${d.f_hit }</td>
 					</tr>
-				</c:forEach>  
+					<tr id="panel${d.f_no}" height="100px" class="pan">
+						<td colspan="4" align="center">${d.f_content }</td>
+					</tr>
+
+				</c:forEach>
 			</tbody>
 		</table>
-		<center>
+					<center>
 			 <nav1>
 			<ul class="pagination">
 				<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach var="i" begin="1" end="${totalpage }" step="1">
-				<li><a href="notice.do?page=${i }">${i }</a></li>
+				<li><a href="faq.do?page=${i }">${i }</a></li>
 				</c:forEach>
 				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
 			</nav1> 
 		</center>
-		<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
 	</div>
 </body>
 </html>
