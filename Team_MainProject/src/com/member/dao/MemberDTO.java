@@ -12,12 +12,12 @@ public class MemberDTO {
 	private String lang;
 	private String intro;
 	private String photo;
-	private char admin;
+	private String admin;
 	
-	public char getAdmin() {
+	public String getAdmin() {
 		return admin;
 	}
-	public void setAdmin(char admin) {
+	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
 	public String getEmail() {

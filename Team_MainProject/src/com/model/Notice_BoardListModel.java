@@ -16,9 +16,9 @@ import com.custom.dao.NoticeDTO;
 public class Notice_BoardListModel implements Model {
 
 	public String handlerRequest(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		// TODO Auto-generated method stub
+
 		SimpleDateFormat sdf=
-				new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 a");
+				new SimpleDateFormat("yyyy-MM-dd");
 		String strPage=req.getParameter("page");
 		if(strPage==null)
 			strPage="1";
@@ -42,7 +42,6 @@ public class Notice_BoardListModel implements Model {
 		req.setAttribute("curpage", curpage);
 		
 		req.setAttribute("jsp", "../custom_board/notice_board.jsp");
-		return "custom_board/custom_main.jsp";
+		return "main/main.jsp";
 	}
-
 }

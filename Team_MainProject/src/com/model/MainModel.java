@@ -18,7 +18,6 @@ public class MainModel implements Model{
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
-		String strdate = sdf.format(date);
 		
 		//List<gtableDTO> list=MemberDAO.gtableListData();
 		List<MeetingDTO> list=MemberDAO.meetingTableListData();	
@@ -26,7 +25,10 @@ public class MainModel implements Model{
 		
 		HttpSession session = req.getSession();
 		String email = (String)session.getAttribute("email");
-		
+		if(email!=null){
+			int m_count=MeetingDAO.mymeetingCount(email);
+			session.setAttribute("m_count", m_count);
+		}
 		req.setAttribute("list", list);
 		req.setAttribute("list2", list2);
 		req.setAttribute("title", "자유 게시판");

@@ -1,100 +1,107 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
 <html>
 <head>
-<meta charset="utf-8">
-<!-- meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/ -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<!-- 템플릿 CSS -->
+<link rel="stylesheet" href="css/main/reset.css" type="text/css" />
+<link rel="stylesheet" href="css/main/styles.css" type="text/css" />
+<link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".pan").hide();
+		$(".flip").click(function() {
+			var fno = $(this).attr('value');
+			$("#panel" + fno).slideToggle("fast");
+			$("#panel" + fno).focus();
+		});
+	});
+</script>
+<style type="text/css">
+.stylish-input-group .input-group-addon {
+	background: white !important;
+}
+
+.stylish-input-group .form-control {
+	border-right: 0;
+	box-shadow: 0 0 0;
+	border-color: #ccc;
+}
+
+.stylish-input-group button {
+	border: 0;
+	background: transparent;
+}
+</style>
 </head>
 <body>
-	<center>
-		<hr />
-		<div class="row">
-			<div class="col-md-10">
-				<table class="table table-condensed">
-					<thead>
-						<tr align="center">
-							<th width="10%">제목</th>
-							<th width="60%">공지사항입니다.</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>작성일</td>
-							<td>2014-12-15 04:45:23</td>
-						</tr>
-						<tr>
-							<td>글쓴이</td>
-							<td>husk <span style='float: right'>조회 : 0</span>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">
-								<p>이름, 패스워드 내용을 적으시고 확인버튼을 누르세요.</p>
-
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<table id="commentTable" class="table table-condensed"></table>
-				<table class="table table-condensed">
+<div id="intro" >
+			<div class="intro-content intro-content-short">
+				<h2>QnA</h2>
+			</div>
+	</div>
+	<div id="body">
+		<p>Ask an Organizer</p>
+		
+			 <div class="col-lg-6" style="margin-left:71%;">
+				<div class="input-group" style="width:55%;">
+					<input type="text" class="form-control" placeholder="Search for...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+					</span>
+			</div> 
+		</div> 
+			
+				
+		<table class="table table-bordered" style="margin-top:6%;">
+			<thead>
+				<tr>
+					<th width=7%>No</th>
+					<th width=57%>Title</th>
+					<th width=10%>Writer</th>
+				    <th width=13%>Date</th>
+					<th width=13%>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="d" items="${list}">
 					<tr>
-						<td><span class="form-inline" role="form">
-								<p><div class="form-group">
-									<input type="text" id="commentParentName"
-										name="commentParentName" class="form-control col-lg-2"
-										data-rule-required="true" placeholder="이름" maxlength="10">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password"
-										id="commentParentPassword" name="commentParentPassword"
-										class="form-control col-lg-2" data-rule-required="true"
-										placeholder="패스워드" maxlength="10">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button"
-										id="commentParentSubmit" name="commentParentSubmit"
-										class="btn btn-default">확인</button>
-                                        </div>
-                                    </p>
-								
-                                        <textarea id="commentParentText"
-									class="form-control col-lg-12" style="width:100%" rows="4"></textarea>
-                                </span>
-                            </td>
-                        </tr>
-                    </table>
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <td>
-                                    <span style='float:right'>
-                                        <button type="button" id="list"
-										class="btn btn-default">목록</button>
-										<!-- 공지사항의 경우 관리자 모드일때 아래 버튼 사용 -->
-                                        <button type="button"
-										id="modify" class="btn btn-default">수정</button>
-                                        <button type="button"
-										id="delete" class="btn btn-default">삭제</button>
-                                        <button type="button" id="write"
-										class="btn btn-default">글쓰기</button>
-                                    </span>
-                                </td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-            <hr />
-         </center>
-    </body>
+						<td width=7% id="no">${d.q_no }</td>
+						<td width=57% ><a href="qna_content.do?no=${d.q_no}&page=${curpage}"> ${d.q_title }</a></td>
+						<td width=10% >${d.q_mail }</td>
+						<td width=13% >${d.db_qday }</td>
+						<td width=13% ><c:if test="${d.depth==0 }">미답변</c:if>
+						 <c:if test="${d.depth==1 }">답변완료</c:if></td>
+					</tr>
+				</c:forEach>  
+			</tbody>
+		</table>
+		<center>
+			 <nav1>
+			<ul class="pagination">
+				<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<c:forEach var="i" begin="1" end="${totalpage }" step="1">
+				<li><a href="notice.do?page=${i }">${i }</a></li>
+				</c:forEach>
+				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
+			</ul>
+			</nav1> 
+		</center>
+		<ul class="pagination" height=35px;><li><a href="qna_insert.do">등록</a></li></ul>
+		<!-- 	<footer>
+		<div class="footer-content width">
+			<div class="clear"></div>
+		</div>
+	</footer>  -->
+	</div>
+</body>
 </html>

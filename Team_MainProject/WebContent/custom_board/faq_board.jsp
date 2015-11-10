@@ -37,6 +37,7 @@
 		});
 	});
 
+
 </script>
 <style type="text/css">
 .stylish-input-group .input-group-addon {
@@ -58,65 +59,70 @@
 <body>
 <div id="intro" >
 			<div class="intro-content intro-content-short">
-				<h2>Notice</h2>
+				<h2>FAQ</h2>
 			</div>
 	</div>
 	<div id="body">
-		<p>나들목에서 알리는 공지사항입니다.</p>
-			 <div class="col-lg-6" style="margin-left:71%;">
+		<p>자주묻는 질문</p>
+		<div class="col-lg-6" style="margin-left:71%;">
 				<div class="input-group" style="width:55%;">
-				<form method="get" id="searchFrm" action="n_search.do">
+				<form method="get" id="searchFrm" action="f_search.do">
 					<input type="text" class="form-control" placeholder="Search for..." id=word name=word>
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" id=searchBtn><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
+						<button class="btn btn-default" type="button"  id=searchBtn><span class="glyphicon glyphicon-search" style="height:21px ;"></span></button>
 					</span>
-				</form>
-				</div>
-			</div> 
-			
-					<c:if test="${sessionScope.admin=='y' }">
-	<ul class="pagination" height=35px;><li><a href="notice_insert.do">등록</a></li></ul>
+			    </form>
+ 		</div> 
+		</div> 
+		<table class="table table-bordered" style="margin-top: 6%;">
+		
+		
+		<c:if test="${sessionScope.admin=='y' }">
+	<ul class="pagination" height=35px;><li><a href="faq_insert.do">등록</a></li></ul>
          </c:if> 
-         
-         
-		<table class="table table-bordered" style="margin-top:6%;">
+		
+		
+		
 			<thead>
 				<tr>
-					<th width=7% >No</th>
-					<th width=56% >Title</th>
-					<th width=20% >Date</th>
-					<th width=7% >writer</th>
+					<th>No</th>
+					<th>Title</th>
+					<th>Date</th>
+					<th>Writer</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="d" items="${list}">
 					<tr>
-						<td width=7% id="no">${d.n_No }</td>
-						<td width=56% ><a href="notice_content.do?no=${d.n_No}&page=${curpage}"> ${d.n_Title }</a></td>
-						<td width=20% >${d.dbday }</td>
-						<td width=7% >admin</td>
-
+						<td width="5%">${d.f_no}</td>
+						<td><a href="#" style="text-decoration: none;" class="flip"
+							value='${d.f_no}'>${d.f_title }</a></td>
+						<td width="20%">${d.db_fday }</td>
+						<td width="5%">admin</td>
 					</tr>
-				</c:forEach>  
+					<tr id="panel${d.f_no}" height="100px" class="pan">
+						<td colspan="4" align="center"><pre>${d.f_content }</pre>
+						<c:if test="${sessionScope.admin=='y' }">         
+						<hr border=1>
+						<a href="#">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="f_delete.do?no=${d.f_no }">삭제</a></td>
+						</c:if> 
+					</tr>
+
+				</c:forEach>
 			</tbody>
 		</table>
-		<center>
+					<center>
 			 <nav1>
 			<ul class="pagination">
 				<li><a href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach var="i" begin="1" end="${totalpage }" step="1">
-				<li><a href="notice.do?page=${i }">${i }</a></li>
+				<li><a href="faq.do?page=${i }">${i }</a></li>
 				</c:forEach>
 				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
 			</nav1> 
 		</center>
-		<!-- 	<footer>
-		<div class="footer-content width">
-			<div class="clear"></div>
-		</div>
-	</footer>  -->
 	</div>
 </body>
 </html>

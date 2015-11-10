@@ -90,6 +90,20 @@ public class MeetingDAO {
      	 List<MeetingDTO> list = session.selectList("mymeetingData",email);
       	return list;
     }
-  
-
+    
+    public static int mymeetingCount(String email){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("mymeetingCount",email);
+    	session.close();
+    	return count;
+    } 
+    
+    public static int mywishCount(String email){
+    	SqlSession session=ssf.openSession();
+    	int count=session.selectOne("mywishCount",email);
+    	session.close();
+    	return count;
+    }    
+    
+    
 }

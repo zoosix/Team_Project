@@ -14,9 +14,17 @@
 <link rel="stylesheet" href="css/main/reset.css" type="text/css" />
 <link rel="stylesheet" href="css/main/styles.css" type="text/css" />
 <link rel="stylesheet" href="css/main/meetingStyle.css" type="text/css" />
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<link
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+<meta name="viewport"
+	content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+<script type="text/javascript">
 
 <!-- 슬라이더_스크립트 -->
 <script src="js/jquery.bxslider.min.js"></script>
@@ -81,7 +89,7 @@ a.dropdown-toggle:HOVER
 					<ul>
 						<li><a href="notice.do">공지사항</a></li>
 						<li><a href="qna.do">QnA</a></li>
-						<li><a href="fnq.do">FnQ</a></li>
+						<li><a href="faq.do">FAQ</a></li>
 					</ul></li>
 			</ul>
 			</nav>
@@ -125,19 +133,18 @@ a.dropdown-toggle:HOVER
 						</div>
 					</div>
 				</c:if> <c:if test="${sessionScope.email!=null }">
-
-					<ul class="nav navbar-nav" id="navbar-collapse-1" style="z-index:1000000;">
-				
-						<li class="dropdown" style="z-index:10000;"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님
-								환영합니다 <span class="glyphicon glyphicon-user pull-right"></span>
+					<ul class="nav navbar-nav">
+						  <style type="text/css"> a.dropdown-toggle:HOVER{background-color:transparent !important;} </style> 
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white; padding-top: 0px;">${sessionScope.name}님 
+						환영합니다	
+								 <span class="glyphicon glyphicon-user pull-right"></span>
 						</a>
 							<ul class="dropdown-menu">
 								<li><a href="modify.do"><span
 										class="glyphicon glyphicon-cog pull-right"></span>회원정보 수정</a></li>
 								<br>
 								<li><a href="meeting.do"><span class="badge pull-right">
-											2 </span>내모임보기</a></li>
+											${sessionScope.m_count } </span>내모임보기</a></li>
 								<br>
 								<li><a href="wish.do"><span
 										class="glyphicon glyphicon-heart pull-right"></span>위시리스트 </a></li>
@@ -152,7 +159,7 @@ a.dropdown-toggle:HOVER
 		</div>
 		<div class="clear"></div>
 	</div>
-	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 10px; z-index:2;">
+	<div id="switch_main" style="margin: 0; padding: 0; background-color: white; margin-top: 0px; z-index:2;">
 		<jsp:include page="${slide }"></jsp:include>
 		<jsp:include page="${jsp }"></jsp:include>
 	</div>

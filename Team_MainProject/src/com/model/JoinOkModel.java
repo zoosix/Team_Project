@@ -25,7 +25,7 @@ public class JoinOkModel implements Model{
 		String lang = req.getParameter("lang");
 		String intro = req.getParameter("intro");
 		String photo = req.getParameter("photo");
-		char admin='n';
+		String admin="n";
 		
 		MemberDTO d = new MemberDTO();
 		

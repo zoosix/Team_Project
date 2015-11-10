@@ -7,8 +7,15 @@ public class NoticeDTO {
 	private int n_Hit;
 	private Date n_Regdate;
 	private String dbday;
+	private int n_rownum;
 	
 	
+	public int getN_rownum() {
+		return n_rownum;
+	}
+	public void setN_rownum(int n_rownum) {
+		this.n_rownum = n_rownum;
+	}
 	public String getDbday() {
 		return dbday;
 	}

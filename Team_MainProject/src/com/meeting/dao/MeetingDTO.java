@@ -9,8 +9,10 @@ public class MeetingDTO {
 	private String m_title;
 	private String m_summary;
 	private String m_content;
-	private String m_meetingDate;
-	private String m_partDate;
+	private String m_meetingDate1;
+	private String m_partDate1;
+	private String m_meetingDate2;
+	private String m_partDate2;
 	private String m_place;
 	private String m_location;
 	private String m_email;
@@ -88,17 +90,30 @@ public class MeetingDTO {
 	public void setM_content(String m_content) {
 		this.m_content = m_content;
 	}
-	public String getM_meetingDate() {
-		return m_meetingDate;
+
+	public String getM_meetingDate1() {
+		return m_meetingDate1;
 	}
-	public void setM_meetingDate(String m_meetingDate) {
-		this.m_meetingDate = m_meetingDate;
+	public void setM_meetingDate1(String m_meetingDate1) {
+		this.m_meetingDate1 = m_meetingDate1;
 	}
-	public String getM_partDate() {
-		return m_partDate;
+	public String getM_partDate1() {
+		return m_partDate1;
 	}
-	public void setM_partDate(String m_partDate) {
-		this.m_partDate = m_partDate;
+	public void setM_partDate1(String m_partDate1) {
+		this.m_partDate1 = m_partDate1;
+	}
+	public String getM_meetingDate2() {
+		return m_meetingDate2;
+	}
+	public void setM_meetingDate2(String m_meetingDate2) {
+		this.m_meetingDate2 = m_meetingDate2;
+	}
+	public String getM_partDate2() {
+		return m_partDate2;
+	}
+	public void setM_partDate2(String m_partDate2) {
+		this.m_partDate2 = m_partDate2;
 	}
 	public String getM_place() {
 		return m_place;

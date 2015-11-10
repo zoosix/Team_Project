@@ -2,11 +2,10 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.custom.dao.notice-mapper">
 	<select id="notice_boardListData" resultType="notice" parameterType="java.util.Map">
-    SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,num 
-    FROM (SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,rownum as num 
+    SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,num
+    FROM (SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,rownum as num
     FROM (SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate 
-    FROM notice_Board ORDER BY n_No DESC))
-    WHERE num BETWEEN #{start} AND #{end}
+    FROM notice_Board ORDER BY n_No DESC)) WHERE num BETWEEN #{start} AND #{end} 
   </select>
    <!-- 총페이지 -->
   <select id="notice_boardRowCount" resultType="int">
@@ -16,4 +15,85 @@
   <select id="notice_boardContentData" resultType="notice" parameterType="int">
     SELECT n_No,n_Title,n_Content,n_Regdate,n_Hit FROM notice_Board WHERE n_No=#{no}
   </select>
+  
+    <insert id="noticeInsert" parameterType="notice">
+ INSERT INTO notice_Board(n_No,n_Title,n_Content,n_Hit,n_Regdate) 
+ VALUES((SELECT NVL(MAX(n_No)+1,1) FROM notice_Board),#{n_Title},#{n_Content},0,SYSDATE)
+  </insert>
+
+   <select id="notice_searchListData" resultType="notice"  parameterType="String">
+    SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,n_rownum
+    FROM (SELECT n_No,n_Title,n_Content,n_Hit,n_Regdate,rownum as n_rownum
+    FROM notice_Board WHERE n_title LIKE '%'||#{word}||'%' ORDER BY n_No DESC) ORDER BY n_rownum DESC
+  </select>
+
+    <select id="notice_searchboardRowCount" resultType="int" parameterType="String">
+   SELECT COUNT(*) FROM notice_Board  WHERE n_title LIKE '%'||#{word}||'%'
+  </select>
+  
+  <delete id="notice_delete" parameterType="int">
+  DELETE FROM notice_Board WHERE n_No=#{nno}
+  </delete>
+  
+  
+  <!-- QnA*************************************************************** -->
+  	<select id="qna_boardListData" resultType="qna" parameterType="java.util.Map">
+    SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth,num  
+    FROM (SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth,rownum as num 
+    FROM (SELECT q_No,q_Title,q_mail,q_Regdate,q_pwd,q_hit,depth  
+    FROM qna ORDER BY q_no DESC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  
+    <select id="qna_boardRowCount" resultType="int">
+   SELECT COUNT(*) FROM qna
+  </select>
+  
+   <select id="qna_boardContentData" resultType="qna" parameterType="int">
+    SELECT q_no,q_title,q_content,q_regdate,q_regdate,q_mail,q_pwd,q_hit,q_answer,depth,rownum FROM qna WHERE q_No=#{no}
+  </select>
+
+ <insert id="qnaInsert" parameterType="qna">
+ INSERT INTO qna(q_no,q_title,q_content,q_mail,q_pwd,depth) 
+ VALUES((SELECT NVL(MAX(q_no)+1,1) FROM qna),#{q_title},#{q_content},#{q_mail},'y',0)
+  </insert>
+<!-- 
+<delete id="qnaDelete" parameterType="qna" -->
+  
+  
+  <!-- FaQ*************************************************************** -->
+    	<select id="faq_boardListData" resultType="faq" parameterType="java.util.Map">
+    SELECT f_no,f_title,f_content,f_regdate,f_hit,f_rownum
+    FROM (SELECT f_no,f_title,f_content,f_regdate,f_hit,rownum as f_rownum
+     FROM (SELECT f_no,f_title,f_content,f_regdate,f_hit FROM faq ORDER BY f_no DESC)) 
+    WHERE f_rownum BETWEEN #{start} AND #{end}
+  </select>
+
+  <select id="faq_boardRowCount" resultType="int">
+   SELECT COUNT(*) FROM faq
+  </select>
+  
+  <update id="faq_click" parameterType="int">
+   UPDATE faq SET f_hit=f_hit+1 WHERE f_No=#{f_no};
+  </update>
+  
+  <insert id="faqInsert" parameterType="faq">
+   INSERT INTO faq(f_No,f_Title,f_Content,f_Regdate,f_mail,f_hit) 
+   VALUES((SELECT NVL(MAX(f_no)+1,1) FROM faq),#{f_title},#{f_content},SYSDATE,'admin',0)
+  </insert>
+  
+   <select id="faq_searchListData" resultType="faq"  parameterType="String">
+   SELECT f_no,f_title,f_content,f_regdate,f_hit,f_rownum
+   FROM (SELECT f_no,f_title,f_content,f_regdate,f_hit,rownum as f_rownum
+   FROM  faq WHERE f_title LIKE '%'||#{word}||'%' OR f_content LIKE '%'||#{word}||'%' ORDER BY f_no DESC) ORDER BY f_rownum DESC
+  </select>
+        <select id="faq_searchboardRowCount" resultType="int" parameterType="String">
+   SELECT COUNT(*) FROM faq  WHERE f_title LIKE '%'||#{word}||'%'
+  </select>
+  
+  <delete id="faq_delete" parameterType="int">
+  DELETE FROM faq WHERE f_no=#{fno}
+  </delete>
+  
+ 
 </mapper>

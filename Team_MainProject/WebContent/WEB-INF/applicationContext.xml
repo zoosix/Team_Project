@@ -39,8 +39,22 @@
 
   <!-- 고객센터  -->
   <bean id="notice" class="com.model.Notice_BoardListModel"/>
+  <bean id="qna" class="com.model.Qna_BoardListModel"/>
+  <bean id="faq" class="com.model.Faq_BoardListModel"/>
   <bean id="notice_content" class="com.model.Notice_BoardContentDataModel"/>
+  <bean id="qna_content" class="com.model.Qna_BoardContentDataModel"/>
   
+  <bean id="faq_insert" class="com.model.Faq_InsertModel"/>
+  <bean id="faq_insert_ok" class="com.model.Faq_InsertOkModel"/>
+  <bean id="notice_insert" class="com.model.Notice_InsertModel"/>
+  <bean id="notice_insert_ok" class="com.model.Notice_InsertOkModel"/>  
+  <bean id="qna_insert" class="com.model.Qna_InsertModel"/>
+  <bean id="qna_insert_ok" class="com.model.Qna_InsertOkModel"/>
+  <bean id="n_search" class="com.model.Notice_SearchModel"/>	
+  <bean id="f_search" class="com.model.Faq_SearchModel"/>		
+   <bean id="f_delete" class="com.model.FaqDeleteModel"/>	
+  <bean id="n_delete" class="com.model.NoticeDeleteModel"/>	
+
   
 </beans>
   <!-- endElement() -->

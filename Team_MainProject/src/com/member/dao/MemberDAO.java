@@ -122,5 +122,6 @@ public class MemberDAO {
    	   session.close();
    	   return list;
       }*/
+    
      
 }
